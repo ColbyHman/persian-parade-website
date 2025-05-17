@@ -22,14 +22,14 @@ const Navbar = () => {
             <img src={logo} alt="Persian Parade" className='h-10 w-auto'/>
         </a>
         <ul className="hidden md:flex space-x-6">
-          <Link to="/" className="text-red-700 hover:text-indigo-600 transition">
+          <Link to="/" className="transition">
             Home
           </Link>
           {links.map((link) => (
             <li key={link}>
               <Link
                 to={`/${link.replace(/\s+/g, '-').toLowerCase()}`}
-                className="text-red-700 hover:text-indigo-600 transition"
+                className="transition"
               >
                 {link}
               </Link>
