@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../assets/pp_full_logo_upscaled_alt.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+
 
   const links = [
     "About Us",
@@ -16,8 +19,23 @@ const Navbar = () => {
     "Donate"
   ];
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => {
+    if (isOpen) {
+      // Closing
+      setIsOpen(false);
+      setTimeout(() => setMenuVisible(false), 300); // match animation duration
+    } else {
+      // Opening
+      setMenuVisible(true);
+      setTimeout(() => setIsOpen(true), 10); // slight delay to trigger animation
+    }
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setTimeout(() => setMenuVisible(false), 300);
+  };
+
 
   return (
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
@@ -46,22 +64,35 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Hamburger Button - mobile only */}
         <button
-          className="md:hidden flex flex-col justify-between w-6 h-6 focus:outline-none transition"
+          className="md:hidden focus:outline-none transition-transform duration-300 ease-in-out"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
-          <span className={`block h-0.5 bg-gray-800 rounded transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block h-0.5 bg-gray-800 rounded transition-opacity duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`} />
-          <span className={`block h-0.5 bg-gray-800 rounded transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <div className="relative w-8 h-8">
+            <Bars3Icon
+              className={`absolute inset-0 w-8 h-8 text-gray-800 transform transition duration-300 ease-in-out ${
+                isOpen ? 'opacity-0 scale-90' : 'opacity-100 scale-100'
+              }`}
+            />
+            <XMarkIcon
+              className={`absolute inset-0 w-8 h-8 text-gray-800 transform transition duration-300 ease-in-out ${
+                isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}
+            />
+          </div>
         </button>
+
       </div>
 
       {/* Mobile Popover Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-md border-t border-gray-200">
+      {menuVisible && (
+        <div
+          className={`md:hidden bg-white shadow-md border-t border-gray-200 transition-all duration-300 ease-in-out ${
+            isOpen ? 'animate-slide-down' : 'animate-slide-up'
+          }`}
+        >
           <ul className="flex flex-col space-y-4 py-4 px-6">
             <li>
               <Link to="/" className="block" onClick={closeMenu}>
