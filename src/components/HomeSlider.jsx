@@ -16,7 +16,7 @@ const HomeSlider = () => {
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 10000 }}
+        autoplay={{ delay: 3000 }}
         loop={imageUrls.length > 1}
         spaceBetween={20}
         slidesPerView={1} // default fallback

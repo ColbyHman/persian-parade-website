@@ -12,7 +12,7 @@
   --color-secondary-dark: #b27b2f;   /* Dark Gold */
 
   /* Neutral colors */
-  --color-bg: #ffffff;
+  --color-bg: #F1F5F2;
   --color-background: #8c5a5a;
   --color-text-primary: #1f2937;     /* Dark Gray */
   --color-text-secondary: #6b7280;   /* Medium Gray */
@@ -29,7 +29,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: var(--color-background);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -93,3 +93,9 @@ button:hover {
   background-color: var(--color-bg);
 }
 
+
+/* Home Slider */
+
+.home-slider {
+  background-color: var(--color-secondary-dark);
+}
