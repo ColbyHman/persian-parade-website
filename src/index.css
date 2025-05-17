@@ -7,8 +7,8 @@
   --color-primary-dark: #700000;     /* Darker Red */
 
   /* Secondary colors (choose something complementary, e.g., a soft gray or gold) */
-  --color-secondary: #f0c674;        /* Warm Gold */
-  --color-secondary-light: #f7d89c;  /* Light Gold */
+  --color-secondary: #2A2B2E;        /* Grey */
+  --color-accent: #558564;  /* Viridian */
   --color-secondary-dark: #b27b2f;   /* Dark Gold */
 
   /* Neutral colors */
@@ -35,6 +35,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 /* Slide Down for Mobile Menu */
@@ -98,4 +99,16 @@ button:hover {
 
 .home-slider {
   background-color: var(--color-secondary-dark);
+}
+
+/* Posts */
+.post {
+  color: var(--color-text-primary);
+  background-color: var(--color-accent);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-secondary);
+
 }
