@@ -13,22 +13,24 @@ const HomeSlider = () => {
   const imageUrls = Object.values(images).map((mod) => mod.default);
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 10000 }}
-      loop={imageUrls.length > 1}
-      spaceBetween={30}
-      slidesPerView={1}
-      slidesPerGroup={1}
-    >
-      {imageUrls.map((src, idx) => (
-        <SwiperSlide key={idx}>
-          <img src={src} alt={`slide-${idx}`} className="w-full h-196 object-cover" />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className='w-full h-[400px] md:h-[500px]'>
+        <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 10000 }}
+        loop={imageUrls.length > 1}
+        spaceBetween={30}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        >
+        {imageUrls.map((src, idx) => (
+            <SwiperSlide key={idx}>
+            <img src={src} alt={`slide-${idx}`} className="w-full h-full object-cover" />
+            </SwiperSlide>
+        ))}
+        </Swiper>
+    </div>
   );
 };
 
