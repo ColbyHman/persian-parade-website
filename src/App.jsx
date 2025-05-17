@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="p-4">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />

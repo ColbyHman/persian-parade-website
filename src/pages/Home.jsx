@@ -1,3 +1,12 @@
-export default function Home() {
-  return <h1 className="text-2xl">Welcome to the Home Page</h1>;
-}
+import React from 'react';
+import HomeSlider from '../components/HomeSlider';
+
+const Home = () => {
+  return (
+    <div>
+      <HomeSlider />
+    </div>
+  );
+};
+
+export default Home;
