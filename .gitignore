@@ -1,0 +1,41 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vite build output
+dist/
+.vite/
+
+# Local env files
+.env
+.env.*.local
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# Mac system files
+.DS_Store
+
+# Log files
+logs
+*.log
+
+# Coverage reports
+coverage/
+
+# Optional: IDE-specific
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Optional: Lint & test cache
+.eslintcache
+jest-cache/
+jest-test-results.json
+
+# Optional: Dependency analysis
+.nyc_output/
