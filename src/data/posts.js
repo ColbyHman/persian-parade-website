@@ -2,7 +2,7 @@
 export const posts = [
   {
     id: 1,
-    title: "Persian Parade 2025 Celebration Recap",
+    title: "Persian Parade 2025 Recap",
     type: 'text',
     content: [
       "On Sunday, April 27th, Madison Avenue was proudly painted in red, white, and green, as the historic Iranian flag—featuring the sun, lion, and traditional motif—led the way in a magnificent celebration of Persian culture and heritage.",
