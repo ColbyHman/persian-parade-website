@@ -24,8 +24,8 @@ const FeedPost = ({ post }) => {
 
     case 'text':
       return (
-        <div className="w-[80vw] p-4 bg-white rounded shadow-md post rounded shadow-md">
-          <article className="w-[70vw] p-4 bg-white rounded shadow-md mx-auto">
+        <div className="w-[75vw] p-4 bg-white rounded shadow-md post rounded shadow-md">
+          <article className="w-[70vw] p-4 bg-white rounded shadow-md mx-auto my-4">
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{post.title}</h1>
             {post.content.map((paragraph, index) => (
                 <p key={index} className="mb-3 leading-relaxed">
