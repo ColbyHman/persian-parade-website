@@ -4,7 +4,7 @@ import about_image_3 from '../assets/about_3.png';
 
 export default function AboutUs() {
   return (
-    <div className="text-black py-20 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-y-20 px-12">
+    <div className="text-black py-20 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-y-10 px-12">
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-6xl font-bold mb-6">About Us</h1>
         <h3 className="text-3xl mb-6">The Persian Parade!</h3>
@@ -20,18 +20,20 @@ export default function AboutUs() {
         />
       </div>
 
-      <div className="flex justify-center items-center">
-        <img
-          src={about_image_2}
-          alt="about-2"
-          className="w-full max-w-3xl object-cover rounded"
-        />
-      </div>
-      <div className="flex flex-col justify-center items-center text-center">
-        <h1 className="text-5xl font-bold mb-4">Our Foundation</h1>
-        <p className="text-lg max-w-3xl">
-          The Persian Parade Foundation is governed by an elected Board of Directors, made up of members of the Persian community from the New York area.
-        </p>
+      <div className="flex flex-col-reverse md:flex-col">
+        <div className="flex justify-center items-center">
+          <img
+            src={about_image_2}
+            alt="about-2"
+            className="w-full max-w-3xl py-2 object-cover rounded"
+          />
+        </div>
+        <div className="flex flex-col py-2 justify-center items-center text-center px-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Foundation</h1>
+          <p className="text-base md:text-lg max-w-3xl">
+            The Persian Parade Foundation is governed by an elected Board of Directors, made up of members of the Persian community from the New York area.
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-col justify-center items-center text-center">
