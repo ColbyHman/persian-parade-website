@@ -4,7 +4,7 @@ import about_image_3 from '../assets/about_3.png';
 
 export default function AboutUs() {
   return (
-    <div className="text-black py-20 min-h-screen grid grid-cols-2 gap-y-20 px-12">
+    <div className="text-black py-20 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-y-20 px-12">
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-6xl font-bold mb-6">About Us</h1>
         <h3 className="text-3xl mb-6">The Persian Parade!</h3>
