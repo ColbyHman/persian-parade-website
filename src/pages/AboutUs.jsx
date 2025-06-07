@@ -29,7 +29,7 @@ export default function AboutUs() {
         {/* Row 2: image | text */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-10">
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Foundation</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Leadership</h1>
             <p className="text-base md:text-lg max-w-3xl mx-auto md:mx-0">
               The Persian Parade Foundation is governed by an elected Board of Directors, made up of members of the Persian community from the New York area.
             </p>
