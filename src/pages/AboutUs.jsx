@@ -1,6 +1,7 @@
 import about_image_1 from '../assets/about_1.png';
 import about_image_2 from '../assets/about_2.png';
 import about_image_3 from '../assets/about_3.png';
+import Footer from '../components/Footer';
 
 export default function AboutUs() {
   return (
@@ -63,7 +64,7 @@ export default function AboutUs() {
           />
         </div>
       </div>
-
+      <Footer />
     </div>
   );
 }
