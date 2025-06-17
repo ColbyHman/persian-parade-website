@@ -38,7 +38,7 @@ export default function SupportPage() {
               Learn about sponsorship opportunities and benefits on our{" "}
               <a href="/sponsorship" className="text-red-600 underline hover:text-red-700">
                 sponsorship page
-              </a>{"</div> "}
+              </a>{" "}
             or reach out directly via{" "}
             <a href="mailto:info@persianparade.com" className="text-red-600 underline hover:text-red-700">
               info@persianparade.com
