@@ -31,13 +31,13 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <p>
-                  <strong>Phone:</strong> (123) 456-7890
+                  <strong>Phone:</strong> (844) 727-2331
                 </p>
                 <p>
                   <strong>Address:</strong><br />
                   Persian Parade Foundation<br />
-                  123 Celebration Ave<br />
-                  New York, NY 10001
+                  25 Central Park West<br />
+                  New York, NY 10023
                 </p>
               </div>
             </div>
