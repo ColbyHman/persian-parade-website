@@ -1,6 +1,6 @@
 import archive from '../data/pressArchive.js';
 
-export default function PressArchive() {
+function PressArchive() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <h2 className="text-4xl font-semibold mb-12 text-center text-gray-900">
@@ -39,3 +39,5 @@ export default function PressArchive() {
     </div>
   );
 }
+
+export default PressArchive;
