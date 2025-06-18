@@ -1,16 +1,19 @@
 import React from 'react';
 
 const FeedPost = ({ post }) => {
+  // Outer container stays the same
+  const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post";
+
   switch (post.type) {
     case 'poster':
       return (
-        <div className="w-[75vw] p-4 bg-white rounded shadow-md post">
+        <div className={baseContainerClasses}>
           <img
             src={post.imageUrl}
             alt={post.title}
             className="w-full rounded"
           />
-          <h3 className="mt-2 text-lg post font-semibold">{post.title}</h3>
+          <h3 className="mt-2 text-lg font-semibold text-black">{post.title}</h3>
           <a
             href={post.ctaLink}
             className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -24,32 +27,35 @@ const FeedPost = ({ post }) => {
 
     case 'text':
       return (
-        <div className="w-[75vw] p-4 bg-white rounded shadow-md post rounded shadow-md">
-          <article className="w-[70vw] p-4 bg-white rounded shadow-md mx-auto my-4">
+        <div className={baseContainerClasses}>
+          {/* White box behind text */}
+          <article className="bg-white p-6 rounded text-black">
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{post.title}</h1>
             {post.content.map((paragraph, index) => (
-                <p key={index} className="mb-3 leading-relaxed">
+              <p key={index} className="mb-3 leading-relaxed">
                 {paragraph}
-                </p>
+              </p>
             ))}
-            </article>
+          </article>
         </div>
       );
 
     case 'video':
       return (
-        <div className="w-[75vw] p-4 bg-white rounded shadow-md post rounded shadow-md">
-            <article className="w-[70vw] p-4 bg-white rounded shadow-md mx-auto my-4 feed-post">
-                <h1 className="text-xl font-bold mb-4">{post.title}</h1>
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                    <iframe
-                    src={post.videoUrl}
-                    title={post.title}
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full rounded"
-                    />
-                </div>
-            </article>
+        <div className={baseContainerClasses}>
+          {/* White box behind video title and container */}
+          <article className="bg-white p-6 rounded text-black">
+            <h1 className="text-xl font-bold mb-4">{post.title}</h1>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src={post.videoUrl}
+                title={post.title}
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded"
+                frameBorder="0"
+              />
+            </div>
+          </article>
         </div>
       );
 

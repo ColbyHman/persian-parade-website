@@ -40,7 +40,7 @@ const HomeSlider = () => {
           <SwiperSlide key={idx} className="flex">
             <img
               src={src}
-              alt={`slide-${idx}`}
+              loading="lazy"
               className="w-full h-[50vh] object-cover"
             />
           </SwiperSlide>
