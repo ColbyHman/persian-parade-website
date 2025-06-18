@@ -71,7 +71,37 @@ const albums = [
         "/gallery/2022/ZFNY-537.jpg",
         "/gallery/2022/ZFNY-301.jpg",
         "/gallery/2022/ZFNY-57.jpg"
-        ]
+    ]
+  },
+  {
+    year: 2019,
+    cover: "/gallery/2019/01.jpg",
+    images: [
+        "/gallery/2019/01.jpg",
+        "/gallery/2019/05.jpg",
+        "/gallery/2019/09.jpg",
+        "/gallery/2019/13.jpg",
+        "/gallery/2019/17.jpg",
+        "/gallery/2019/21.jpg",
+        "/gallery/2019/02.jpg",
+        "/gallery/2019/06.jpg",
+        "/gallery/2019/10.jpg",
+        "/gallery/2019/14.jpg",
+        "/gallery/2019/18.jpg",
+        "/gallery/2019/22.jpg",
+        "/gallery/2019/03.jpg",
+        "/gallery/2019/07.jpg",
+        "/gallery/2019/11.jpg",
+        "/gallery/2019/15.jpg",
+        "/gallery/2019/19.jpg",
+        "/gallery/2019/23.jpg",
+        "/gallery/2019/04.jpg",
+        "/gallery/2019/08.jpg",
+        "/gallery/2019/12.jpg",
+        "/gallery/2019/16.jpg",
+        "/gallery/2019/20.jpg",
+        "/gallery/2019/24.jpg"
+    ]
   }
 ];
 
