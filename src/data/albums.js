@@ -1,0 +1,78 @@
+const albums = [
+  {
+    year: "2024",
+    cover: "/gallery/2024/ZFNY-416.jpg",
+    images: [
+      "/gallery/2024/ZFNY-1.jpg",
+      "/gallery/2024/ZFNY-68.jpg",
+      "/gallery/2024/ZFNY-131.jpg",
+      "/gallery/2024/ZFNY-146.jpg",
+      "/gallery/2024/ZFNY-283.jpg",
+      "/gallery/2024/ZFNY-324.jpg",
+      "/gallery/2024/ZFNY-357.jpg",
+      "/gallery/2024/ZFNY-404.jpg",
+      "/gallery/2024/ZFNY-416.jpg",
+      "/gallery/2024/ZFNY-504.jpg",
+      "/gallery/2024/ZFNY-557.jpg",
+      "/gallery/2024/ZFNY-578.jpg",
+      "/gallery/2024/ZFNY-586.jpg"
+    ],
+  },
+  {
+    year: "2023",
+    cover: "/gallery/2023/2023-Banner1.jpg",
+    images: [
+        "/gallery/2023/2023-Banner1.jpg",
+        "/gallery/2023/D1.jpg",
+        "/gallery/2023/D1.jpg",
+        "/gallery/2023/Daf1.jpg",
+        "/gallery/2023/DSC_0931.jpg",
+        "/gallery/2023/DSC_0968.jpg",
+        "/gallery/2023/DSC_1064.jpg",
+        "/gallery/2023/DSC_1079.jpg",
+        "/gallery/2023/DSC_1127.jpg",
+        "/gallery/2023/DSC_1137.jpg",
+        "/gallery/2023/DSC_1156.jpg",
+        "/gallery/2023/DSC_1161.jpg",
+        "/gallery/2023/DSC_1213.jpg",
+        "/gallery/2023/DSC_1256.jpg",
+        "/gallery/2023/DSC_1258.jpg",
+        "/gallery/2023/DSC_1260.jpg",
+        "/gallery/2023/DSC_1268.jpg",
+        "/gallery/2023/DSC_1285.jpg",
+        "/gallery/2023/DSC_1287.jpg",
+        "/gallery/2023/DSC_1398.jpg",
+        "/gallery/2023/DSC_1674.jpg",
+    ],
+  },
+  {
+    year: 2022,
+    cover: "/gallery/2022/ZFNY-50.jpg",
+    images: [
+        "/gallery/2022/ZFNY-1113.jpg",
+        "/gallery/2022/ZFNY-302.jpg",
+        "/gallery/2022/ZFNY-620.jpg",
+        "/gallery/2022/ZFNY-15.jpg",
+        "/gallery/2022/ZFNY-3111.jpg",
+        "/gallery/2022/ZFNY-627.jpg",
+        "/gallery/2022/ZFNY-168.jpg",
+        "/gallery/2022/ZFNY-322.jpg",
+        "/gallery/2022/ZFNY-636.jpg",
+        "/gallery/2022/ZFNY-173.jpg",
+        "/gallery/2022/ZFNY-414.jpg",
+        "/gallery/2022/ZFNY-652.jpg",
+        "/gallery/2022/ZFNY-20.jpg",
+        "/gallery/2022/ZFNY-445.jpg",
+        "/gallery/2022/ZFNY-6.jpg",
+        "/gallery/2022/ZFNY-274.jpg",
+        "/gallery/2022/ZFNY-50.jpg",
+        "/gallery/2022/ZFNY-86.jpg",
+        "/gallery/2022/ZFNY-297.jpg",
+        "/gallery/2022/ZFNY-537.jpg",
+        "/gallery/2022/ZFNY-301.jpg",
+        "/gallery/2022/ZFNY-57.jpg"
+        ]
+  }
+];
+
+export default albums;
