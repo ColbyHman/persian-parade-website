@@ -22,7 +22,7 @@ export default function EventsPage() {
           </p>
           <div className="flex justify-center gap-4">
             <a
-              href="/contact"
+              href="/contact-us"
               className="border border-red-600 text-red-600 px-6 py-2 rounded-full font-medium hover:bg-red-50 transition"
             >
               Contact Us
