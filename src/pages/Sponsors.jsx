@@ -112,8 +112,8 @@ export default function SponsorsPage() {
             </p>
           </section>
         </div>
-      </div>
       <Footer/>
+      </div>
     </div>
   );
 }
