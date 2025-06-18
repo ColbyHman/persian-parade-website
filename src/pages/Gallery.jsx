@@ -85,8 +85,8 @@ export default function Gallery() {
             </div>
           </div>
         )}
-      </div>
       <Footer/>
+      </div>
     </div>
   );
 }
