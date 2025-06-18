@@ -14,10 +14,10 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-2">
           <Link to="/" className="!text-white hover:underline">Home</Link>
-          <Link to="/about" className="!text-white hover:underline">About</Link>
+          <Link to="/about-us" className="!text-white hover:underline">About</Link>
           <Link to="/events" className="!text-white hover:underline">Events</Link>
           <Link to="/gallery" className="!text-white hover:underline">Gallery</Link>
-          <Link to="/contact" className="!text-white hover:underline">Contact</Link>
+          <Link to="/contact-us" className="!text-white hover:underline">Contact</Link>
         </div>
 
         <div className="flex flex-col space-y-2">
