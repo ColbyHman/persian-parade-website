@@ -29,7 +29,7 @@ function PressArchive() {
                 >
                   <h4 className="text-xl font-medium text-gray-900 mb-2">{title}</h4>
                   <p className="text-gray-600 text-sm">
-                    Click to read or watch this press coverage.
+                    Click to view this press coverage.
                   </p>
                 </a>
               ))}
