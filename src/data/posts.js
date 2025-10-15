@@ -2,6 +2,16 @@
 export const posts = [
   {
     id: 1,
+    title: "Pardon Our Dust!",
+    type: 'text',
+    content: [
+      "In case you missed it, we have brought our website into a new era! We've given it a fresh new look while doing our best to preserve the unique spirit and identity of the Persian Parade. The updated site is more polished, easier to navigate, and designed to better serve our community. We would love to hear your thoughts! If you have any feedback or suggestions, feel free to share them with us through our new contact form on the site.",
+      "Our mission remains the same: to keep you informed and connected with all the latest news and events from the Persian Parade Foundation. Looking ahead, we'll be introducing new features and content to enhance your experience even further. In the future, we will be adding features to this website in order to serve you.",
+      "Thank you for being part of our journey, we hope you enjoy the new look and feel!"
+    ]
+  },
+  {
+    id: 2,
     title: "Persian Parade 2025 Recap",
     type: 'text',
     content: [
@@ -18,7 +28,7 @@ export const posts = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     type: 'video',
     title: 'Persian Parade 2024',
     videoUrl: 'https://player.vimeo.com/video/947232611?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
