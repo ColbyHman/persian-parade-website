@@ -16,7 +16,7 @@ const Home = () => {
           Welcome to the Persian Parade Foundation
         </h1>
         <p className="max-w-2xl mx-auto text-center text-red-200">
-          Celebrating Persian culture, heritage, and community with pride and unity.
+          Celebrating Persian culture, heritage, and community with pride and unity!
         </p>
       </section>
 
