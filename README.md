@@ -1,6 +1,8 @@
 # Persian Parade NYC Website (React Rebuild)
+---
 This repository contains the source code for the Persian Parade NYC website, rebuilt using React.
-Live site: [https://persianparade.com/]
+Live site: [https://persianparade.com/](https://persianparade.com/)
+
 ---
 ## Technologies
 - JavaScript (majority of codebase)
@@ -46,6 +48,7 @@ Please submit a Pull Request with:
 - Testing notes where applicable
 ---
 ## License
+-
 This project is licensed under the **MIT License**.
 See the `LICENSE` file for full details.
 ---
