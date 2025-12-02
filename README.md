@@ -1,5 +1,4 @@
 # Persian Parade NYC Website (React Rebuild)
----
 This repository contains the source code for the Persian Parade NYC website, rebuilt using React.
 Live site: [https://persianparade.com/](https://persianparade.com/)
 
@@ -9,6 +8,7 @@ Live site: [https://persianparade.com/](https://persianparade.com/)
 - CSS
 - HTML
 - Dockerfile
+
 ---
 ## Prerequisites
 Before getting started, ensure the following are installed:
@@ -40,6 +40,7 @@ git checkout -b feature/my-change
 - Open a Pull Request against the `main` branch.
 Direct pushes to `main` are not allowed.
 ---
+
 ## Contributing
 Contributions are welcome.
 Please submit a Pull Request with:
@@ -47,16 +48,18 @@ Please submit a Pull Request with:
 - Any relevant screenshots
 - Testing notes where applicable
 ---
+
 ## License
--
 This project is licensed under the **MIT License**.
 See the `LICENSE` file for full details.
+
 ---
 ## Copyright & Trademarks
 The source code in this repository is available under the MIT license.
 However, the Persian Parade name, logo, branding, and site design are the property of their respective owners.
 
 You may use and modify the code freely under the MIT license, but please avoid creating visual or branding copies of the live site that could cause confusion regarding affiliation.
+
 ---
-Contact
+## Contact
 For questions or issues, please open an Issue or a Pull Request on GitHub.
