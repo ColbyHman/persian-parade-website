@@ -31,11 +31,37 @@ const FeedPost = ({ post }) => {
           {/* White box behind text */}
           <article className="bg-white p-6 rounded text-black">
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{post.title}</h1>
-            {post.content.map((paragraph, index) => (
-              <p key={index} className="mb-3 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            {post.content.map((item, index) => {
+              if (typeof item === 'string') {
+                // Backward compatibility: treat as paragraph
+                return (
+                  <p key={index} className="mb-3 leading-relaxed">
+                    {item}
+                  </p>
+                );
+              } else if (item.type === 'paragraph') {
+                return (
+                  <p key={index} className="mb-3 leading-relaxed">
+                    {item.text}
+                  </p>
+                );
+              } else if (item.type === 'bold-paragraph') {
+                return (
+                  <p key={index} className="mb-3 leading-relaxed font-bold">
+                    {item.text}
+                  </p>
+                );
+              } else if (item.type === 'list') {
+                return (
+                  <ul key={index} className="mb-3 leading-relaxed list-disc list-inside">
+                    {item.items.map((listItem, liIndex) => (
+                      <li key={liIndex}>{listItem}</li>
+                    ))}
+                  </ul>
+                );
+              }
+              return null;
+            })}
           </article>
         </div>
       );

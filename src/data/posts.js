@@ -2,6 +2,46 @@
 export const posts = [
   {
     id: 1,
+    title: "Persian Parade Foundation, Inc. Condemns the Iranian Government's Brutal Actions Against the People of Iran",
+    type: 'text',
+    content: [
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation, Inc. unequivocally condemns the Iranian government's ongoing acts of violence, repression, and brutality against the people of Iran who are courageously seeking freedom, dignity, and a prosperous future."
+      },
+      {
+        type: 'paragraph',
+        text: "For decades, the Iranian people—especially the nation's youth and its brave women—have been subjected to systematic oppression, intimidation, imprisonment, and lethal force simply for exercising their fundamental human rights. The violent suppression of peaceful expression, personal choice, and dissent represents a grave violation of internationally recognized human rights and human dignity."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation stands firmly and unequivocally with the people of Iran in their rightful pursuit of:"
+      },
+      {
+        type: 'list',
+        items: [
+          "Freedom of speech and expression",
+          "Peaceful assembly and civic participation",
+          "Personal and cultural liberty",
+          "A democratic government chosen by and accountable to the people"
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: "As an organization dedicated to celebrating and preserving Persian culture, history, and values, the Persian Parade Foundation affirms that the true spirit of Iran is rooted in justice, resilience, creativity, and respect for human rights—not in fear, coercion, or violence."
+      },
+      {
+        type: 'paragraph',
+        text: "The Foundation calls upon the international community, governments, and human rights organizations to remain steadfast in their support of the Iranian people and to hold accountable those responsible for these acts of repression and abuse."
+      },
+      {
+        type: 'bold-paragraph',
+        text: "The Persian Parade Foundation, Inc. stands in solidarity with the people of Iran—today and always—in their ongoing struggle for freedom, democracy, and a future defined by hope and opportunity."
+      }
+    ]
+  },
+  {
+    id: 2,
     title: "Pardon Our Dust!",
     type: 'text',
     content: [
@@ -11,7 +51,7 @@ export const posts = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: "Persian Parade 2025 Recap",
     type: 'text',
     content: [
@@ -28,11 +68,11 @@ export const posts = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     type: 'video',
     title: 'Persian Parade 2024',
     videoUrl: 'https://player.vimeo.com/video/947232611?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
-  },
+  }
 ];
 
 export default posts;
