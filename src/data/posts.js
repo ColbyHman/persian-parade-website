@@ -2,6 +2,33 @@
 export const posts = [
   {
     id: 1,
+    title: "Persian Parade Foundation Reaffirms Solidarity with the People of Iran and Clarifies Its Non-Political Position",
+    type: "text",
+    content: [
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation reiterates its unwavering solidarity with the people of Iran and strongly condemns the Iranian government's violent actions, including the killing and suppression of innocent, peaceful demonstrators who are demanding economic prosperity, freedom of expression, and a democratic future."
+      },
+      {
+        type: 'paragraph',
+        text: "At the same time, the Persian Parade Foundation wishes to clearly and unequivocally clarify its position:"
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation does not organize, sponsor, or participate in political rallies or political movements. As a non-political and non-religious organization, the Foundation will not permit any individual or organization to use its name, platform, or brand for political purposes or missions"
+      },
+      {
+        type: 'paragraph',
+        text: "While remaining strictly non-political, the Persian Parade Foundation stands firmly with the Iranian people and supports peaceful marches and gatherings worldwide that condemn violence, defend human dignity, and call attention to the suffering of our brothers and sisters in Iran."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation’s mission has always been — and will continue to be — to promote peace, cultural unity, human rights, and respect  or life, while honoring the voices of those who seek justice through peaceful means."
+      }
+    ]
+  },
+  {
+    id: 2,
     title: "Persian Parade Foundation, Inc. Condemns the Iranian Government's Brutal Actions Against the People of Iran",
     type: 'text',
     content: [
@@ -41,7 +68,7 @@ export const posts = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: "Pardon Our Dust!",
     type: 'text',
     content: [
@@ -51,7 +78,7 @@ export const posts = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Persian Parade 2025 Recap",
     type: 'text',
     content: [
@@ -68,7 +95,7 @@ export const posts = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     type: 'video',
     title: 'Persian Parade 2024',
     videoUrl: 'https://player.vimeo.com/video/947232611?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',

@@ -62,6 +62,16 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
+          <li>
+            <a
+              href="https://shop.persianparade.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition"
+            >
+              Shop
+            </a>
+          </li>
         </ul>
 
         <button
