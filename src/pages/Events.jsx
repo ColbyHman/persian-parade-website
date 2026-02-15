@@ -13,11 +13,40 @@ export default function EventsPage() {
         </div>
 
         <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+            <div className="md:flex">
+              <div className="md:w-1/2 flex items-center justify-center bg-gray-50">
+                <img
+                  src="/images/parade-poster.jpg"
+                  alt="Persian Parade 2026"
+                  className="w-full h-auto object-contain max-h-full"
+                />
+              </div>
+              <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">Persian Parade 2026</h2>
+                <p className="text-gray-600 mb-6">
+                  Join us for the annual Persian Parade! Celebrate Persian culture, heritage, and community with pride and unity.
+                </p>
+                <div className="mb-8">
+                  <p className="text-gray-700 font-medium">Location: Madison Avenue, New York City</p>
+                  <p className="text-gray-700 font-medium">Date: Sunday April 19th @ 12:00pm</p>
+                  <p className="text-gray-700 font-medium">Gathering will begin at 10am</p>
+                </div>
+                <a
+                  href="/support"
+                  className="inline-block bg-red-600 !text-white px-8 py-3 rounded-full font-medium hover:bg-red-700 transition text-center"
+                >
+                  Learn How to Participate
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="md:flex">
               <div className="md:w-1/2 flex items-center justify-center bg-gray-50">
                 <img
-                  src="/images/chaharshanbeh_souri_26.jpg"
+                  src="/images/4shanbeh.jpg"
                   alt="Chaharshanbeh Souri Celebration"
                   className="w-full h-auto object-contain max-h-full"
                 />
@@ -48,7 +77,7 @@ export default function EventsPage() {
                   href="https://shop.persianparade.com/collections/all"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-red-600 text-white px-8 py-3 rounded-full font-medium hover:bg-red-700 transition text-center"
+                  className="inline-block bg-red-600 !text-white px-8 py-3 rounded-full font-medium hover:bg-red-700 transition text-center"
                 >
                   Buy Tickets
                 </a>

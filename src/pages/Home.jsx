@@ -33,6 +33,20 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Sponsors Section */}
+      <section className="bg-gray-50 py-12 px-4 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Our Sponsors</h2>
+          <div className="flex flex-col items-center gap-8">
+            <img
+              src="/images/aha-ad.jpg"
+              alt="AHA Persian School - Sponsor"
+              className="max-w-md w-full h-auto rounded-lg shadow-md"
+            />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

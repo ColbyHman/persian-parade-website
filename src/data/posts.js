@@ -1,6 +1,18 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 0,
+    type: 'announcement',
+    title: 'Persian Parade 2026',
+    imageUrl: '/images/parade-poster.jpg',
+    content: [
+      'Join us for the annual Persian Parade! Celebrate Persian culture, heritage, and community with pride and unity.',
+      'We need volunteers, float participants, and sponsors to make this year\'s parade possible!'
+    ],
+    ctaText: 'Learn How to Participate',
+    ctaLink: '/support'
+  },
+  {
     id: 1,
     title: "Persian Parade Foundation Reaffirms Solidarity with the People of Iran and Clarifies Its Non-Political Position",
     type: "text",

@@ -14,8 +14,19 @@ export default function SponsorsPage() {
           </p>
         </div>
 
-        {/* Sponsorship Tiers */}
-        <div className="max-w-5xl mx-auto px-6 py-20 space-y-20">
+        {/* Current Sponsors */}
+        <div className="max-w-5xl mx-auto px-6 py-12">
+          <section className="text-center mb-16">
+            <h2 className="text-3xl font-semibold mb-8">Current Sponsors</h2>
+            <div className="flex flex-col items-center gap-8">
+              <img
+                src="/images/aha-ad.jpg"
+                alt="AHA Persian School"
+                className="max-w-md w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+          </section>
+
           <section>
             <h2 className="text-3xl font-semibold mb-6 text-center">Sponsorship Levels</h2>
             <div className="space-y-12">
