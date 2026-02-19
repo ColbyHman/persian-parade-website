@@ -64,7 +64,7 @@ export default function EventsPage() {
                   <br/>
                   <div className="flex items-baseline justify-center gap-2">
                     <span className="text-gray-700 font-medium">Adults:</span>
-                    <span className="text-gray-800 font-semibold">$120</span>
+                    <span className="text-gray-800 font-semibold">$130</span>
                     <span className="text-gray-500 text-sm">per ticket</span>
                   </div>
                   <div className="flex items-baseline justify-center gap-2">
