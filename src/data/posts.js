@@ -1,6 +1,29 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 6,
+    type: 'text',
+    title: 'Chaharshanbeh Souri Event Cancelled',
+    content: [
+      {
+        type: 'paragraph',
+        text: "It is with heavy hearts that we announce the cancellation of our Chaharshanbeh Souri celebration, originally scheduled for March 15, 2026."
+      },
+      {
+        type: 'paragraph',
+        text: "Given the devastating conflict in Iran, we feel it would be inappropriate to host a festive celebration. Our thoughts are with the people of Iran, especially those who have lost loved ones, those who have been displaced, and all those enduring hardship amidst this conflict."
+      },
+      {
+        type: 'paragraph',
+        text: "We sincerely apologize for any inconvenience this cancellation may cause."
+      },
+      {
+        type: 'paragraph',
+        text: "Please keep Iran in your prayers."
+      }
+    ]
+  },
+  {
     id: 0,
     type: 'announcement',
     title: 'Persian Parade 2026',
