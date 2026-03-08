@@ -1,6 +1,37 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 7,
+    type: 'text',
+    title: 'Persian Parade Foundation Announces Cancellation of Chaharshanbeh Souri Event Scheduled for March 17',
+    content: [
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation announces that the Chaharshanbeh Souri celebration previously scheduled for Tuesday, March 17, has been cancelled in light of the current conflict and humanitarian concerns affecting the people of Iran."
+      },
+      {
+        type: 'paragraph',
+        text: "Chaharshanbeh Souri is a cherished cultural tradition that symbolizes hope, renewal, and the welcoming of spring as part of the Nowruz season. However, at this difficult moment, our thoughts and hearts are with the people of Iran and with families around the world who are impacted by the ongoing situation."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation stands in solidarity with the brave people of Iran and expresses its sincere hope that the current conflict will come to a peaceful end as soon as possible. We remain hopeful for a future in which the Iranian people may live in peace, prosperity, and freedom within a democratic nation that respects and represents all sectors of Iranian society—regardless of ethnicity, religion, or background."
+      },
+      {
+        type: 'paragraph',
+        text: "Our community has always celebrated the rich diversity of Iranian culture, including Persians, Kurds, Azeris, Lurs, Baluch, Arabs, Gilakis, Mazandaranis, Armenians, Jews, Zoroastrians, Bahais, Muslims, Christians, and many others who together form the vibrant fabric of the Iranian nation."
+      },
+      {
+        type: 'paragraph',
+        text: "While we regret having to cancel this year's gathering, we believe it is important at this moment to reflect, stand together in unity, and keep the people of Iran in our thoughts and prayers."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation remains committed to promoting Iranian culture, unity, and heritage, and we look forward to celebrating together again in more hopeful times."
+      }
+    ]
+  },
+  {
     id: 6,
     type: 'text',
     title: 'Chaharshanbeh Souri Event Cancelled',
