@@ -3,22 +3,19 @@ name: Cleanup Screenshots
 on:
   pull_request:
     types: [closed]
+    paths:
+      - 'ai-screenshots/**'
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to clean up'
-        required: false
-        default: 'feature/ai-agent-development'
 
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true)
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.branch || github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Remove screenshots and restore gitignore
@@ -35,4 +32,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "Remove ai-screenshots and restore gitignore" || echo "Nothing to clean up"
           
-          git push origin HEAD || echo "Branch may be deleted"
+          git push origin HEAD:main || git push origin HEAD:main --force
