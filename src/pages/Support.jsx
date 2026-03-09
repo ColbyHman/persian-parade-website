@@ -5,7 +5,7 @@ export default function SupportPage() {
   return (
     <div>
       {/* Support Us Banner - Red background with white text */}
-      <div className="bg-red-600 text-white py-16 px-6">
+      <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">Support Us</h1>
         <p className="max-w-xl mx-auto text-center text-red-200">
           Explore ways you can support the Persian Parade Foundation and help us celebrate Persian culture.

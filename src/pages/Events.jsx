@@ -5,7 +5,7 @@ export default function EventsPage() {
   return (
     <div>
       <div className="bg-white">
-        <div className="bg-red-600 text-white py-20 px-6 text-center">
+        <div className="bg-red-600 text-white py-20 px-6 text-center shadow-xl">
           <h1 className="text-5xl font-bold mb-4">Events</h1>
           <p className="text-lg max-w-2xl mx-auto">
             Celebrate Persian culture with us. From parades to performances, this is where you'll find everything happening with the Persian Parade Foundation.
