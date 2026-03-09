@@ -3,35 +3,22 @@ name: Cleanup Screenshots
 on:
   pull_request:
     types: [closed]
+    paths:
+      - 'ai-screenshots/**'
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to clean up'
-        required: false
-        default: 'feature/ai-agent-development'
 
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true)
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.branch || github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Check for ai-screenshots changes
-        id: check
-        run: |
-          if [ -d "ai-screenshots" ] && [ "$(ls -A ai-screenshots)" ]; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Remove screenshots and restore gitignore
-        if: steps.check.outputs.has_changes == 'true'
         run: |
           rm -rf ai-screenshots
           mkdir -p ai-screenshots
