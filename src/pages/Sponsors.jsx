@@ -7,7 +7,7 @@ export default function SponsorsPage() {
     <div>
       <div className="bg-white text-gray-800">
         {/* Hero Section */}
-        <div className="bg-red-600 text-white py-20 px-6 text-center">
+        <div className="bg-red-600 text-white py-20 px-6 text-center shadow-xl">
           <h1 className="text-5xl font-bold mb-4">Become a Sponsor</h1>
           <p className="text-lg max-w-3xl mx-auto">
             Partner with the Persian Parade Foundation to support cultural celebration, community pride, and the promotion of Iranian heritage in New York City.

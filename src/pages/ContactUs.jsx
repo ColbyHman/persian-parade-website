@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Page Banner */}
-      <div className="bg-red-600 text-white py-16 px-6">
+      <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">Contact Us</h1>
         <p className="max-w-xl mx-auto text-center text-red-200">
           We'd love to hear from you. Reach out with any questions, suggestions, or collaboration ideas.

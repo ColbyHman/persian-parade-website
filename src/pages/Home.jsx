@@ -11,7 +11,7 @@ const Home = () => {
       <HomeSlider />
 
       {/* Red Welcome Banner */}
-      <section className="bg-red-600 text-white py-16 px-6">
+      <section className="bg-red-600 text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">
           Welcome to the Persian Parade Foundation
         </h1>

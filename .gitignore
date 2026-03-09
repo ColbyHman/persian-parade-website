@@ -39,3 +39,6 @@ jest-test-results.json
 
 # Optional: Dependency analysis
 .nyc_output/
+
+# AI Agent Screenshots
+ai-screenshots/
