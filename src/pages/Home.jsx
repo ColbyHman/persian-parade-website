@@ -11,13 +11,15 @@ const Home = () => {
       <HomeSlider />
 
       {/* Red Welcome Banner */}
-      <section className="bg-red-600 text-white py-16 px-6 shadow-xl">
-        <h1 className="text-4xl font-bold text-center mb-4">
-          Welcome to the Persian Parade Foundation
-        </h1>
-        <p className="max-w-2xl mx-auto text-center text-red-200">
-          Celebrating Persian culture, heritage, and community with pride and unity!
-        </p>
+      <section className="bg-red-600 text-white py-16 px-6">
+        <div className="shadow-xl rounded-lg p-8 bg-red-700">
+          <h1 className="text-4xl font-bold text-center mb-4">
+            Welcome to the Persian Parade Foundation
+          </h1>
+          <p className="max-w-2xl mx-auto text-center text-red-200">
+            Celebrating Persian culture, heritage, and community with pride and unity!
+          </p>
+        </div>
       </section>
 
       {/* Recent Posts Section */}
