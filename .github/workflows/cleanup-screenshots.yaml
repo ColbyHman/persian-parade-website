@@ -21,7 +21,17 @@ jobs:
           ref: ${{ github.event.inputs.branch || github.event.pull_request.head.ref }}
           fetch-depth: 0
 
+      - name: Check for ai-screenshots changes
+        id: check
+        run: |
+          if [ -d "ai-screenshots" ] && [ "$(ls -A ai-screenshots)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Remove screenshots and restore gitignore
+        if: steps.check.outputs.has_changes == 'true'
         run: |
           rm -rf ai-screenshots
           mkdir -p ai-screenshots
@@ -35,4 +45,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "Remove ai-screenshots and restore gitignore" || echo "Nothing to clean up"
           
-          git push origin HEAD || echo "Branch may be deleted"
+          git push origin HEAD:main || git push origin HEAD:main --force
