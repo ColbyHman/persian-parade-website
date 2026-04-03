@@ -26,7 +26,7 @@ const FeedPost = ({ post }) => {
               className="w-full md:w-48 rounded flex-shrink-0"
             />
             <div>
-              <h3 className="text-lg font-semibold text-black">{post.title}</h3>
+              <h3 className="font-semibold text-black" style={{fontSize: 'clamp(1rem, 4vw, 1.5rem)'}}>{post.title}</h3>
               {renderDate()}
               {post.description && (
                 <p className="mt-2 text-white">{post.description}</p>
@@ -57,7 +57,7 @@ const FeedPost = ({ post }) => {
                 />
               )}
               <div className="flex-1">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center">{post.title}</h1>
+            <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
                 {renderDate()}
                 {post.content && post.content.map((item, index) => {
                   if (typeof item === 'string') {
@@ -94,7 +94,7 @@ const FeedPost = ({ post }) => {
         <div className={baseContainerClasses}>
           {/* White box behind text */}
           <article className="bg-white p-6 rounded text-black text-left">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center">{post.title}</h1>
+                <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
             {renderDate()}
             {post.content.map((item, index) => {
               if (typeof item === 'string') {
@@ -136,7 +136,7 @@ const FeedPost = ({ post }) => {
         <div className={baseContainerClasses}>
           {/* White box behind video title and container */}
           <article className="bg-white p-6 rounded text-black">
-            <h1 className="text-xl font-bold mb-2">{post.title}</h1>
+            <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
             {renderDate()}
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
