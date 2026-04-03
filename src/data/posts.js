@@ -1,9 +1,50 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 7,
+    type: 'text',
+    title: 'Persian Parade Foundation Announces 2026 Annual Persian Day Parade',
+    date: '2026-04-02',
+    content: [
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation is proud to announce that the Annual Persian Day Parade will take place on Sunday, April 19, 2026, along Madison Avenue in New York City."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Day Parade has long been a celebration of the rich history, heritage, and culture of the Iranian people. This year, while continuing that proud tradition, the Parade will also be dedicated to honoring the memory of the brave Iranian men and women who have lost their lives, have been imprisoned, or have suffered amid the current conflict and ongoing challenges in Iran. We also remember all victims affected by the broader conflict and extend our deepest sympathies to their families."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation reiterates its unwavering solidarity with the people of Iran and expresses deep concern over the violence and suppression of innocent individuals, including peaceful demonstrators seeking economic opportunity, freedom of expression, and a better future. We stand with all those who advocate for human dignity, justice, and a more inclusive and representative society."
+      },
+      {
+        type: 'paragraph',
+        text: "On April 19, Madison Avenue will once again be filled with the vibrant colors of green, white, and red, as participants proudly celebrate Iranian culture and heritage. Traditional symbols, including the historic Lion and Sun emblem, will be displayed as expressions of cultural identity and historical pride."
+      },
+      {
+        type: 'paragraph',
+        text: "While this year's Parade will reflect the joy and richness of Iranian culture, it will also be a moment of reflection. We will honor the sacrifices of those who have suffered and ensure that their voices are not forgotten. Through unity and peaceful expression, we aim to echo the aspirations of the Iranian people for a future marked by peace, prosperity, and respect for all—regardless of ethnicity, religion, or background."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation remains a non-political and non-religious cultural organization. In that spirit, we support peaceful gatherings worldwide that promote human dignity, oppose violence, and raise awareness about the suffering of individuals and communities affected by conflict."
+      },
+      {
+        type: 'paragraph',
+        text: "Our mission has always been—and will continue to be—to promote peace, cultural unity, human rights, and respect for life, while honoring the voices of those who seek justice through peaceful means."
+      },
+      {
+        type: 'paragraph',
+        text: "We invite all members of the community to join us on April 19, 2026, to celebrate our shared heritage and stand together in unity, remembrance, and hope."
+      }
+    ]
+  },
+  {
     id: 6,
     type: 'text',
     title: 'Persian Parade Foundation Announces Cancellation of Chaharshanbeh Souri Event Scheduled for March 17',
+    date: '2026-03-08',
     content: [
       {
         type: 'paragraph',
@@ -35,6 +76,7 @@ export const posts = [
     id: 0,
     type: 'announcement',
     title: 'Persian Parade 2026',
+    date: '2026-02-15',
     imageUrl: '/images/parade-poster.jpg',
     content: [
       'Join us for the annual Persian Parade! Celebrate Persian culture, heritage, and community with pride and unity.',
@@ -46,6 +88,7 @@ export const posts = [
   {
     id: 1,
     title: "Persian Parade Foundation Reaffirms Solidarity with the People of Iran and Clarifies Its Non-Political Position",
+    date: '2026-02-01',
     type: "text",
     content: [
       {
@@ -73,6 +116,7 @@ export const posts = [
   {
     id: 2,
     title: "Persian Parade Foundation, Inc. Condemns the Iranian Government's Brutal Actions Against the People of Iran",
+    date: '2026-01-20',
     type: 'text',
     content: [
       {
@@ -113,6 +157,8 @@ export const posts = [
   {
     id: 3,
     title: "Pardon Our Dust!",
+    date: '2025-07-01',
+    hidden: true,
     type: 'text',
     content: [
       "In case you missed it, we have brought our website into a new era! We've given it a fresh new look while doing our best to preserve the unique spirit and identity of the Persian Parade. The updated site is more polished, easier to navigate, and designed to better serve our community. We would love to hear your thoughts! If you have any feedback or suggestions, feel free to share them with us through our new contact form on the site.",
@@ -123,6 +169,8 @@ export const posts = [
   {
     id: 4,
     title: "Persian Parade 2025 Recap",
+    date: '2025-05-01',
+    hidden: true,
     type: 'text',
     content: [
       "On Sunday, April 27th, Madison Avenue was proudly painted in red, white, and green, as the historic Iranian flag—featuring the sun, lion, and traditional motif—led the way in a magnificent celebration of Persian culture and heritage.",
@@ -141,6 +189,8 @@ export const posts = [
     id: 5,
     type: 'video',
     title: 'Persian Parade 2024',
+    date: '2024-05-01',
+    hidden: true,
     videoUrl: 'https://player.vimeo.com/video/947232611?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
   }
 ];

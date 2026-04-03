@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';import './App.css'
 
@@ -10,11 +10,9 @@ import PressRoom from './pages/PressRoom';
 import Sponsors from './pages/Sponsors';
 import Support from './pages/Support';
 import ContactUs from './pages/ContactUs';
-import Donate from './pages/Donate';
+import History from './pages/History';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Navbar />
@@ -28,7 +26,7 @@ function App() {
           <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/support" element={<Support />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/donate" element={<Donate />} />
+          <Route path="/post-history" element={<History />} />
         </Routes>
       </main>
     </>

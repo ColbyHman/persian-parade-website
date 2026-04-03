@@ -4,6 +4,17 @@ const FeedPost = ({ post }) => {
   // Outer container stays the same
   const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post";
 
+  const renderDate = () => {
+    if (!post.date) return null;
+    const [year, month, day] = post.date.split('-').map(Number);
+    const dateObj = new Date(year, month - 1, day);
+    return (
+      <p className="text-sm text-gray-600 mb-2">
+        {dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+      </p>
+    );
+  };
+
   switch (post.type) {
     case 'poster':
       return (
@@ -16,6 +27,7 @@ const FeedPost = ({ post }) => {
             />
             <div>
               <h3 className="text-lg font-semibold text-black">{post.title}</h3>
+              {renderDate()}
               {post.description && (
                 <p className="mt-2 text-white">{post.description}</p>
               )}
@@ -35,7 +47,7 @@ const FeedPost = ({ post }) => {
     case 'announcement':
       return (
         <div className={baseContainerClasses}>
-          <article className="bg-white p-6 rounded text-black">
+          <article className="bg-white p-6 rounded text-black text-left">
             <div className="md:flex gap-6">
               {post.imageUrl && (
                 <img
@@ -45,7 +57,8 @@ const FeedPost = ({ post }) => {
                 />
               )}
               <div className="flex-1">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{post.title}</h1>
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center">{post.title}</h1>
+                {renderDate()}
                 {post.content && post.content.map((item, index) => {
                   if (typeof item === 'string') {
                     return (
@@ -80,8 +93,9 @@ const FeedPost = ({ post }) => {
       return (
         <div className={baseContainerClasses}>
           {/* White box behind text */}
-          <article className="bg-white p-6 rounded text-black">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{post.title}</h1>
+          <article className="bg-white p-6 rounded text-black text-left">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center">{post.title}</h1>
+            {renderDate()}
             {post.content.map((item, index) => {
               if (typeof item === 'string') {
                 // Backward compatibility: treat as paragraph
@@ -122,7 +136,8 @@ const FeedPost = ({ post }) => {
         <div className={baseContainerClasses}>
           {/* White box behind video title and container */}
           <article className="bg-white p-6 rounded text-black">
-            <h1 className="text-xl font-bold mb-4">{post.title}</h1>
+            <h1 className="text-xl font-bold mb-2">{post.title}</h1>
+            {renderDate()}
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src={post.videoUrl}

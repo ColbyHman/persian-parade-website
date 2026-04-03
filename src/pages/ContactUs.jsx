@@ -31,7 +31,7 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <p>
-                  <strong>Phone:</strong> (844) 727-2331
+                  {/* <strong>Phone:</strong> (844) 727-2331 */}
                 </p>
                 <p>
                   <strong>Address:</strong><br />

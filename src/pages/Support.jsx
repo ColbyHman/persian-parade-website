@@ -21,8 +21,8 @@ export default function SupportPage() {
           </p>
           <p className="leading-relaxed">
             To become a member, please visit our{" "}
-            <a href="/membership" className="underline text-red-600 hover:text-red-700">
-              membership page
+            <a href="/contact-us" className="underline text-red-600 hover:text-red-700">
+              contact us page
             </a>{" "}
             or contact us at{" "}
             <a href="mailto:info@persianparade.com" className="underline text-red-600 hover:text-red-700">
@@ -98,7 +98,7 @@ export default function SupportPage() {
           </p>
           <p className="mt-6 leading-relaxed">
             To donate, please visit our{" "}
-            <a href="/donate" className="underline !text-white hover:!text-red-300">
+            <a href="https://shop.persianparade.com/collections/donations" target="_blank" rel="noopener noreferrer" className="underline !text-white hover:!text-red-300">
               donation page
             </a>{" "}
             or contact us for more information at{" "}

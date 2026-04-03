@@ -15,6 +15,7 @@ const Navbar = () => {
     "Press Room",
     "Sponsors",
     "Support",
+    "Post History",
     "Contact Us",
     // "Donate"
   ];

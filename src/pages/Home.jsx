@@ -28,7 +28,7 @@ const Home = () => {
           <h2 className="text-5xl font-bold text-center mb-10">Recent Posts</h2>
 
           <div className="flex flex-col gap-10 items-center">
-            {posts.map(post => (
+            {posts.filter(post => !post.hidden).map(post => (
               <FeedPost key={post.id} post={post} />
             ))}
           </div>
@@ -46,6 +46,24 @@ const Home = () => {
               className="max-w-md w-full h-auto rounded-lg shadow-md"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Donate Section */}
+      <section className="bg-red-600 text-white pb-16 px-4 md:px-12">
+        <div className="max-w-4xl mx-auto text-center pt-8">
+          <h2 className="text-3xl font-bold mb-4">Support the Persian Parade</h2>
+          <p className="text-lg mb-6 text-red-100">
+            Your generous donations help sustain our mission to promote Persian art, culture, and community spirit year-round. Every contribution makes a difference.
+          </p>
+          <a
+            href="https://shop.persianparade.com/collections/donations"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-red-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition"
+          >
+            Donate Now
+          </a>
         </div>
       </section>
 
