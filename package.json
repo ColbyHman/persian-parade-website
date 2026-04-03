@@ -23,14 +23,14 @@
     "swiper": "^12.1.2"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.0.0",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.24",
     "baseline-browser-mapping": "^2.9.19",
-    "eslint": "^10.0.3",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "playwright": "^1.58.2",
