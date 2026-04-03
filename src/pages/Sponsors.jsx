@@ -27,95 +27,114 @@ export default function SponsorsPage() {
             </div>
           </section>
 
-          <section>
-            <h2 className="text-3xl font-semibold mb-6 text-center">Sponsorship Levels</h2>
-            <div className="space-y-12">
-              <SponsorTier
-                name="Cyrus Cylinder Guild"
-                amount="$10,000"
-                benefits={[
-                  "Table for 10 at two Persian Parade Galas during the Parade year",
-                  "VIP seating at two Persian Parade Galas",
-                  "Special recognition on the Persian Parade website and at Galas",
-                  "Advertising with long banners along both sides of a float of your choice",
-                ]}
+          {/* Sponsorship Levels & Advertising Sponsorship - Side by Side */}
+          <div className="grid md:grid-cols-2 gap-12">
+            <section>
+              <h2 className="text-3xl font-semibold mb-6 text-center">Sponsorship Levels</h2>
+              <div className="space-y-12">
+                <SponsorTier
+                  name="Cyrus Cylinder Guild"
+                  amount="$10,000"
+                  benefits={[
+                    "Table for 10 at two Persian Parade Galas during the Parade year",
+                    "VIP seating at two Persian Parade Galas",
+                    "Special recognition on the Persian Parade website and at Galas",
+                    "Advertising with long banners along both sides of a float of your choice",
+                  ]}
                 />
-              <SponsorTier
-                name="Persepolis Patron"
-                amount="$7,500"
-                benefits={[
-                  "Table for 10 at one Persian Parade Gala",
-                  "VIP seating at one Persian Parade Gala",
-                  "Special recognition on the Persian Parade website and at Gala",
-                  "Advertising with long banners along one side of a float of your choice",
-                ]}
+                <SponsorTier
+                  name="Persepolis Patron"
+                  amount="$7,500"
+                  benefits={[
+                    "Table for 10 at one Persian Parade Gala",
+                    "VIP seating at one Persian Parade Gala",
+                    "Special recognition on the Persian Parade website and at Gala",
+                    "Advertising with long banner along one side of a float of your choice",
+                  ]}
                 />
-              <SponsorTier
-                name="Float Sponsor"
-                amount="$5,000"
-                benefits={[
-                  "4 tickets to one Persian Parade Gala",
-                  "Custom artistic design request for float (subject to Executive Board approval)",
-                  "Recognition on website and at Gala",
-                  "Long banner along one side of a float of your choice",
-                ]}
+                <SponsorTier
+                  name="Float Sponsor"
+                  amount="$5,000"
+                  benefits={[
+                    "4 tickets to one Persian Parade Gala",
+                    "Custom artistic design request for float (subject to Executive Board approval)",
+                    "Recognition on website and at Gala",
+                    "Long banner along one side of a float of your choice",
+                  ]}
                 />
-            </div>
-          </section>
+              </div>
+            </section>
 
-          {/* Advertising Sponsorship */}
-          <section>
-            <h2 className="text-3xl font-semibold mb-6 text-center">Advertising Sponsorship</h2>
-            <div className="space-y-12">
-              <SponsorTier
-                name="Sponsor"
-                amount="$2,000"
-                benefits={[
-                  "Display long banners along both sides of a float of your choice",
-                  "Acknowledgment on the Persian Parade website for one year",
-                  "Subject to Executive Board approval",
-                ]}
+            <section>
+              <h2 className="text-3xl font-semibold mb-6 text-center">Advertising Sponsorship</h2>
+              <div className="space-y-12">
+                <SponsorTier
+                  name="Sponsor"
+                  amount="$2,000"
+                  benefits={[
+                    "Display long banners along both sides of a float of your choice",
+                    "Acknowledgment on the Persian Parade website for one year",
+                    "Subject to Executive Board approval",
+                  ]}
                 />
-              <SponsorTier
-                name="Sponsor"
-                amount="$1,000"
-                benefits={[
-                  "Display a long banner along one side of a float, OR",
-                  "Display two small banners along both sides of a float",
-                  "Acknowledgment on the website for one year",
-                  "Subject to Executive Board approval",
-                ]}
+                <SponsorTier
+                  name="Sponsor"
+                  amount="$1,000"
+                  benefits={[
+                    "Display a long banner along one side of a float, OR",
+                    "Display two small banners along both sides of a float",
+                    "Acknowledgment on the website for one year",
+                    "Subject to Executive Board approval",
+                  ]}
                 />
-              <SponsorTier
-                name="Sponsor"
-                amount="$500"
-                benefits={[
-                  "Display a small banner on one side of a float",
-                  "Acknowledgment on the website for one year",
-                  "Subject to Executive Board approval",
-                ]}
+                <SponsorTier
+                  name="Sponsor"
+                  amount="$500"
+                  benefits={[
+                    "Display a small banner on one side of a float",
+                    "Acknowledgment on the website for one year",
+                    "Subject to Executive Board approval",
+                  ]}
                 />
-            </div>
-          </section>
+              </div>
+            </section>
+          </div>
+        </div>
 
-          {/* Friends of the Parade */}
-          <section className="text-center">
+        {/* Contact to Become a Sponsor */}
+        <section className="bg-gray-100 py-16 px-6 text-center border-y border-gray-200">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Become a Sponsor</h2>
+            <p className="text-gray-700 text-lg">
+              If you would like to become a sponsor, please reach out to{" "}
+              <a href="mailto:info@persianparade.com" className="text-red-600 underline hover:text-red-800 font-semibold">
+                info@persianparade.com
+              </a>.
+            </p>
+          </div>
+        </section>
+
+        {/* Friends of the Parade - Full Width */}
+        <section className="bg-red-600 text-white py-12 px-6 text-center">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-semibold mb-4">Friends of the Persian Parade</h2>
-            <p className="text-gray-700 mb-4">
+            <p className="text-white mb-4">
               We welcome donations of any amount. Every contribution helps us sustain and grow this cultural celebration.
             </p>
             <a
               href="https://shop.persianparade.com/collections/donations"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+              className="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Donate Now
             </a>
-          </section>
+          </div>
+        </section>
 
-          {/* Corporate Partnerships */}
-          <section className="bg-gray-50 rounded-xl p-8">
+        {/* Corporate Partnerships */}
+        <section className="bg-gray-50 py-12 px-6">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-semibold mb-4 text-center">Corporate Partnership</h2>
             <p className="text-gray-700 text-lg mb-4 text-center max-w-3xl mx-auto">
               We collaborate with corporations to develop customized partnerships that align with your business goals. Enjoy exclusive co-branding, employee access, float advertising, and recognition across our digital and physical platforms.
@@ -125,16 +144,14 @@ export default function SponsorsPage() {
               <a
                 href="mailto:PR@PersianParade.com"
                 className="text-red-600 underline hover:text-red-800"
-                >
+              >
                 PR@PersianParade.com
               </a>.
             </p>
-          </section>
-        </div>
-      <Footer/>
+          </div>
+        </section>
       </div>
+      <Footer/>
     </div>
   );
 }
-
-
