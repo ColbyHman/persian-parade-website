@@ -1,6 +1,17 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 8,
+    type: 'image',
+    title: 'Persian Day Parade 2026',
+    date: '2026-04-17',
+    imageUrl: '/images/april-poster.jpg',
+    caption: 'With heavy hearts, we dedicate this year\'s Parade to the Iranian people who sacrificed their lives or freedom for democracy, dignity, and a better future, and to all those who have lost their loves in the ongoing conflict. Persian Parade 2026 | Madison Ave (between 38th St. and 26th St.) NYC | Time: 12:00PM',
+    content: [],
+    ctaText: 'Learn How to Participate',
+    ctaLink: '/support'
+  },
+  {
     id: 7,
     type: 'text',
     title: 'Persian Parade Foundation Announces 2026 Annual Persian Day Parade',

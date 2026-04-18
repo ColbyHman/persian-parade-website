@@ -132,21 +132,36 @@ const FeedPost = ({ post }) => {
       );
 
     case 'video':
+    case 'image':
       return (
         <div className={baseContainerClasses}>
-          {/* White box behind video title and container */}
           <article className="bg-white p-6 rounded text-black">
             <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
             {renderDate()}
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                src={post.videoUrl}
-                title={post.title}
-                allowFullScreen
-                className="absolute top-0 left-0 w-full h-full rounded"
-                frameBorder="0"
+            {post.type === 'video' ? (
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src={post.videoUrl}
+                  title={post.title}
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full rounded"
+                  frameBorder="0"
+                />
+              </div>
+            ) : (
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="w-full rounded"
               />
-            </div>
+            )}
+            {post.caption && (
+              <div className="mt-4 text-center text-gray-700">
+                {post.caption.split(' | ').map((line, i) => (
+                  <p key={i} className="mb-1">{line}</p>
+                ))}
+              </div>
+            )}
           </article>
         </div>
       );
