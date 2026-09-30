@@ -22,9 +22,9 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-          <p>📞 (201) 690-6511</p>
-          <p>✉️ info@persianparade.com</p>
-          <p>📍 25 Central Park West</p>
+          <p>(201) 690-6511</p>
+          <p>info@persianparade.com</p>
+          <p>25 Central Park West</p>
           <p>   New York, NY 10023</p>
         </div>
       </div>
