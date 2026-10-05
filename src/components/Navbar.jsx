@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
       <div className="w-full max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className='flex items-center' onClick={closeMenu}>
-          <img src={logo} alt="Persian Parade" className='h-10 w-auto' />
+          <img src={logo} alt="Persian Parade" className='h-10 w-auto' width={480} height={135} decoding="async" />
         </Link>
 
         {/* Desktop Menu */}

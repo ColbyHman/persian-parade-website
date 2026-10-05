@@ -68,6 +68,10 @@ export default function PressRoom() {
                 src={post.image}
                 alt={post.title}
                 className="w-full h-40 object-contain mb-4"
+                width={320}
+                height={160}
+                loading="lazy"
+                decoding="async"
               />
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
               <p className="text-gray-600 text-sm">{post.blurb}</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer"
+import { imgProps } from "../lib/images"
 
 export default function EventsPage() {
   return (
@@ -17,9 +18,12 @@ export default function EventsPage() {
             <div className="md:flex">
               <div className="md:w-1/2 flex items-center justify-center bg-gray-50">
                 <img
-                  src="/images/parade-poster.jpg"
-                  alt="Persian Parade 2026"
-                  className="w-full h-auto object-contain max-h-full"
+                  {...imgProps('/images/parade-poster.jpg', {
+                    alt: "Persian Parade 2026",
+                    className: "w-full h-auto object-contain max-h-full",
+                    sizes: "(max-width: 768px) 100vw, 50vw",
+                    loading: "lazy",
+                  })}
                 />
               </div>
               <div className="md:w-1/2 p-8 flex flex-col justify-center">

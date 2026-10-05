@@ -1,6 +1,7 @@
 import React from "react";
 import SponsorTier from "../components/SponsorTier";
 import Footer from "../components/Footer";
+import { imgProps } from "../lib/images";
 
 export default function SponsorsPage() {
   return (
@@ -20,9 +21,12 @@ export default function SponsorsPage() {
             <h2 className="text-3xl font-semibold mb-8">Current Sponsors</h2>
             <div className="flex flex-col items-center gap-8">
               <img
-                src="/images/aha-ad.jpg"
-                alt="AHA Persian School"
-                className="max-w-md w-full h-auto rounded-lg shadow-md"
+                {...imgProps('/images/aha-ad.jpg', {
+                  alt: "AHA Persian School",
+                  className: "max-w-md w-full h-auto rounded-lg shadow-md",
+                  sizes: "(max-width: 448px) 100vw, 448px",
+                  loading: "lazy",
+                })}
               />
             </div>
           </section>
