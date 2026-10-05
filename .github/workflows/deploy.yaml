@@ -27,7 +27,7 @@ jobs:
       - name: Sync to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          args: --delete --cache-control "max-age=31536000, immutable"
+          args: --delete
         env:
           AWS_S3_BUCKET: persian-parade
           AWS_REGION: us-east-1
@@ -35,29 +35,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      # Content-hashed bundles (JS/CSS/fonts) can be cached forever, but
-      # public/ assets like /gallery and /images keep stable names. Give those a
-      # short TTL so a re-upload is picked up without a manual flush.
-      - name: Relax cache headers on non-hashed assets
-        env:
-          AWS_S3_BUCKET: persian-parade
-          AWS_REGION: us-east-1
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 sync ./dist "s3://$AWS_S3_BUCKET" \
-            --exclude "*" \
-            --include "gallery/*" --include "images/*" --include "*.html" \
-            --cache-control "max-age=3600, must-revalidate" \
-            --no-progress
-
-      # Only the entry HTML and the un-hashed public assets need invalidating.
-      # Wiping "/*" threw away ~50MB of cached imagery on every push, which is
-      # what made repeat visits feel slow.
       - name: Invalidate CloudFront cache
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/index.html" "/gallery/*" "/images/*"
+          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
