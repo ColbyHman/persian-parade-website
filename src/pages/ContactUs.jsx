@@ -30,15 +30,6 @@ export default function ContactPage() {
                     info@persianparade.com
                   </a>
                 </p>
-                <p>
-                  <strong>Phone:</strong> (201) 690-6511
-                </p>
-                <p>
-                  <strong>Address:</strong><br />
-                  Persian Parade Foundation<br />
-                  25 Central Park West<br />
-                  New York, NY 10023
-                </p>
               </div>
             </div>
 

@@ -22,7 +22,6 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-          <p>(201) 690-6511</p>
           <p>info@persianparade.com</p>
         </div>
       </div>
