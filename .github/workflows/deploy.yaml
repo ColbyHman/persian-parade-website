@@ -24,21 +24,34 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Sync to S3
-        uses: jakejarvis/s3-sync-action@v0.5.1
-        with:
-          args: --delete --cache-control "max-age=31536000, immutable"
+      # Cache headers differ by asset class, so this uses the AWS CLI directly
+      # rather than an action wrapper (jakejarvis/s3-sync-action expands its
+      # args unquoted, which mangles any value containing a space):
+      #   - /assets/*  content-hashed by Vite  -> cache forever
+      #   - everything else (stable filenames) -> revalidate hourly
+      #
+      # The two steps are disjoint by --exclude/--include, and the order matters:
+      #   Step 1 uses `cp --recursive`, which always re-uploads. That guarantees
+      #   immutable headers land on hashed bundles even when their content is
+      #   unchanged, which `sync` would skip.
+      #   Step 2 uses `sync --delete` so stale files under /gallery and /images
+      #   are still removed. `sync` skipping unchanged files is fine here
+      #   because step 1 never touches these paths.
+      - name: Sync hashed assets with immutable caching
         env:
           AWS_S3_BUCKET: persian-parade
           AWS_REGION: us-east-1
-          SOURCE_DIR: ./dist
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp ./dist "s3://$AWS_S3_BUCKET" \
+            --recursive \
+            --exclude "*" \
+            --include "assets/*" \
+            --cache-control "max-age=31536000, immutable" \
+            --no-progress
 
-      # Content-hashed bundles (JS/CSS/fonts) can be cached forever, but
-      # public/ assets like /gallery and /images keep stable names. Give those a
-      # short TTL so a re-upload is picked up without a manual flush.
-      - name: Relax cache headers on non-hashed assets
+      - name: Sync unhashed assets with short-lived caching
         env:
           AWS_S3_BUCKET: persian-parade
           AWS_REGION: us-east-1
@@ -46,18 +59,24 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 sync ./dist "s3://$AWS_S3_BUCKET" \
+            --delete \
             --exclude "*" \
-            --include "gallery/*" --include "images/*" --include "*.html" \
+            --include "gallery/*" \
+            --include "images/*" \
+            --include "*.html" \
+            --include "*.svg" \
             --cache-control "max-age=3600, must-revalidate" \
             --no-progress
 
       # Only the entry HTML and the un-hashed public assets need invalidating.
-      # Wiping "/*" threw away ~50MB of cached imagery on every push, which is
-      # what made repeat visits feel slow.
+      # Invalidating "/*" discarded the entire cached image set on every push,
+      # which is what made repeat visits feel slow.
       - name: Invalidate CloudFront cache
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/index.html" "/gallery/*" "/images/*"
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/index.html" "/gallery/*" "/images/*"
