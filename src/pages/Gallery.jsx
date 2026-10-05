@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import albums from "../data/albums.js"
 import Footer from "../components/Footer.jsx";
+import { imgProps } from "../lib/images.js";
+
+// Album cards render at ~380 CSS px in a 3-col grid, and modal tiles at ~370px
+// on desktop. Both sizes let the browser pick the 400w candidate instead of the
+// full-size file the grid used to pull (2.8MB across four covers).
+const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+const TILE_SIZES = "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw";
 
 export default function Gallery() {
   const [activeAlbum, setActiveAlbum] = useState(null);
@@ -28,9 +35,11 @@ export default function Gallery() {
               >
                 <div className="overflow-hidden rounded-lg shadow-md">
                   <img
-                    src={album.cover}
-                    alt={`Parade ${album.year}`}
-                    className="object-cover w-full h-56 group-hover:scale-105 transition-transform duration-300"
+                    {...imgProps(album.cover, {
+                      alt: `Parade ${album.year}`,
+                      className: "object-cover w-full h-56 group-hover:scale-105 transition-transform duration-300",
+                      sizes: CARD_SIZES,
+                    })}
                     />
                 </div>
                 <h2 className="text-xl font-semibold mt-3 text-center">
@@ -76,9 +85,14 @@ export default function Gallery() {
                 {activeAlbum.images.map((src, index) => (
                   <img
                   key={index}
-                  src={src}
-                  alt={`Parade ${activeAlbum.year} - ${index + 1}`}
-                  className="rounded shadow-md object-cover w-full max-h-80"
+                  {...imgProps(src, {
+                    alt: `Parade ${activeAlbum.year} - ${index + 1}`,
+                    className: "rounded shadow-md object-cover w-full max-h-80",
+                    sizes: TILE_SIZES,
+                    // Above-the-fold tiles load immediately; the rest defer so
+                    // opening a 20-image album doesn't queue 20 requests.
+                    loading: index < 4 ? "eager" : "lazy",
+                  })}
                   />
                 ))}
               </div>

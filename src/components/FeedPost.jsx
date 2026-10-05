@@ -1,4 +1,13 @@
 import React from 'react';
+import { imgProps } from '../lib/images';
+
+// Post thumbnails come from /images and render at 192-256 CSS px on desktop,
+// well under the 400w candidate the optimizer generates.
+const img = (post, className) => imgProps(post.imageUrl, {
+  alt: post.title,
+  className,
+  loading: 'lazy',
+});
 
 const FeedPost = ({ post }) => {
   // Outer container stays the same
@@ -21,9 +30,8 @@ const FeedPost = ({ post }) => {
         <div className="w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post">
           <div className="md:flex gap-4">
             <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full md:w-48 rounded flex-shrink-0"
+              {...img(post, "w-full md:w-48 rounded flex-shrink-0")}
+              sizes="(max-width: 768px) 100vw, 192px"
             />
             <div>
               <h3 className="font-semibold text-black" style={{fontSize: 'clamp(1rem, 4vw, 1.5rem)'}}>{post.title}</h3>
@@ -51,9 +59,8 @@ const FeedPost = ({ post }) => {
             <div className="md:flex gap-6">
               {post.imageUrl && (
                 <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className="w-full md:w-64 rounded flex-shrink-0 mb-4 md:mb-0"
+                  {...img(post, "w-full md:w-64 rounded flex-shrink-0 mb-4 md:mb-0")}
+                  sizes="(max-width: 768px) 100vw, 256px"
                 />
               )}
               <div className="flex-1">
@@ -150,9 +157,7 @@ const FeedPost = ({ post }) => {
               </div>
             ) : (
               <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full rounded"
+                {...img(post, "w-full rounded")}
               />
             )}
             {post.caption && (

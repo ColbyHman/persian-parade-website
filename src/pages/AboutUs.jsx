@@ -1,7 +1,22 @@
-import about_image_1 from '../assets/about_1.png';
-import about_image_2 from '../assets/about_2.png';
-import about_image_3 from '../assets/about_3.png';
 import Footer from '../components/Footer';
+import { bundledImgProps, bundledFamily } from '../lib/images';
+
+// Bundled WebP: about_1.png was a 2.6MB PNG, now 223KB, plus @400w/@800w
+// siblings. These render inside max-w-md (448px) half-width columns.
+const ABOUT_SIZES = '(max-width: 768px) 100vw, 50vw';
+const aboutAssets = import.meta.glob('../assets/about_*.webp', { eager: true });
+// Intrinsic sizes of the full-size WebPs, so the browser reserves layout space
+// before the bytes arrive (the manifest can't help — these are bundled and
+// Vite renames them).
+const DIMS = {
+  'about_1.webp': [1165, 1420],
+  'about_2.webp': [1200, 799],
+  'about_3.webp': [800, 538],
+};
+const props = (name, alt, className) => bundledImgProps(
+  bundledFamily(aboutAssets, name),
+  { alt, className, sizes: ABOUT_SIZES, loading: 'lazy', width: DIMS[name][0], height: DIMS[name][1] },
+);
 
 export default function AboutUs() {
   return (
@@ -19,9 +34,7 @@ export default function AboutUs() {
           </div>
           <div className="w-full md:w-1/2 flex justify-center">
             <img
-              src={about_image_1}
-              alt="about-1"
-              className="w-full max-w-md md:max-w-full object-contain rounded"
+              {...props('about_1.webp', 'about-1', 'w-full max-w-md md:max-w-full object-contain rounded')}
               />
           </div>
         </div>
@@ -36,9 +49,7 @@ export default function AboutUs() {
           </div>
           <div className="w-full md:w-1/2 flex justify-center">
             <img
-              src={about_image_2}
-              alt="about-2"
-              className="w-full max-w-md md:max-w-full object-cover rounded"
+              {...props('about_2.webp', 'about-2', 'w-full max-w-md md:max-w-full object-cover rounded')}
               />
           </div>
         </div>
@@ -59,9 +70,7 @@ export default function AboutUs() {
           </div>
           <div className="w-full md:w-1/2 flex justify-center">
             <img
-              src={about_image_3}
-              alt="about-3"
-              className="w-full max-w-md md:max-w-full object-cover rounded"
+              {...props('about_3.webp', 'about-3', 'w-full max-w-md md:max-w-full object-cover rounded')}
               />
           </div>
         </div>

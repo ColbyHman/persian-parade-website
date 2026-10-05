@@ -3,6 +3,7 @@ import HomeSlider from '../components/HomeSlider';
 import FeedPost from '../components/FeedPost';
 import posts from '../data/posts';
 import Footer from '../components/Footer';
+import { imgProps } from '../lib/images';
 
 const Home = () => {
   return (
@@ -41,9 +42,12 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-center mb-10">Our Sponsors</h2>
           <div className="flex flex-col items-center gap-8">
             <img
-              src="/images/aha-ad.jpg"
-              alt="AHA Persian School - Sponsor"
-              className="max-w-md w-full h-auto rounded-lg shadow-md"
+              {...imgProps('/images/aha-ad.jpg', {
+                alt: "AHA Persian School - Sponsor",
+                className: "max-w-md w-full h-auto rounded-lg shadow-md",
+                sizes: "(max-width: 448px) 100vw, 448px",
+                loading: "lazy",
+              })}
             />
           </div>
         </div>

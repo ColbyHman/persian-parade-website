@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         
         <div className="flex flex-col items-start">
-          <img src={logo} alt="Logo" className="w-42 mb-4" />
+          <img src={logo} alt="Logo" className="w-42 mb-4" width={480} height={135} decoding="async" />
           <p className="text-sm text-gray-400">© {new Date().getFullYear()} Persian Parade Foundation - a 501(c)(3) non-profit organization</p>
         </div>
 
