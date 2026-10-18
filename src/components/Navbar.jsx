@@ -17,7 +17,7 @@ const Navbar = () => {
     "Support",
     "Post History",
     "Contact Us",
-    // "Donate"
+    "Donate",
   ];
 
   const toggleMenu = () => {
