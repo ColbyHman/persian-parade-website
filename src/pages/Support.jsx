@@ -98,7 +98,7 @@ export default function SupportPage() {
           </p>
           <p className="mt-6 leading-relaxed">
             To donate, please visit our{" "}
-            <a href="https://shop.persianparade.com/collections/donations" target="_blank" rel="noopener noreferrer" className="underline !text-white hover:!text-red-300">
+            <a href="/donate" className="underline !text-white hover:!text-red-300">
               donation page
             </a>{" "}
             or contact us for more information at{" "}
