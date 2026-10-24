@@ -1,6 +1,78 @@
 // src/data/posts.js
 export const posts = [
   {
+    id: 9,
+    type: 'text',
+    title: 'In Loving Memory of Mr. Ata Vosough',
+    date: '2026-10-24',
+    content: [
+      {
+        type: 'bold-paragraph',
+        text: 'April 6, 1934 – October 20, 2026'
+      },
+      {
+        type: 'bold-paragraph',
+        text: 'A Heartfelt Announcement from the Persian Parade Foundation'
+      },
+      {
+        type: 'paragraph',
+        text: "It is with profound sadness and heavy hearts that the Persian Parade Foundation announces the passing of one of its most devoted supporters, cherished friends, and longstanding members of our community, Mr. Ata Vosough, who passed away on October 20, 2026, at the age of 92."
+      },
+      {
+        type: 'paragraph',
+        text: "Since the very inception of the Persian Parade Foundation, Mr. Vosough and his beloved wife, Mrs. Sima Vosough, have been among the organization's most dedicated and generous supporters. Together, they devoted countless hours of volunteer service, made generous financial contributions, and organized numerous fundraising events to support the Foundation's mission of preserving, celebrating, and promoting the rich culture, history, traditions, and heritage of the Persian people."
+      },
+      {
+        type: 'paragraph',
+        text: "Their commitment went far beyond financial support. Through their kindness, generosity, enthusiasm, and unwavering dedication, they helped strengthen the Foundation and bring our community together in celebration of our shared cultural identity."
+      },
+      {
+        type: 'paragraph',
+        text: "Born on April 6, 1934, in Iran, Mr. Vosough lived a remarkable life filled with accomplishments, creativity, and service to others. A talented civil engineer, poet, and calligrapher, he contributed to important infrastructure and construction projects in Iran before immigrating to the United States with his family in 1978. Throughout his life, he remained deeply connected to his Persian heritage and took great pride in sharing its beauty and traditions with future generations."
+      },
+      {
+        type: 'paragraph',
+        text: "But beyond his professional accomplishments, Mr. Vosough will be remembered most for his warmth, humility, generosity, friendship, and genuine love for his community. He believed deeply in bringing people together, preserving cultural traditions, and building lasting friendships."
+      },
+      {
+        type: 'paragraph',
+        text: "For those of us who had the privilege of knowing him personally, his passing represents far more than the loss of a generous supporter. We have lost a dear friend, a respected elder, and a remarkable individual whose kindness and contributions touched so many lives."
+      },
+      {
+        type: 'paragraph',
+        text: "The Persian Parade Foundation extends its deepest condolences to his beloved wife, Sima, their children, Khashayar, Kiarash, and Katayoun, and the entire Vosough family."
+      },
+      {
+        type: 'paragraph',
+        text: "We will forever be grateful for his friendship, his generosity, and the extraordinary support he and his wife provided to our Foundation over the years."
+      },
+      {
+        type: 'paragraph',
+        text: "His legacy will live on through the many lives he touched, the friendships he nurtured, and the Persian cultural heritage he worked so passionately to preserve."
+      },
+      {
+        type: 'paragraph',
+        text: "Dear Ata, thank you for everything you have done for our community. Your kindness, dedication, and friendship will never be forgotten."
+      },
+      {
+        type: 'paragraph',
+        text: "You will be deeply missed, but your memory will forever remain in our hearts."
+      },
+      {
+        type: 'bold-paragraph',
+        text: "May his soul rest in eternal peace."
+      },
+      {
+        type: 'paragraph',
+        text: "With deepest sympathy and heartfelt gratitude,"
+      },
+      {
+        type: 'bold-paragraph',
+        text: "Persian Parade Foundation Inc. Board of Directors"
+      }
+    ]
+  },
+  {
     id: 8,
     type: 'image',
     title: 'Persian Day Parade 2026',
