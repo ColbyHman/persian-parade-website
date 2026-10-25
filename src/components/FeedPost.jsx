@@ -103,6 +103,12 @@ const FeedPost = ({ post }) => {
           <article className="bg-white p-6 rounded text-black text-left">
                 <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
             {renderDate()}
+            {post.imageUrl && (
+              <img
+                {...img(post, "w-48 md:w-56 rounded shadow mx-auto mb-4 block")}
+                sizes="(max-width: 768px) 50vw, 224px"
+              />
+            )}
             {post.content.map((item, index) => {
               if (typeof item === 'string') {
                 // Backward compatibility: treat as paragraph

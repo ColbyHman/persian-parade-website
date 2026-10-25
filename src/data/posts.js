@@ -5,6 +5,7 @@ export const posts = [
     type: 'text',
     title: 'In Loving Memory of Mr. Ata Vosough',
     date: '2026-10-24',
+    imageUrl: '/images/ata-vosough.jpg',
     content: [
       {
         type: 'bold-paragraph',
