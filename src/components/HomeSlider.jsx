@@ -78,7 +78,8 @@ const HomeSlider = ({ children, className = '' }) => {
               }
         }
         loop={SLIDES.length > 1}
-        spaceBetween={8}
+        // Photos sit edge to edge; any gap shows the black backdrop as a line.
+        spaceBetween={0}
         slidesPerView={1} // default fallback
         slidesPerGroup={1}
         // Don't let a fast swipe fling past several photos at once.
