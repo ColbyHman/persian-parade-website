@@ -105,7 +105,21 @@ button:hover {
 /* Home Slider */
 
 .home-slider {
-  background-color: var(--color-secondary-dark);
+  /* Swiper's default arrows/dots are iOS blue; use white over the photos. */
+  --swiper-theme-color: #fff;
+  --swiper-navigation-size: 32px;
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+
+/* Ease in and out of each move rather than Swiper's linear-ish default. */
+.home-slider .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.home-slider .swiper-button-prev,
+.home-slider .swiper-button-next {
+  filter: drop-shadow(0 1px 3px rgb(0 0 0 / 0.6));
 }
 
 /* Posts */
