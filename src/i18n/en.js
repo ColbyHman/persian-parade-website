@@ -42,7 +42,7 @@ export default {
 
   // ------------------------------------------------------------------ home
   'home.ourSponsors': 'Our Sponsors',
-  'home.sponsorAlt': 'AHA Persian School - Sponsor',
+  'home.sponsorAlt': 'AHA Inc. - Sponsor',
 
   // ----------------------------------------------------------------- about
   'about.title': 'About Us',
@@ -126,7 +126,8 @@ export default {
   'sponsors.intro':
     'Partner with the Persian Parade Foundation to support cultural celebration, community pride, and the promotion of Iranian heritage in New York City.',
   'sponsors.current': 'Current Sponsors',
-  'sponsors.ahaAlt': 'AHA Persian School',
+  'sponsors.ahaAlt': 'AHA Inc.',
+  'sponsors.ahaDesc': 'Printing and advertising',
   'sponsors.levels': 'Sponsorship Levels',
   'sponsors.advertising': 'Advertising Sponsorship',
   'sponsors.tier.cyrus': 'Cyrus Cylinder Guild',

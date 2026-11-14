@@ -34,7 +34,10 @@ export default function SponsorsPage() {
               loading: "lazy",
             })}
           />
-          <p className="font-bold text-lg">AHA Persian School</p>
+          <div>
+            <p className="font-bold text-lg"><bdi dir="ltr">AHA Inc.</bdi></p>
+            <p className="text-gray-700">{t('sponsors.ahaDesc')}</p>
+          </div>
         </Card>
       </Section>
 

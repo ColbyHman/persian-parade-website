@@ -183,7 +183,8 @@ function Sponsors() {
           })}
         />
         <div>
-          <p className="font-bold sm:text-lg">AHA Persian School</p>
+          <p className="font-bold sm:text-lg"><bdi dir="ltr">AHA Inc.</bdi></p>
+          <p className="text-[0.95rem] sm:text-base text-gray-700 mb-1">{t('sponsors.ahaDesc')}</p>
           <p className="text-[0.95rem] sm:text-base">
             {t('sponsorsStrip.thanks')}{' '}
             <LocalLink to="/sponsors" className="font-bold text-pp-green-dark hover:text-pp-green-dark hover:underline">

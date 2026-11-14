@@ -120,8 +120,8 @@
     "status": "machine"
   },
   "home.sponsorAlt": {
-    "text": "AHA Persian School - حامی",
-    "source": "68cff0f4",
+    "text": "AHA Inc. - حامی",
+    "source": "d568e302",
     "status": "machine"
   },
   "about.title": {
@@ -390,8 +390,13 @@
     "status": "machine"
   },
   "sponsors.ahaAlt": {
-    "text": "AHA Persian School",
-    "source": "812270b5",
+    "text": "AHA Inc.",
+    "source": "c42f809b",
+    "status": "machine"
+  },
+  "sponsors.ahaDesc": {
+    "text": "چاپ و تبلیغات",
+    "source": "3e2e27af",
     "status": "machine"
   },
   "sponsors.levels": {
