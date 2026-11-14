@@ -1,119 +1,81 @@
 import React from "react";
 import Footer from "../components/Footer";
 import { useI18n, Trans, LocalLink } from "../i18n";
+import { PageHeader, Section, Card, EmailLink, DonateBand, proseLink } from "../components/ui";
 
 const COMMITTEES = ['art', 'dance', 'fundraising', 'pr', 'culture', 'digital', 'events', 'music'];
 const OPENINGS = ['artDirector', 'digitalDirector'];
 
-const Email = ({ onRed }) => (
-  <a
-    href="mailto:info@persianparade.com"
-    dir="ltr"
-    className={onRed ? "underline !text-white hover:!text-pp-gold" : "underline text-pp-red hover:text-pp-red-dark"}
-  >
-    info@persianparade.com
-  </a>
-);
-
 export default function SupportPage() {
   const { t } = useI18n();
-  const link = (to, key, onRed) => (
-    <LocalLink
-      to={to}
-      className={onRed ? "underline !text-white hover:!text-pp-gold" : "underline text-pp-red hover:text-pp-red-dark"}
-    >
+  const link = (to, key) => (
+    <LocalLink to={to} className={proseLink}>
       {t(key)}
     </LocalLink>
   );
 
   return (
-    <div>
-      {/* Support Us Banner - Red background with white text */}
-      <div className="bg-pp-red text-white py-16 px-6 shadow-xl">
-        <h1 className="text-4xl font-bold text-center mb-4">{t('support.title')}</h1>
-        <p className="max-w-xl mx-auto text-center text-white">
-          {t('support.intro')}
-        </p>
-      </div>
+    <div className="bg-pp-paper text-pp-ink">
+      <PageHeader title={t('support.title')} intro={t('support.intro')} image="/images/slider/ZFNY-131-scaled.jpg" />
 
-      {/* Become a Member - White background, black text */}
-      <div className="bg-white text-black">
-        <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
-          <h2 className="text-3xl font-semibold mb-6">{t('support.memberTitle')}</h2>
-          <p className="mb-6 leading-relaxed">
-            {t('support.memberBody')}
-          </p>
+      {/* Become a Member / Become a Sponsor */}
+      <Section>
+        <div className="grid md:grid-cols-2 gap-5 md:gap-8">
+          <Card>
+            <h2 className="font-serif font-bold text-2xl mb-3">{t('support.memberTitle')}</h2>
+            <p className="mb-3 leading-relaxed">{t('support.memberBody')}</p>
+            <p className="leading-relaxed">
+              <Trans
+                k="support.memberHow"
+                values={{ contactLink: link('/contact-us', 'support.contactPageLink'), email: <EmailLink /> }}
+              />
+            </p>
+          </Card>
+          <Card accent="gold">
+            <h2 className="font-serif font-bold text-2xl mb-3">{t('support.sponsorTitle')}</h2>
+            <p className="mb-3 leading-relaxed">{t('support.sponsorBody')}</p>
+            <p className="leading-relaxed">
+              <Trans
+                k="support.sponsorHow"
+                values={{ sponsorLink: link('/sponsors', 'support.sponsorPageLink'), email: <EmailLink /> }}
+              />
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Become a Volunteer */}
+      <Section id="volunteer" tone="white" title={t('support.volunteerTitle')}>
+        <p className="mb-4 leading-relaxed max-w-3xl">{t('support.volunteerBody')}</p>
+        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-6">
+          {COMMITTEES.map((c) => (
+            <li
+              key={c}
+              className="flex items-center gap-2 rounded-lg border border-stone-200 bg-pp-paper px-3 py-2 font-semibold leading-snug"
+            >
+              <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-pp-green" />
+              {t(`support.committee.${c}`)}
+            </li>
+          ))}
+        </ul>
+        <div className="grid md:grid-cols-2 gap-5 md:gap-8 items-start">
+          <Card accent="red">
+            <h3 className="font-bold text-lg mb-2">{t('support.openings')}</h3>
+            <ul className="list-disc ps-5 space-y-1">
+              {OPENINGS.map((o) => (
+                <li key={o}>{t(`support.opening.${o}`)}</li>
+              ))}
+            </ul>
+          </Card>
           <p className="leading-relaxed">
-            <Trans
-              k="support.memberHow"
-              values={{ contactLink: link('/contact-us', 'support.contactPageLink'), email: <Email /> }}
-            />
+            <Trans k="support.volunteerHow" values={{ email: <EmailLink /> }} />
           </p>
         </div>
-      </div>
+      </Section>
 
-      {/* Become a Sponsor - Red background, white text */}
-      <div className="bg-pp-red text-white">
-        <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
-          <h2 className="text-3xl font-semibold mb-6">{t('support.sponsorTitle')}</h2>
-          <p className="mb-6 leading-relaxed">
-            {t('support.sponsorBody')}
-          </p>
-          <p className="leading-relaxed">
-            <Trans
-              k="support.sponsorHow"
-              values={{ sponsorLink: link('/sponsors', 'support.sponsorPageLink', true), email: <Email onRed /> }}
-            />
-          </p>
-        </div>
-      </div>
-
-      {/* Become a Volunteer - White background, black text */}
-      <div className="bg-white text-black">
-        <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
-          <h2 className="text-3xl font-semibold mb-6">{t('support.volunteerTitle')}</h2>
-          <p className="mb-6 leading-relaxed">
-            {t('support.volunteerBody')}
-          </p>
-
-          <ul className="list-disc list-inside mb-6 space-y-2">
-            {COMMITTEES.map((c) => (
-              <li key={c}>{t(`support.committee.${c}`)}</li>
-            ))}
-          </ul>
-
-          <p className="mb-6 leading-relaxed">
-            {t('support.openings')}
-          </p>
-
-          <ul className="list-disc list-inside mb-6 space-y-2">
-            {OPENINGS.map((o) => (
-              <li key={o}>{t(`support.opening.${o}`)}</li>
-            ))}
-          </ul>
-
-          <p className="leading-relaxed">
-            <Trans k="support.volunteerHow" values={{ email: <Email /> }} />
-          </p>
-        </div>
-      </div>
-
-      {/* Become a Donor - Red background, white text */}
-      <div className="bg-pp-red text-white">
-        <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
-          <h2 className="text-3xl font-semibold mb-6">{t('support.donorTitle')}</h2>
-          <p className="leading-relaxed">
-            {t('common.donationAppeal')}
-          </p>
-          <p className="mt-6 leading-relaxed">
-            <Trans
-              k="support.donorHow"
-              values={{ donateLink: link('/donate', 'support.donatePageLink', true), email: <Email onRed /> }}
-            />
-          </p>
-        </div>
+      {/* Become a Donor */}
+      <DonateBand title={t('support.donorTitle')} body={t('common.donationAppeal')} cta={t('cta.donateNow')} to="/donate" />
       <Footer />
-      </div>
     </div>
   );
 }

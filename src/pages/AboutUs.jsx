@@ -1,9 +1,11 @@
+import React from 'react';
 import Footer from '../components/Footer';
 import { bundledImgProps, bundledFamily } from '../lib/images';
 import { useI18n } from '../i18n';
+import { PageHeader, Section, DonateBand } from '../components/ui';
 
 // Bundled WebP: about_1.png was a 2.6MB PNG, now 223KB, plus @400w/@800w
-// siblings. These render inside max-w-md (448px) half-width columns.
+// siblings. Full width on phones (but height-capped), half width from md up.
 const ABOUT_SIZES = '(max-width: 768px) 100vw, 50vw';
 const aboutAssets = import.meta.glob('../assets/about_*.webp', { eager: true });
 // Intrinsic sizes of the full-size WebPs, so the browser reserves layout space
@@ -14,69 +16,54 @@ const DIMS = {
   'about_2.webp': [1200, 799],
   'about_3.webp': [800, 538],
 };
-const props = (name, alt, className) => bundledImgProps(
+// Phones: a short cropped strip so the page stays compact; md+: natural ratio
+// (the portrait about_1 is capped so it doesn't tower over its text).
+const IMG_CLASS = 'w-full h-48 sm:h-72 md:h-auto md:max-h-[32rem] object-cover rounded-xl shadow-sm';
+const props = (name, alt) => bundledImgProps(
   bundledFamily(aboutAssets, name),
-  { alt, className, sizes: ABOUT_SIZES, loading: 'lazy', width: DIMS[name][0], height: DIMS[name][1] },
+  { alt, className: IMG_CLASS, sizes: ABOUT_SIZES, loading: 'lazy', width: DIMS[name][0], height: DIMS[name][1] },
 );
+
+/** Text + image side by side from md up; `flip` puts the image first. */
+function Row({ title, image, flip = false, children }) {
+  return (
+    <div className="grid md:grid-cols-2 items-center gap-5 md:gap-12">
+      <div className={flip ? 'md:order-last' : ''}>
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl mb-3 sm:mb-5">{title}</h2>
+        <div className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed">{children}</div>
+      </div>
+      {image}
+    </div>
+  );
+}
 
 export default function AboutUs() {
   const { t } = useI18n();
   return (
-    <div>
-      <div className="text-black py-20 space-y-24 px-6 md:px-12">
+    <div className="bg-pp-paper text-pp-ink">
+      <PageHeader title={t('about.title')} image="/images/slider/ZFNY-416-scaled.jpg" />
 
-        {/* Row 1: text | image */}
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <div className="w-full md:w-1/2 text-center md:text-start">
-            <h1 className="text-5xl font-bold mb-6">{t('about.title')}</h1>
-            <h3 className="text-3xl mb-6">{t('about.subtitle')}</h3>
-            <p className="text-lg max-w-3xl mx-auto md:mx-0">
-              {t('about.founded')}
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img
-              {...props('about_1.webp', t('about.img1Alt'), 'w-full max-w-md md:max-w-full object-contain rounded')}
-              />
-          </div>
-        </div>
+      <Section tone="white">
+        <Row title={t('about.subtitle')} image={<img {...props('about_1.webp', t('about.img1Alt'))} />}>
+          <p>{t('about.founded')}</p>
+        </Row>
+      </Section>
 
-        {/* Row 2: image | text */}
-        <div className="flex flex-col md:flex-row-reverse items-center gap-10">
-          <div className="w-full md:w-1/2 text-center md:text-start">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{t('about.leadershipTitle')}</h1>
-            <p className="text-base md:text-lg max-w-3xl mx-auto md:mx-0">
-              {t('about.leadership')}
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img
-              {...props('about_2.webp', t('about.img2Alt'), 'w-full max-w-md md:max-w-full object-cover rounded')}
-              />
-          </div>
-        </div>
+      <Section>
+        <Row flip title={t('about.leadershipTitle')} image={<img {...props('about_2.webp', t('about.img2Alt'))} />}>
+          <p>{t('about.leadership')}</p>
+        </Row>
+      </Section>
 
-        {/* Row 3: text | image */}
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <div className="w-full md:w-1/2 text-center md:text-start">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{t('about.missionTitle')}</h1>
-            <p className="text-lg max-w-3xl py-5 mx-auto md:mx-0">
-              {t('about.mission1')}
-            </p>
-            <p className="text-lg max-w-3xl py-5 mx-auto md:mx-0">
-              {t('about.mission2')}
-            </p>
-            <p className="text-lg max-w-3xl py-5 mx-auto md:mx-0">
-              {t('about.mission3')}
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img
-              {...props('about_3.webp', t('about.img3Alt'), 'w-full max-w-md md:max-w-full object-cover rounded')}
-              />
-          </div>
-        </div>
-      </div>
+      <Section tone="white">
+        <Row title={t('about.missionTitle')} image={<img {...props('about_3.webp', t('about.img3Alt'))} />}>
+          <p>{t('about.mission1')}</p>
+          <p>{t('about.mission2')}</p>
+          <p>{t('about.mission3')}</p>
+        </Row>
+      </Section>
+
+      <DonateBand title={t('support.donorTitle')} body={t('common.donationAppeal')} cta={t('cta.donateNow')} to="/donate" />
       <Footer />
     </div>
   );
