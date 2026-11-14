@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import logo from '../assets/pp_full_logo_upscaled_alt.png';
 import { useI18n, LocalLink, splitPath, localizePath } from '../i18n';
 
@@ -16,35 +16,28 @@ const LINKS = [
   ['nav.donate', '/donate'],
 ];
 
-// Each option is labelled in its own language so a reader who can't read the
-// current page can still find theirs.
-const LANG_OPTIONS = [
-  ['en', 'English'],
-  ['fa', 'فارسی'],
-];
+// One small link to the *other* language, labelled in that language so a
+// reader who can't read the current page can still find theirs. The visible
+// pill is compact; an invisible ::after extends the tap target to 44px.
+const OTHER = { en: ['fa', 'فارسی'], fa: ['en', 'English'] };
 
-function LanguageSwitch({ onSwitch, className = '' }) {
+function LanguageSwitch({ onSwitch }) {
   const { lang, t } = useI18n();
   const { pathname, search, hash } = useLocation();
   const { path } = splitPath(pathname);
+  const [code, label] = OTHER[lang];
   return (
-    <div role="group" aria-label={t('lang.label')} className={`flex shrink-0 rounded-full border-2 border-gray-800 overflow-hidden ${className}`}>
-      {LANG_OPTIONS.map(([code, label]) => (
-        <Link
-          key={code}
-          to={localizePath(path, code) + search + hash}
-          lang={code}
-          hrefLang={code}
-          aria-current={lang === code ? 'true' : undefined}
-          onClick={onSwitch}
-          className={`px-2.5 sm:px-3 py-2 min-h-11 flex items-center text-sm sm:text-base font-semibold no-underline transition ${
-            lang === code ? 'bg-gray-800 !text-white' : '!text-gray-800 hover:bg-gray-100'
-          }`}
-        >
-          {label}
-        </Link>
-      ))}
-    </div>
+    <Link
+      to={localizePath(path, code) + search + hash}
+      lang={code}
+      hrefLang={code}
+      title={t('lang.label')}
+      onClick={onSwitch}
+      className="relative shrink-0 inline-flex items-center gap-1 rounded-full border border-gray-300 px-2.5 py-1 text-sm font-semibold !text-gray-800 no-underline hover:bg-gray-100 transition after:absolute after:-inset-x-1 after:-inset-y-2 after:content-['']"
+    >
+      <GlobeAltIcon aria-hidden="true" className="w-4 h-4" />
+      {label}
+    </Link>
   );
 }
 
