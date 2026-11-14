@@ -71,6 +71,13 @@
 }
 
 
+/* Farsi: Vazirmatn (self-hosted via @fontsource, no Google Fonts call) and a
+   taller line height for Persian script. */
+html[lang='fa'] body {
+  font-family: 'Vazirmatn Variable', Tahoma, system-ui, sans-serif;
+  line-height: 1.8;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

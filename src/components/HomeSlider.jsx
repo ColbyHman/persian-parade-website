@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay, Keyboard, A11y } from 'swiper/modules';
 import { imgProps } from '../lib/images.js';
+import { useI18n } from '../i18n';
 
 // Slides live in public/images/slider so scripts/optimize-images.mjs can give
 // each one @400w/@800w variants and an intrinsic size. They used to sit in
@@ -30,9 +31,13 @@ const prefersReducedMotion =
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 const HomeSlider = () => {
+  const { dir, t } = useI18n();
   return (
-    <div className='home-slider w-screen overflow-hidden bg-black'>
+    <div className='home-slider w-screen overflow-hidden bg-black' role='region' aria-label={t('slider.label')}>
       <Swiper
+        // Swiper reads direction once at init, so remount when the language flips.
+        key={dir}
+        dir={dir}
         modules={[Navigation, Pagination, Autoplay, Keyboard, A11y]}
         navigation
         pagination={{ clickable: true }}

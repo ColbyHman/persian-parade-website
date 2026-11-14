@@ -1,4 +1,3 @@
-import { React } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import './App.css'
@@ -14,22 +13,31 @@ import ContactUs from './pages/ContactUs';
 import History from './pages/History';
 import Donation from './pages/Donation';
 
+const PAGES = [
+  ['', <Home />],
+  ['/about-us', <AboutUs />],
+  ['/events', <Events />],
+  ['/gallery', <Gallery />],
+  ['/press-room', <PressRoom />],
+  ['/sponsors', <Sponsors />],
+  ['/support', <Support />],
+  ['/contact-us', <ContactUs />],
+  ['/post-history', <History />],
+  ['/donate', <Donation />],
+];
+
 function App() {
   return (
     <>
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/press-room" element={<PressRoom />} />
-          <Route path="/sponsors" element={<Sponsors />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/post-history" element={<History />} />
-          <Route path="/donate" element={<Donation />} />
+          {/* Every page exists twice: /about-us (English) and /fa/about-us (Farsi). */}
+          {['', '/fa'].flatMap((prefix) =>
+            PAGES.map(([path, element]) => (
+              <Route key={prefix + path} path={prefix + path || '/'} element={element} />
+            )),
+          )}
         </Routes>
       </main>
     </>

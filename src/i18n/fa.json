@@ -1,0 +1,687 @@
+{
+  "site.name": {
+    "text": "رژه ایرانیان",
+    "source": "8a539f1c",
+    "status": "machine"
+  },
+  "nav.home": {
+    "text": "خانه",
+    "source": "52f50eae",
+    "status": "machine"
+  },
+  "nav.about": {
+    "text": "درباره ما",
+    "source": "6dda792a",
+    "status": "machine"
+  },
+  "nav.events": {
+    "text": "رویدادها",
+    "source": "003420a4",
+    "status": "machine"
+  },
+  "nav.gallery": {
+    "text": "گالری",
+    "source": "d7b54cdd",
+    "status": "machine"
+  },
+  "nav.press": {
+    "text": "رسانه‌ها",
+    "source": "1a86f927",
+    "status": "machine"
+  },
+  "nav.sponsors": {
+    "text": "حامیان",
+    "source": "4a74184e",
+    "status": "machine"
+  },
+  "nav.support": {
+    "text": "حمایت",
+    "source": "6be6f488",
+    "status": "machine"
+  },
+  "nav.history": {
+    "text": "آرشیو پست‌ها",
+    "source": "26f5f07f",
+    "status": "machine"
+  },
+  "nav.contact": {
+    "text": "تماس با ما",
+    "source": "91dd0cb5",
+    "status": "machine"
+  },
+  "nav.donate": {
+    "text": "کمک مالی",
+    "source": "200c502a",
+    "status": "machine"
+  },
+  "nav.shop": {
+    "text": "فروشگاه",
+    "source": "28742cc9",
+    "status": "machine"
+  },
+  "nav.toggleMenu": {
+    "text": "باز و بسته کردن منو",
+    "source": "25a08590",
+    "status": "machine"
+  },
+  "lang.label": {
+    "text": "زبان",
+    "source": "9a73db9b",
+    "status": "machine"
+  },
+  "lang.machineNotice": {
+    "text": "این ترجمه فارسی به صورت خودکار تهیه شده و در حال بازبینی است. اگر چیزی اشتباه به نظر می‌رسد، لطفاً به ما اطلاع دهید.",
+    "source": "199bb77e",
+    "status": "machine"
+  },
+  "lang.englishOnly": {
+    "text": "این پست فقط به زبان انگلیسی موجود است.",
+    "source": "08522dab",
+    "status": "machine"
+  },
+  "footer.copyright": {
+    "text": "© {year} بنیاد رژه ایرانیان - سازمان غیرانتفاعی 501(c)(3)",
+    "source": "f9a68d0e",
+    "status": "machine"
+  },
+  "footer.about": {
+    "text": "درباره ما",
+    "source": "58e096de",
+    "status": "machine"
+  },
+  "footer.contact": {
+    "text": "تماس با ما",
+    "source": "73ac94c3",
+    "status": "machine"
+  },
+  "footer.contactHeading": {
+    "text": "تماس با ما",
+    "source": "91dd0cb5",
+    "status": "machine"
+  },
+  "footer.logoAlt": {
+    "text": "لوگوی بنیاد رژه ایرانیان",
+    "source": "13363ea0",
+    "status": "machine"
+  },
+  "cta.donateNow": {
+    "text": "همین حالا کمک مالی کنید",
+    "source": "fa20f12e",
+    "status": "machine"
+  },
+  "common.donationAppeal": {
+    "text": "کمک مالی سخاوتمندانه شما به حفظ مأموریت ما برای ترویج هنر، فرهنگ و روحیه جامعه ایرانی در طول سال کمک می‌کند. هر کمک مالی تأثیری می‌گذارد.",
+    "source": "d4ea1c32",
+    "status": "machine"
+  },
+  "home.welcome": {
+    "text": "به بنیاد رژه ایرانیان خوش آمدید",
+    "source": "37b59cd1",
+    "status": "machine"
+  },
+  "home.tagline": {
+    "text": "با افتخار و یگانگی، فرهنگ، میراث و جامعه ایرانی را جشن بگیریم!",
+    "source": "b60778ab",
+    "status": "machine"
+  },
+  "home.recentPosts": {
+    "text": "پست‌های اخیر",
+    "source": "f8697b6d",
+    "status": "machine"
+  },
+  "home.ourSponsors": {
+    "text": "حامیان ما",
+    "source": "8ac592c8",
+    "status": "machine"
+  },
+  "home.sponsorAlt": {
+    "text": "AHA Persian School - حامی",
+    "source": "68cff0f4",
+    "status": "machine"
+  },
+  "home.supportHeading": {
+    "text": "از رژه ایرانیان حمایت کنید",
+    "source": "d16e2290",
+    "status": "machine"
+  },
+  "about.title": {
+    "text": "درباره ما",
+    "source": "6dda792a",
+    "status": "machine"
+  },
+  "about.subtitle": {
+    "text": "رژه ایرانیان!",
+    "source": "a4911f40",
+    "status": "machine"
+  },
+  "about.founded": {
+    "text": "رژه ایرانیان در شهر نیویورک در سال ۲۰۰۴ توسط پزشکان ایرانی-آمریکایی آینده‌نگر، با هدف جشن گرفتن فرهنگ و میراث ایرانی، به ویژه در جشن‌های نوروز، تأسیس شد.",
+    "source": "1d23c41e",
+    "status": "machine"
+  },
+  "about.leadershipTitle": {
+    "text": "رهبری ما",
+    "source": "bcb4ae6c",
+    "status": "machine"
+  },
+  "about.leadership": {
+    "text": "بنیاد رژه ایرانیان توسط هیئت مدیره‌ای منتخب اداره می‌شود که از اعضای جامعه ایرانی منطقه نیویورک تشکیل شده است.",
+    "source": "3222b944",
+    "status": "machine"
+  },
+  "about.missionTitle": {
+    "text": "هدف و مأموریت ما",
+    "source": "9e26c023",
+    "status": "machine"
+  },
+  "about.mission1": {
+    "text": "رژه ایرانیان سالانه، نتیجه تلاش یک ساله و گسترده جامعه برای جشن گرفتن تاریخ غنی فرهنگ ایرانی در شهر نیویورک است.",
+    "source": "e100a862",
+    "status": "machine"
+  },
+  "about.mission2": {
+    "text": "سازمان ما آرزو دارد با فرهنگ‌های دیگر دوستی و درک متقابل ایجاد کند و درباره میراث و ارزش‌های ایرانی آموزش دهد.",
+    "source": "3dde0ca1",
+    "status": "machine"
+  },
+  "about.mission3": {
+    "text": "بنیاد رژه ایرانیان یک سازمان غیرانتفاعی، غیرمذهبی، غیرسیاسی و غیردولتی است.",
+    "source": "f79f5f96",
+    "status": "machine"
+  },
+  "about.img1Alt": {
+    "text": "رقاصی با لباس سنتی ایرانی در رژه",
+    "source": "46d8b0f5",
+    "status": "machine"
+  },
+  "about.img2Alt": {
+    "text": "رهبران رژه با کمربندهای سبز، سفید و قرمز در حالی که پرچم‌ها را حمل می‌کنند، در حال حرکت هستند.",
+    "source": "1c4677d8",
+    "status": "machine"
+  },
+  "about.img3Alt": {
+    "text": "پسری که تابلویی با نوشته «عشق من: آمریکا و ایران» در دست دارد",
+    "source": "ec1406cc",
+    "status": "machine"
+  },
+  "contact.title": {
+    "text": "تماس با ما",
+    "source": "91dd0cb5",
+    "status": "machine"
+  },
+  "contact.intro": {
+    "text": "ما مشتاق شنیدن صدای شما هستیم. در صورت داشتن هرگونه سؤال، پیشنهاد یا ایده همکاری، با ما تماس بگیرید.",
+    "source": "b8768671",
+    "status": "machine"
+  },
+  "contact.getInTouch": {
+    "text": "تماس با ما",
+    "source": "c019238d",
+    "status": "machine"
+  },
+  "contact.body": {
+    "text": "برای پرسش‌های عمومی یا برای مشارکت با بنیاد رژه ایرانیان، لطفاً از طریق فرم یا اطلاعات زیر با ما تماس بگیرید.",
+    "source": "01de1deb",
+    "status": "machine"
+  },
+  "contact.emailLabel": {
+    "text": "ایمیل:",
+    "source": "29a38567",
+    "status": "machine"
+  },
+  "form.email": {
+    "text": "آدرس ایمیل",
+    "source": "f1f487f3",
+    "status": "machine"
+  },
+  "form.message": {
+    "text": "پیام",
+    "source": "ae0ed984",
+    "status": "machine"
+  },
+  "form.submit": {
+    "text": "ارسال",
+    "source": "4078e545",
+    "status": "machine"
+  },
+  "form.sending": {
+    "text": "در حال ارسال...",
+    "source": "09d26e8d",
+    "status": "machine"
+  },
+  "form.thanks": {
+    "text": "از پیام شما متشکریم! به زودی با شما تماس خواهیم گرفت.",
+    "source": "0baa60df",
+    "status": "machine"
+  },
+  "donate.title": {
+    "text": "کمک مالی",
+    "source": "200c502a",
+    "status": "machine"
+  },
+  "donate.intro": {
+    "text": "حمایت سخاوتمندانه شما به حفظ مأموریت ما برای ترویج هنر، فرهنگ و روحیه جامعه ایرانی در طول سال کمک می‌کند. هر کمک مالی تأثیری می‌گذارد.",
+    "source": "11d38089",
+    "status": "machine"
+  },
+  "donate.makeDonation": {
+    "text": "کمک مالی کنید",
+    "source": "77f9a61a",
+    "status": "machine"
+  },
+  "donate.zeffy": {
+    "text": "تمام کمک‌های مالی از طریق Zeffy، یک پلتفرم جمع‌آوری کمک مالی با کارمزد ۰٪، به صورت امن پردازش می‌شوند. ۱۰۰٪ کمک مالی شما مستقیماً به بنیاد رژه ایرانیان می‌رسد.",
+    "source": "683e9d2d",
+    "status": "machine"
+  },
+  "donate.formTitle": {
+    "text": "فرم کمک مالی با پشتیبانی Zeffy",
+    "source": "c101b824",
+    "status": "machine"
+  },
+  "donate.byCheck": {
+    "text": "ترجیح می‌دهید با چک کمک مالی کنید یا سوالی دارید؟ با ما در {email} تماس بگیرید.",
+    "source": "7affab9a",
+    "status": "machine"
+  },
+  "donate.taxNote": {
+    "text": "بنیاد رژه ایرانیان یک سازمان غیرانتفاعی 501(c)(3) است. کمک مالی شما تا حدی که قانون اجازه می‌دهد از مالیات کسر می‌شود. EIN: {ein}",
+    "source": "cf331fe4",
+    "status": "machine"
+  },
+  "events.title": {
+    "text": "رویدادها",
+    "source": "003420a4",
+    "status": "machine"
+  },
+  "events.intro": {
+    "text": "با ما فرهنگ ایرانی را جشن بگیرید. از رژه‌ها گرفته تا اجراها، در اینجا می‌توانید همه آنچه در بنیاد رژه ایرانیان اتفاق می‌افتد را پیدا کنید.",
+    "source": "4720a560",
+    "status": "machine"
+  },
+  "events.noneTitle": {
+    "text": "رویداد آتی وجود ندارد",
+    "source": "42e68679",
+    "status": "machine"
+  },
+  "events.noneBody": {
+    "text": "در حال حاضر هیچ رویدادی برنامه‌ریزی نشده است. لطفاً به زودی دوباره سر بزنید یا برای اطلاعیه‌ها ما را در شبکه‌های اجتماعی دنبال کنید.",
+    "source": "49724134",
+    "status": "machine"
+  },
+  "gallery.title": {
+    "text": "گالری",
+    "source": "d7b54cdd",
+    "status": "machine"
+  },
+  "gallery.intro": {
+    "text": "عکس‌های رویدادهای قبلی ما را ببینید!",
+    "source": "f3c508b4",
+    "status": "machine"
+  },
+  "gallery.album": {
+    "text": "رژه {year}",
+    "source": "35a43a3f",
+    "status": "machine"
+  },
+  "gallery.photoAlt": {
+    "text": "رژه {year} - عکس {n}",
+    "source": "72a03a54",
+    "status": "machine"
+  },
+  "gallery.close": {
+    "text": "بستن گالری",
+    "source": "c96bbeb9",
+    "status": "machine"
+  },
+  "history.title": {
+    "text": "آرشیو پست‌ها",
+    "source": "26f5f07f",
+    "status": "machine"
+  },
+  "history.intro": {
+    "text": "رویدادها و خاطرات گذشته بنیاد رژه ایرانیان را ببینید.",
+    "source": "e308e032",
+    "status": "machine"
+  },
+  "history.empty": {
+    "text": "پستی آرشیو شده موجود نیست.",
+    "source": "cc6d9b3e",
+    "status": "machine"
+  },
+  "press.title": {
+    "text": "رسانه‌ها",
+    "source": "1a86f927",
+    "status": "machine"
+  },
+  "press.intro": {
+    "text": "آخرین پوشش رسانه‌ای، ویدیوها و مقالات ما را ببینید که تاریخ فرهنگی غنی و تأثیر اجتماعی رژه ایرانیان را به نمایش می‌گذارد.",
+    "source": "56801714",
+    "status": "machine"
+  },
+  "press.archive": {
+    "text": "آرشیو رسانه‌ها",
+    "source": "9d01a1e2",
+    "status": "machine"
+  },
+  "press.clickToView": {
+    "text": "برای مشاهده پوشش رسانه‌ای، کلیک کنید.",
+    "source": "20876a50",
+    "status": "machine"
+  },
+  "sponsors.title": {
+    "text": "حامی شوید",
+    "source": "e20bd215",
+    "status": "machine"
+  },
+  "sponsors.intro": {
+    "text": "با بنیاد رژه ایرانیان شریک شوید تا از جشن فرهنگی، غرور جامعه و ترویج میراث ایرانی در شهر نیویورک حمایت کنید.",
+    "source": "9cf1c729",
+    "status": "machine"
+  },
+  "sponsors.current": {
+    "text": "حامیان فعلی",
+    "source": "a848c8c9",
+    "status": "machine"
+  },
+  "sponsors.ahaAlt": {
+    "text": "AHA Persian School",
+    "source": "812270b5",
+    "status": "machine"
+  },
+  "sponsors.levels": {
+    "text": "سطوح حمایت مالی",
+    "source": "a76f00c6",
+    "status": "machine"
+  },
+  "sponsors.advertising": {
+    "text": "حمایت مالی تبلیغاتی",
+    "source": "3aa158f1",
+    "status": "machine"
+  },
+  "sponsors.tier.cyrus": {
+    "text": "انجمن منشور کوروش",
+    "source": "dfef9052",
+    "status": "machine"
+  },
+  "sponsors.tier.persepolis": {
+    "text": "حامی تخت جمشید",
+    "source": "6d5b1e31",
+    "status": "machine"
+  },
+  "sponsors.tier.float": {
+    "text": "حامی ماشین تزئینی رژه",
+    "source": "ca7c11bf",
+    "status": "machine"
+  },
+  "sponsors.tier.sponsor": {
+    "text": "حامی",
+    "source": "e0476f49",
+    "status": "machine"
+  },
+  "sponsors.b.table10Two": {
+    "text": "میز ۱۰ نفره در دو گالای رژه ایرانیان در سال برگزاری رژه",
+    "source": "b2c84cd3",
+    "status": "machine"
+  },
+  "sponsors.b.vipTwo": {
+    "text": "نشست VIP در دو گالای رژه ایرانیان",
+    "source": "37a329bb",
+    "status": "machine"
+  },
+  "sponsors.b.recognitionGalas": {
+    "text": "تقدیر ویژه در وبسایت رژه ایرانیان و در گالاها",
+    "source": "e985b9c5",
+    "status": "machine"
+  },
+  "sponsors.b.bannersBoth": {
+    "text": "تبلیغات با بنرهای بلند در دو طرف هر ماشین تزئینی رژه که شما انتخاب می‌کنید",
+    "source": "bf2eb32b",
+    "status": "machine"
+  },
+  "sponsors.b.table10One": {
+    "text": "میز برای ۱۰ نفر در گالای رژه ایرانیان",
+    "source": "4ba0ce5a",
+    "status": "machine"
+  },
+  "sponsors.b.vipOne": {
+    "text": "نشست VIP در یک گالای رژه ایرانیان",
+    "source": "57d027f8",
+    "status": "machine"
+  },
+  "sponsors.b.recognitionGala": {
+    "text": "تقدیر ویژه در وبسایت رژه ایرانیان و در مراسم گالا",
+    "source": "e65bce34",
+    "status": "machine"
+  },
+  "sponsors.b.bannerOne": {
+    "text": "تبلیغ با بنر بلند در کنار یکی از ماشین‌های تزئینی رژه به انتخاب شما",
+    "source": "b107d66a",
+    "status": "machine"
+  },
+  "sponsors.b.tickets4": {
+    "text": "۴ بلیت برای یک گالای رژه ایرانیان",
+    "source": "05108e8f",
+    "status": "machine"
+  },
+  "sponsors.b.customDesign": {
+    "text": "درخواست طراحی هنری سفارشی برای ماشین تزئینی رژه (مشمول تأیید هیئت اجرایی)",
+    "source": "8a6a69d8",
+    "status": "machine"
+  },
+  "sponsors.b.recognitionWebGala": {
+    "text": "تقدیر در وب‌سایت و گالا",
+    "source": "0a6aba39",
+    "status": "machine"
+  },
+  "sponsors.b.longBannerOne": {
+    "text": "بنر بلند در کنار یکی از ماشین‌های تزئینی رژه به انتخاب شما",
+    "source": "9bec29d6",
+    "status": "machine"
+  },
+  "sponsors.b.displayBoth": {
+    "text": "نمایش بنرهای بلند در دو طرف یک ماشین تزئینی رژه به انتخاب شما",
+    "source": "4002c175",
+    "status": "machine"
+  },
+  "sponsors.b.ackYear": {
+    "text": "تقدیر در وب‌سایت رژه ایرانیان به مدت یک سال",
+    "source": "7fe11b9a",
+    "status": "machine"
+  },
+  "sponsors.b.boardApproval": {
+    "text": "با تأیید هیئت اجرایی",
+    "source": "b55ab009",
+    "status": "machine"
+  },
+  "sponsors.b.displayOneOr": {
+    "text": "نمایش یک بنر بلند در کنار یکی از ماشین‌های تزئینی رژه، یا",
+    "source": "bbe465d3",
+    "status": "machine"
+  },
+  "sponsors.b.displayTwoSmall": {
+    "text": "نمایش دو بنر کوچک در دو طرف هر ماشین تزئینی رژه",
+    "source": "68fa2a8f",
+    "status": "machine"
+  },
+  "sponsors.b.ackWebYear": {
+    "text": "تقدیر در وب‌سایت به مدت یک سال",
+    "source": "8f4785f5",
+    "status": "machine"
+  },
+  "sponsors.b.smallBanner": {
+    "text": "نمایش یک بنر کوچک در یک طرف ماشین تزئینی رژه",
+    "source": "ebf0b53b",
+    "status": "machine"
+  },
+  "sponsors.reachOut": {
+    "text": "اگر مایلید حامی مالی شوید، لطفاً با {email} تماس بگیرید.",
+    "source": "61ef374e",
+    "status": "machine"
+  },
+  "sponsors.friends": {
+    "text": "دوستان رژه ایرانیان",
+    "source": "2d4389a9",
+    "status": "machine"
+  },
+  "sponsors.friendsBody": {
+    "text": "ما از هر میزان کمک مالی استقبال می‌کنیم. هر کمک به ما کمک می‌کند تا این جشن فرهنگی را حفظ و گسترش دهیم.",
+    "source": "4c618963",
+    "status": "machine"
+  },
+  "sponsors.corporate": {
+    "text": "همکاری شرکتی",
+    "source": "c1f838ac",
+    "status": "machine"
+  },
+  "sponsors.corporateBody": {
+    "text": "ما با شرکت‌ها همکاری می‌کنیم تا شراکت‌های سفارشی ایجاد کنیم که با اهداف کسب‌وکار شما همسو باشد. از برندینگ مشترک انحصاری، دسترسی کارکنان، تبلیغات روی ماشین تزئینی رژه، و دیده شدن در پلتفرم‌های دیجیتال و فیزیکی ما لذت ببرید.",
+    "source": "41073555",
+    "status": "machine"
+  },
+  "sponsors.corporateContact": {
+    "text": "برای استعلام‌های همکاری، لطفاً با دفتر روابط عمومی ما در {email} تماس بگیرید.",
+    "source": "a3cbbad3",
+    "status": "machine"
+  },
+  "support.title": {
+    "text": "از ما حمایت کنید",
+    "source": "42f0f82c",
+    "status": "machine"
+  },
+  "support.intro": {
+    "text": "راه‌هایی برای حمایت از بنیاد رژه ایرانیان و کمک به ما در جشن گرفتن فرهنگ ایرانی را کشف کنید.",
+    "source": "6ba665f2",
+    "status": "machine"
+  },
+  "support.memberTitle": {
+    "text": "عضو شوید",
+    "source": "48206d1f",
+    "status": "machine"
+  },
+  "support.memberBody": {
+    "text": "با عضویت در بنیاد رژه ایرانیان، به جامعه ما بپیوندید. اعضا از به‌روزرسانی‌های اختصاصی، دعوت‌نامه‌های زودهنگام رویدادها و فرصت‌هایی برای شکل دادن به آینده جشن‌های فرهنگی ما بهره‌مند می‌شوند.",
+    "source": "bdd8f5a9",
+    "status": "machine"
+  },
+  "support.memberHow": {
+    "text": "برای عضو شدن، لطفاً به {contactLink} مراجعه کنید یا با ما در {email} تماس بگیرید.",
+    "source": "46d0c559",
+    "status": "machine"
+  },
+  "support.contactPageLink": {
+    "text": "تماس با ما",
+    "source": "614b5094",
+    "status": "machine"
+  },
+  "support.sponsorTitle": {
+    "text": "حامی شوید",
+    "source": "e20bd215",
+    "status": "machine"
+  },
+  "support.sponsorBody": {
+    "text": "حمایت‌های مالی به ما کمک می‌کند تا هر سال رژه ایرانیان را زنده نگه داریم. حمایت شما هنر، فرهنگ و تاریخ ایران را به هزاران شرکت‌کننده معرفی می‌کند.",
+    "source": "a66c7b61",
+    "status": "machine"
+  },
+  "support.sponsorHow": {
+    "text": "درباره فرصت‌های حمایت مالی و مزایا در {sponsorLink} یا مستقیماً از طریق {email} با ما تماس بگیرید.",
+    "source": "9ca8ac5d",
+    "status": "machine"
+  },
+  "support.sponsorPageLink": {
+    "text": "صفحه حمایت مالی",
+    "source": "6d0d6bda",
+    "status": "machine"
+  },
+  "support.volunteerTitle": {
+    "text": "داوطلب شوید",
+    "source": "31623045",
+    "status": "machine"
+  },
+  "support.volunteerBody": {
+    "text": "با داوطلبانه وقت و استعدادهای خود به ما کمک کنید تا یک رژه ایرانیان فراموش‌نشدنی بسازیم. شما را دعوت می‌کنیم که به یکی از کمیته‌های زیر بپیوندید:",
+    "source": "ecb235bb",
+    "status": "machine"
+  },
+  "support.committee.art": {
+    "text": "هنر و طراحی",
+    "source": "6fc7f24e",
+    "status": "machine"
+  },
+  "support.committee.dance": {
+    "text": "رقص",
+    "source": "ca0fab3c",
+    "status": "machine"
+  },
+  "support.committee.fundraising": {
+    "text": "جمع‌آوری کمک مالی",
+    "source": "c62c6d05",
+    "status": "machine"
+  },
+  "support.committee.pr": {
+    "text": "روابط عمومی",
+    "source": "4f12d595",
+    "status": "machine"
+  },
+  "support.committee.culture": {
+    "text": "فرهنگی و آموزشی",
+    "source": "d6b61f9f",
+    "status": "machine"
+  },
+  "support.committee.digital": {
+    "text": "رسانه دیجیتال",
+    "source": "ed57e46f",
+    "status": "machine"
+  },
+  "support.committee.events": {
+    "text": "برنامه‌ریزی رویدادها",
+    "source": "0e4e8b35",
+    "status": "machine"
+  },
+  "support.committee.music": {
+    "text": "موسیقی",
+    "source": "584a1d74",
+    "status": "machine"
+  },
+  "support.openings": {
+    "text": "در حال حاضر برای این سمت‌ها نیرو می‌پذیریم:",
+    "source": "b6a2102d",
+    "status": "machine"
+  },
+  "support.opening.artDirector": {
+    "text": "مدیر هنری",
+    "source": "903f0566",
+    "status": "machine"
+  },
+  "support.opening.digitalDirector": {
+    "text": "مدیر رسانه‌های دیجیتال",
+    "source": "82475dc6",
+    "status": "machine"
+  },
+  "support.volunteerHow": {
+    "text": "اگر علاقه‌مند هستید، لطفاً رزومه و خلاصه‌ای کوتاه از مهارت‌های خود را برای {email} ارسال کنید. اگر سوابق شما با نیازهای فعلی ما مطابقت داشته باشد، با شما تماس خواهیم گرفت.",
+    "source": "da9c43b1",
+    "status": "machine"
+  },
+  "support.donorTitle": {
+    "text": "حامی مالی شوید",
+    "source": "60981627",
+    "status": "machine"
+  },
+  "support.donorHow": {
+    "text": "برای کمک مالی، لطفاً از طریق {donateLink} به ما مراجعه کنید یا برای اطلاعات بیشتر با ما در {email} تماس بگیرید.",
+    "source": "4fdfd3cb",
+    "status": "machine"
+  },
+  "support.donatePageLink": {
+    "text": "صفحه کمک مالی",
+    "source": "fe9e109e",
+    "status": "machine"
+  },
+  "slider.label": {
+    "text": "عکس‌هایی از رژه‌های ایرانیان در سال‌های گذشته",
+    "source": "beaaa886",
+    "status": "machine"
+  }
+}

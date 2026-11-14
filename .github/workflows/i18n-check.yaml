@@ -1,0 +1,21 @@
+name: Farsi translation check
+
+# Fast, model-free: reports Farsi strings that are missing or stale relative to
+# src/i18n/en.js. A warning, not a failure: untranslated strings fall back to
+# English. Fix by running `npm run translate` (needs the LAN Ollama server).
+on:
+  pull_request:
+    paths:
+      - 'src/i18n/**'
+      - 'scripts/i18n-check.mjs'
+      - '.github/workflows/i18n-check.yaml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/i18n-check.mjs

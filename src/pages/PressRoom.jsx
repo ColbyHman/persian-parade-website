@@ -3,6 +3,7 @@ import Footer from '../components/Footer.jsx'
 import PressArchive from '../components/pressArchive.jsx';
 import voaLogo from '../assets/voa_logo.png';
 import nycParadeLifeLogo from '../assets/nyc-parade-life.png';
+import { useI18n } from '../i18n';
 
 const pressPosts = [
   {
@@ -44,13 +45,14 @@ const pressPosts = [
 ];
 
 export default function PressRoom() {
+  const { t } = useI18n();
   return (
     <div>
       <div className="bg-red-600 w-full py-12 shadow-xl">
         <div className="max-w-7xl mx-auto px-6 text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Press Room</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('press.title')}</h1>
           <h2 className="text-lg max-w-3xl mx-auto">
-            Explore our latest press coverage, videos, and articles showcasing the Persian Parade's rich cultural history and community impact.
+            {t('press.intro')}
           </h2>
         </div>
       </div>
