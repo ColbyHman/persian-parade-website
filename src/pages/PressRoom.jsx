@@ -48,7 +48,7 @@ export default function PressRoom() {
   const { t } = useI18n();
   return (
     <div>
-      <div className="bg-red-600 w-full py-12 shadow-xl">
+      <div className="bg-pp-red w-full py-12 shadow-xl">
         <div className="max-w-7xl mx-auto px-6 text-center text-white">
           <h1 className="text-5xl font-bold mb-4">{t('press.title')}</h1>
           <h2 className="text-lg max-w-3xl mx-auto">

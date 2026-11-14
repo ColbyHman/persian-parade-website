@@ -6,15 +6,17 @@ import { useI18n, LocalLink, splitPath, localizePath } from '../i18n';
 
 const LINKS = [
   ['nav.about', '/about-us'],
+  ['nav.news', '/news'],
   ['nav.events', '/events'],
   ['nav.gallery', '/gallery'],
   ['nav.press', '/press-room'],
   ['nav.sponsors', '/sponsors'],
   ['nav.support', '/support'],
-  ['nav.history', '/post-history'],
   ['nav.contact', '/contact-us'],
-  ['nav.donate', '/donate'],
 ];
+
+const DONATE_PILL =
+  'inline-flex items-center justify-center rounded-full bg-pp-red px-4 py-1.5 font-bold !text-white no-underline hover:bg-pp-red-dark';
 
 // One small link to the *other* language, labelled in that language so a
 // reader who can't read the current page can still find theirs. The visible
@@ -71,16 +73,16 @@ const Navbar = () => {
         </LocalLink>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-5">
-          <ul className="flex flex-wrap gap-x-5 gap-y-1">
+        <div className="hidden xl:flex items-center gap-4">
+          <ul className="flex gap-x-4 text-[0.95rem] whitespace-nowrap">
             <li>
-              <LocalLink to="/" className="transition" onClick={closeMenu}>
+              <LocalLink to="/" className="inline-block py-1.5 transition" onClick={closeMenu}>
                 {t('nav.home')}
               </LocalLink>
             </li>
             {LINKS.map(([key, to]) => (
               <li key={key}>
-                <LocalLink to={to} className="transition" onClick={closeMenu}>
+                <LocalLink to={to} className="inline-block py-1.5 transition" onClick={closeMenu}>
                   {t(key)}
                 </LocalLink>
               </li>
@@ -90,16 +92,19 @@ const Navbar = () => {
                 href="https://shop.persianparade.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition"
+                className="inline-block py-1.5 transition"
               >
                 {t('nav.shop')}
               </a>
             </li>
           </ul>
+          <LocalLink to="/donate" className={DONATE_PILL} onClick={closeMenu}>
+            {t('nav.donate')}
+          </LocalLink>
           <LanguageSwitch />
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 xl:hidden">
           <LanguageSwitch onSwitch={closeMenu} />
           <button
             className="focus:outline-none transition-transform duration-300 ease-in-out p-1"
@@ -126,7 +131,7 @@ const Navbar = () => {
       {/* Mobile Popover Menu */}
       {menuVisible && (
         <div
-          className={`lg:hidden bg-white shadow-md border-t border-gray-200 transition-all duration-300 ease-in-out ${
+          className={`xl:hidden bg-white shadow-md border-t border-gray-200 transition-all duration-300 ease-in-out ${
             isOpen ? 'animate-slide-down' : 'animate-slide-up'
           }`}
         >
@@ -147,6 +152,11 @@ const Navbar = () => {
               <a href="https://shop.persianparade.com" target="_blank" rel="noopener noreferrer" className="block">
                 {t('nav.shop')}
               </a>
+            </li>
+            <li>
+              <LocalLink to="/donate" className={`${DONATE_PILL} min-h-11 w-full`} onClick={closeMenu}>
+                {t('nav.donate')}
+              </LocalLink>
             </li>
           </ul>
         </div>

@@ -130,8 +130,12 @@ for (const [i, key] of todo.entries()) {
   // One retry: the usual failure is a dropped or translated {placeholder}.
   for (let attempt = 1; attempt <= 2 && !text; attempt++) {
     try {
-      // The model localises digits everywhere; legal designations stay Latin.
-      const out = (await translate(source)).replace(/۵۰۱\s*\(c\)\s*\(۳\)/g, '501(c)(3)');
+      // The model localises digits everywhere; legal designations stay Latin,
+      // wrapped in a left-to-right isolate (U+2066…U+2069) so the brackets
+      // don't get reordered inside right-to-left text.
+      const out = (await translate(source))
+        // U+2060 (word joiner) stops a line break between ")(" .
+        .replace(/\u2066?(?:۵۰۱|501)\s*\(c\)\u2060?\s*\((?:۳|3)\)\u2069?/g, '\u2066501(c)\u2060(3)\u2069');
       // A pure brand name ("AHA Persian School") legitimately comes back unchanged.
       if (!isFarsi(out) && out !== source) throw new Error(`not Farsi: ${out.slice(0, 60)}`);
       if (placeholders(out).join() !== want) throw new Error(`placeholders ${placeholders(out)} != ${want}`);

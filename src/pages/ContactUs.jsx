@@ -8,9 +8,9 @@ export default function ContactPage() {
   return (
     <div>
       {/* Page Banner */}
-      <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
+      <div className="bg-pp-red text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">{t('contact.title')}</h1>
-        <p className="max-w-xl mx-auto text-center text-red-200">
+        <p className="max-w-xl mx-auto text-center text-white">
           {t('contact.intro')}
         </p>
       </div>
@@ -28,7 +28,7 @@ export default function ContactPage() {
               <div className="space-y-4 mt-6">
                 <p>
                   <strong>{t('contact.emailLabel')}</strong>{" "}
-                  <a href="mailto:info@persianparade.com" dir="ltr" className="text-red-600 underline hover:text-red-700">
+                  <a href="mailto:info@persianparade.com" dir="ltr" className="text-pp-red underline hover:text-pp-red-dark">
                     info@persianparade.com
                   </a>
                 </p>

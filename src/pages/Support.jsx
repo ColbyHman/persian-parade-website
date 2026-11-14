@@ -9,7 +9,7 @@ const Email = ({ onRed }) => (
   <a
     href="mailto:info@persianparade.com"
     dir="ltr"
-    className={onRed ? "underline !text-white hover:!text-red-300" : "underline text-red-600 hover:text-red-700"}
+    className={onRed ? "underline !text-white hover:!text-pp-gold" : "underline text-pp-red hover:text-pp-red-dark"}
   >
     info@persianparade.com
   </a>
@@ -20,7 +20,7 @@ export default function SupportPage() {
   const link = (to, key, onRed) => (
     <LocalLink
       to={to}
-      className={onRed ? "underline !text-white hover:!text-red-300" : "underline text-red-600 hover:text-red-700"}
+      className={onRed ? "underline !text-white hover:!text-pp-gold" : "underline text-pp-red hover:text-pp-red-dark"}
     >
       {t(key)}
     </LocalLink>
@@ -29,9 +29,9 @@ export default function SupportPage() {
   return (
     <div>
       {/* Support Us Banner - Red background with white text */}
-      <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
+      <div className="bg-pp-red text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">{t('support.title')}</h1>
-        <p className="max-w-xl mx-auto text-center text-red-200">
+        <p className="max-w-xl mx-auto text-center text-white">
           {t('support.intro')}
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function SupportPage() {
       </div>
 
       {/* Become a Sponsor - Red background, white text */}
-      <div className="bg-red-600 text-white">
+      <div className="bg-pp-red text-white">
         <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
           <h2 className="text-3xl font-semibold mb-6">{t('support.sponsorTitle')}</h2>
           <p className="mb-6 leading-relaxed">
@@ -99,7 +99,7 @@ export default function SupportPage() {
       </div>
 
       {/* Become a Donor - Red background, white text */}
-      <div className="bg-red-600 text-white">
+      <div className="bg-pp-red text-white">
         <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
           <h2 className="text-3xl font-semibold mb-6">{t('support.donorTitle')}</h2>
           <p className="leading-relaxed">

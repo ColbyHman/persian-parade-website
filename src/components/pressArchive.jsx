@@ -18,7 +18,7 @@ function PressArchive() {
             </h3>
             <div
                 className={`grid gap-8 ${
-                    posts.length === 1 ? "grid-cols-1 justify-center" : "grid-cols-2"
+                    posts.length === 1 ? "grid-cols-1 justify-center" : "grid-cols-1 sm:grid-cols-2"
                 }`}
             >
               {posts.map(({ title, link }) => (

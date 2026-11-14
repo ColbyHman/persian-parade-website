@@ -18,7 +18,7 @@ export default function Gallery() {
   return (
     <div>
       <div className="bg-white text-gray-800">
-          <div className="bg-red-600 w-full py-12 shadow-xl">
+          <div className="bg-pp-red w-full py-12 shadow-xl">
             <div className="max-w-7xl mx-auto px-6 text-center text-white">
               <h1 className="text-5xl font-bold mb-4">{t('gallery.title')}</h1>
               <h2 className="text-lg max-w-3xl mx-auto">
@@ -59,7 +59,7 @@ export default function Gallery() {
             <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto px-6 py-12">
               <button
                 onClick={() => setActiveAlbum(null)}
-                className="absolute top-4 end-4 text-white hover:text-red-400 border border-red-500 p-1 rounded"
+                className="absolute top-4 end-4 text-white hover:text-pp-gold border border-pp-red p-1 rounded"
                 aria-label={t('gallery.close')}
                 style={{ backgroundColor: "transparent" }}
                 >

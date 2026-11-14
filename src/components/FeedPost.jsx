@@ -12,14 +12,14 @@ const img = (post, className) => imgProps(post.imageUrl, {
 
 const FeedPostBody = ({ post }) => {
   // Outer container stays the same
-  const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post";
+  const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl bg-white border-t-4 border-pp-green rounded-lg shadow-md mx-auto my-4 overflow-hidden";
 
   const renderDate = () => {
     if (!post.date) return null;
     const [year, month, day] = post.date.split('-').map(Number);
     const dateObj = new Date(year, month - 1, day);
     return (
-      <p className="text-sm text-gray-600 mb-2">
+      <p className="text-sm font-semibold text-pp-gold-text mb-2">
         {dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
       </p>
     );
@@ -28,7 +28,7 @@ const FeedPostBody = ({ post }) => {
   switch (post.type) {
     case 'poster':
       return (
-        <div className="w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post">
+        <div className="w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-6 bg-white border-t-4 border-pp-green rounded-lg shadow-md mx-auto my-4">
           <div className="md:flex gap-4">
             <img
               {...img(post, "w-full md:w-48 rounded flex-shrink-0")}
@@ -38,11 +38,11 @@ const FeedPostBody = ({ post }) => {
               <h3 className="font-semibold text-black" style={{fontSize: 'clamp(1rem, 4vw, 1.5rem)'}}>{post.title}</h3>
               {renderDate()}
               {post.description && (
-                <p className="mt-2 text-white">{post.description}</p>
+                <p className="mt-2 text-gray-700">{post.description}</p>
               )}
               <a
                 href={post.ctaLink}
-                className="inline-block mt-2 px-4 py-2 bg-blue-600 !text-white rounded hover:bg-blue-700"
+                className="inline-block mt-2 px-4 py-2 bg-pp-green-dark !text-white rounded hover:bg-pp-green"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -86,7 +86,7 @@ const FeedPostBody = ({ post }) => {
                 {post.ctaText && post.ctaLink && (
                   <a
                     href={post.ctaLink}
-                    className="inline-block mt-4 px-4 py-2 bg-red-600 !text-white rounded hover:bg-red-700"
+                    className="inline-block mt-4 px-4 py-2 bg-pp-red !text-white rounded hover:bg-pp-red-dark"
                   >
                     {post.ctaText}
                   </a>
@@ -188,9 +188,10 @@ const FeedPostBody = ({ post }) => {
 // stay correct, and say so rather than silently mixing languages.
 const FeedPost = ({ post }) => {
   const { lang, t } = useI18n();
-  if (lang === 'en') return <FeedPostBody post={post} />;
+  // id lets home-page news cards deep-link to /news#post-<id>.
+  if (lang === 'en') return <div id={`post-${post.id}`} className="w-full scroll-mt-24"><FeedPostBody post={post} /></div>;
   return (
-    <div className="w-full flex flex-col items-center">
+    <div id={`post-${post.id}`} className="w-full flex flex-col items-center scroll-mt-24">
       <p className="text-sm text-gray-600 mb-1">{t('lang.englishOnly')}</p>
       <div lang="en" dir="ltr" className="w-full flex flex-col items-center">
         <FeedPostBody post={post} />

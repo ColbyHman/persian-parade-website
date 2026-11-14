@@ -21,12 +21,12 @@ const History = () => {
 
   return (
     <div className="text-black bg-white">
-      <section className="bg-red-600 text-white py-16 px-6">
-        <div className="shadow-xl rounded-lg p-8 bg-red-700">
+      <section className="bg-pp-red text-white py-16 px-6">
+        <div className="shadow-xl rounded-lg p-8 bg-pp-red-dark">
           <h1 className="text-4xl font-bold text-center mb-4">
             {t('history.title')}
           </h1>
-          <p className="max-w-2xl mx-auto text-center text-red-200">
+          <p className="max-w-2xl mx-auto text-center text-white">
             {t('history.intro')}
           </p>
         </div>

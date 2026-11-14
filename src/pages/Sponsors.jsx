@@ -22,7 +22,7 @@ export default function SponsorsPage() {
     <div>
       <div className="bg-white text-gray-800">
         {/* Hero Section */}
-        <div className="bg-red-600 text-white py-20 px-6 text-center shadow-xl">
+        <div className="bg-pp-red text-white py-20 px-6 text-center shadow-xl">
           <h1 className="text-5xl font-bold mb-4">{t('sponsors.title')}</h1>
           <p className="text-lg max-w-3xl mx-auto">
             {t('sponsors.intro')}
@@ -76,7 +76,7 @@ export default function SponsorsPage() {
                 k="sponsors.reachOut"
                 values={{
                   email: (
-                    <a href="mailto:info@persianparade.com" dir="ltr" className="text-red-600 underline hover:text-red-800 font-semibold">
+                    <a href="mailto:info@persianparade.com" dir="ltr" className="text-pp-red underline hover:text-pp-red-dark font-semibold">
                       info@persianparade.com
                     </a>
                   ),
@@ -87,7 +87,7 @@ export default function SponsorsPage() {
         </section>
 
         {/* Friends of the Parade - Full Width */}
-        <section className="bg-red-600 text-white py-12 px-6 text-center">
+        <section className="bg-pp-red text-white py-12 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-semibold mb-4">{t('sponsors.friends')}</h2>
             <p className="text-white mb-4">
@@ -97,7 +97,7 @@ export default function SponsorsPage() {
               href="https://shop.persianparade.com/collections/donations"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+              className="inline-block bg-white text-pp-red px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               {t('cta.donateNow')}
             </a>
@@ -116,7 +116,7 @@ export default function SponsorsPage() {
                 k="sponsors.corporateContact"
                 values={{
                   email: (
-                    <a href="mailto:PR@PersianParade.com" dir="ltr" className="text-red-600 underline hover:text-red-800">
+                    <a href="mailto:PR@PersianParade.com" dir="ltr" className="text-pp-red underline hover:text-pp-red-dark">
                       PR@PersianParade.com
                     </a>
                   ),
