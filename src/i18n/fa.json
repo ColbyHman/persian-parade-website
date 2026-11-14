@@ -59,11 +59,6 @@
     "source": "200c502a",
     "status": "machine"
   },
-  "nav.shop": {
-    "text": "فروشگاه",
-    "source": "28742cc9",
-    "status": "machine"
-  },
   "nav.toggleMenu": {
     "text": "باز و بسته کردن منو",
     "source": "25a08590",

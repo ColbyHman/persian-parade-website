@@ -24,7 +24,6 @@ export default {
   'nav.history': 'Post History',
   'nav.contact': 'Contact Us',
   'nav.donate': 'Donate',
-  'nav.shop': 'Shop',
   'nav.toggleMenu': 'Toggle menu',
   'lang.label': 'Language',
   'lang.machineNotice':

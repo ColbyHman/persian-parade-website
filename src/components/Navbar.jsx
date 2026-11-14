@@ -87,16 +87,6 @@ const Navbar = () => {
                 </LocalLink>
               </li>
             ))}
-            <li>
-              <a
-                href="https://shop.persianparade.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block py-1.5 transition"
-              >
-                {t('nav.shop')}
-              </a>
-            </li>
           </ul>
           <LocalLink to="/donate" className={DONATE_PILL} onClick={closeMenu}>
             {t('nav.donate')}
@@ -148,11 +138,6 @@ const Navbar = () => {
                 </LocalLink>
               </li>
             ))}
-            <li>
-              <a href="https://shop.persianparade.com" target="_blank" rel="noopener noreferrer" className="block">
-                {t('nav.shop')}
-              </a>
-            </li>
             <li>
               <LocalLink to="/donate" className={`${DONATE_PILL} min-h-11 w-full`} onClick={closeMenu}>
                 {t('nav.donate')}
