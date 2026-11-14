@@ -52,7 +52,7 @@ const GLOSSARY = `
 - non-profit = غیرانتفاعی
 - Cyrus Cylinder Guild = انجمن منشور کوروش
 - Persepolis Patron = حامی تخت جمشید
-- Zeffy, AHA Persian School, 501(c)(3), EIN, VIP: keep in Latin script`;
+- Zeffy, AHA Inc., 501(c)(3), EIN, VIP: keep in Latin script`;
 
 const SYSTEM = `You translate website text for the Persian Parade Foundation, a New York non-profit that runs an annual Persian heritage parade on Madison Avenue.
 Translate the user's English into natural, warm, respectful Iranian Persian (Farsi) as written by the Iranian diaspora. Readers are of all ages, so prefer clear everyday wording.
@@ -136,7 +136,7 @@ for (const [i, key] of todo.entries()) {
       const out = (await translate(source))
         // U+2060 (word joiner) stops a line break between ")(" .
         .replace(/\u2066?(?:۵۰۱|501)\s*\(c\)\u2060?\s*\((?:۳|3)\)\u2069?/g, '\u2066501(c)\u2060(3)\u2069');
-      // A pure brand name ("AHA Persian School") legitimately comes back unchanged.
+      // A pure brand name ("AHA Inc.") legitimately comes back unchanged.
       if (!isFarsi(out) && out !== source) throw new Error(`not Farsi: ${out.slice(0, 60)}`);
       if (placeholders(out).join() !== want) throw new Error(`placeholders ${placeholders(out)} != ${want}`);
       text = out;
