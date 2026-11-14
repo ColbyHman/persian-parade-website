@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { useI18n } from '../i18n';
 
 export default function ContactForm() {
+  const { t } = useI18n();
   const [state, handleSubmit] = useForm("mdkzdgrw");
 
   if (state.succeeded) {
     return (
       <p className="text-green-600 font-semibold text-lg">
-        Thanks for your message! We’ll be in touch soon.
+        {t('form.thanks')}
       </p>
     );
   }
@@ -16,11 +18,12 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="email" className="block font-medium mb-1">
-          Email Address
+          {t('form.email')}
         </label>
         <input
           id="email"
           type="email"
+          dir="ltr"
           name="email"
           required
           className="w-full border border-gray-300 rounded-md p-3"
@@ -30,7 +33,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block font-medium mb-1">
-          Message
+          {t('form.message')}
         </label>
         <textarea
           id="message"
@@ -50,7 +53,7 @@ export default function ContactForm() {
             }`}
             style={{ backgroundColor: "red" }}
         >
-        {state.submitting ? 'Sending...' : 'Submit'}
+        {state.submitting ? t('form.sending') : t('form.submit')}
         </button>
       </div>
     </form>

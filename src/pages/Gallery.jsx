@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import albums from "../data/albums.js"
 import Footer from "../components/Footer.jsx";
 import { imgProps } from "../lib/images.js";
+import { useI18n } from "../i18n";
 
 // Album cards render at ~380 CSS px in a 3-col grid, and modal tiles at ~370px
 // on desktop. Both sizes let the browser pick the 400w candidate instead of the
@@ -10,16 +11,18 @@ const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
 const TILE_SIZES = "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw";
 
 export default function Gallery() {
+  const { t, num } = useI18n();
   const [activeAlbum, setActiveAlbum] = useState(null);
+  const year = (y) => num(y, { useGrouping: false });
 
   return (
     <div>
       <div className="bg-white text-gray-800">
           <div className="bg-red-600 w-full py-12 shadow-xl">
             <div className="max-w-7xl mx-auto px-6 text-center text-white">
-              <h1 className="text-5xl font-bold mb-4">Gallery</h1>
+              <h1 className="text-5xl font-bold mb-4">{t('gallery.title')}</h1>
               <h2 className="text-lg max-w-3xl mx-auto">
-                Check out these pictures from our previous events!
+                {t('gallery.intro')}
               </h2>
             </div>
           </div>
@@ -36,14 +39,14 @@ export default function Gallery() {
                 <div className="overflow-hidden rounded-lg shadow-md">
                   <img
                     {...imgProps(album.cover, {
-                      alt: `Parade ${album.year}`,
+                      alt: t('gallery.album', { year: year(album.year) }),
                       className: "object-cover w-full h-56 group-hover:scale-105 transition-transform duration-300",
                       sizes: CARD_SIZES,
                     })}
                     />
                 </div>
                 <h2 className="text-xl font-semibold mt-3 text-center">
-                  Parade {album.year}
+                  {t('gallery.album', { year: year(album.year) })}
                 </h2>
               </div>
             ))}
@@ -56,8 +59,8 @@ export default function Gallery() {
             <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto px-6 py-12">
               <button
                 onClick={() => setActiveAlbum(null)}
-                className="absolute top-4 right-4 text-white hover:text-red-400 border border-red-500 p-1 rounded"
-                aria-label="Close gallery"
+                className="absolute top-4 end-4 text-white hover:text-red-400 border border-red-500 p-1 rounded"
+                aria-label={t('gallery.close')}
                 style={{ backgroundColor: "transparent" }}
                 >
                 <svg
@@ -78,7 +81,7 @@ export default function Gallery() {
                 </svg>
               </button>
               <h2 className="text-3xl font-bold text-white mb-6 text-center">
-                Parade {activeAlbum.year}
+                {t('gallery.album', { year: year(activeAlbum.year) })}
               </h2>
 
               <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
@@ -86,7 +89,7 @@ export default function Gallery() {
                   <img
                   key={index}
                   {...imgProps(src, {
-                    alt: `Parade ${activeAlbum.year} - ${index + 1}`,
+                    alt: t('gallery.photoAlt', { year: year(activeAlbum.year), n: num(index + 1) }),
                     className: "rounded shadow-md object-cover w-full max-h-80",
                     sizes: TILE_SIZES,
                     // Above-the-fold tiles load immediately; the rest defer so

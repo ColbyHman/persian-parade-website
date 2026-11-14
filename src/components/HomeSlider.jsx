@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { imgProps } from '../lib/images.js';
+import { useI18n } from '../i18n';
 
 // Slides live in public/images/slider so scripts/optimize-images.mjs can give
 // each one @400w/@800w variants and an intrinsic size. They used to sit in
@@ -25,9 +26,13 @@ const SLIDE_SIZES =
   '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1440px) 33vw, 25vw';
 
 const HomeSlider = () => {
+  const { dir, t } = useI18n();
   return (
-    <div className='w-screen overflow-hidden bg-black'>
+    <div className='w-screen overflow-hidden bg-black' role='region' aria-label={t('slider.label')}>
       <Swiper
+        // Swiper reads direction once at init, so remount when the language flips.
+        key={dir}
+        dir={dir}
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}

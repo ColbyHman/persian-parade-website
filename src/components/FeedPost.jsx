@@ -1,5 +1,6 @@
 import React from 'react';
 import { imgProps } from '../lib/images';
+import { useI18n } from '../i18n';
 
 // Post thumbnails come from /images and render at 192-256 CSS px on desktop,
 // well under the 400w candidate the optimizer generates.
@@ -9,7 +10,7 @@ const img = (post, className) => imgProps(post.imageUrl, {
   loading: 'lazy',
 });
 
-const FeedPost = ({ post }) => {
+const FeedPostBody = ({ post }) => {
   // Outer container stays the same
   const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-4 bg-green-700 rounded shadow-md mx-auto my-4 post";
 
@@ -180,6 +181,22 @@ const FeedPost = ({ post }) => {
     default:
       return null;
   }
+};
+
+// Posts are English-only for now (Farsi posts are a follow-up). On Farsi pages
+// keep them left-to-right and tagged lang="en" so layout and screen readers
+// stay correct, and say so rather than silently mixing languages.
+const FeedPost = ({ post }) => {
+  const { lang, t } = useI18n();
+  if (lang === 'en') return <FeedPostBody post={post} />;
+  return (
+    <div className="w-full flex flex-col items-center">
+      <p className="text-sm text-gray-600 mb-1">{t('lang.englishOnly')}</p>
+      <div lang="en" dir="ltr" className="w-full flex flex-col items-center">
+        <FeedPostBody post={post} />
+      </div>
+    </div>
+  );
 };
 
 export default FeedPost;

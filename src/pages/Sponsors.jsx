@@ -2,27 +2,41 @@ import React from "react";
 import SponsorTier from "../components/SponsorTier";
 import Footer from "../components/Footer";
 import { imgProps } from "../lib/images";
+import { useI18n, Trans } from "../i18n";
+
+// Amounts in US dollars; names and benefits are i18n keys (src/i18n/en.js).
+const LEVELS = [
+  { name: 'sponsors.tier.cyrus', amount: 10000, benefits: ['sponsors.b.table10Two', 'sponsors.b.vipTwo', 'sponsors.b.recognitionGalas', 'sponsors.b.bannersBoth'] },
+  { name: 'sponsors.tier.persepolis', amount: 7500, benefits: ['sponsors.b.table10One', 'sponsors.b.vipOne', 'sponsors.b.recognitionGala', 'sponsors.b.bannerOne'] },
+  { name: 'sponsors.tier.float', amount: 5000, benefits: ['sponsors.b.tickets4', 'sponsors.b.customDesign', 'sponsors.b.recognitionWebGala', 'sponsors.b.longBannerOne'] },
+];
+const ADVERTISING = [
+  { name: 'sponsors.tier.sponsor', amount: 2000, benefits: ['sponsors.b.displayBoth', 'sponsors.b.ackYear', 'sponsors.b.boardApproval'] },
+  { name: 'sponsors.tier.sponsor', amount: 1000, benefits: ['sponsors.b.displayOneOr', 'sponsors.b.displayTwoSmall', 'sponsors.b.ackWebYear', 'sponsors.b.boardApproval'] },
+  { name: 'sponsors.tier.sponsor', amount: 500, benefits: ['sponsors.b.smallBanner', 'sponsors.b.ackWebYear', 'sponsors.b.boardApproval'] },
+];
 
 export default function SponsorsPage() {
+  const { t } = useI18n();
   return (
     <div>
       <div className="bg-white text-gray-800">
         {/* Hero Section */}
         <div className="bg-red-600 text-white py-20 px-6 text-center shadow-xl">
-          <h1 className="text-5xl font-bold mb-4">Become a Sponsor</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('sponsors.title')}</h1>
           <p className="text-lg max-w-3xl mx-auto">
-            Partner with the Persian Parade Foundation to support cultural celebration, community pride, and the promotion of Iranian heritage in New York City.
+            {t('sponsors.intro')}
           </p>
         </div>
 
         {/* Current Sponsors */}
         <div className="max-w-5xl mx-auto px-6 py-12">
           <section className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-8">Current Sponsors</h2>
+            <h2 className="text-3xl font-semibold mb-8">{t('sponsors.current')}</h2>
             <div className="flex flex-col items-center gap-8">
               <img
                 {...imgProps('/images/aha-ad.jpg', {
-                  alt: "AHA Persian School",
+                  alt: t('sponsors.ahaAlt'),
                   className: "max-w-md w-full h-auto rounded-lg shadow-md",
                   sizes: "(max-width: 448px) 100vw, 448px",
                   loading: "lazy",
@@ -34,72 +48,20 @@ export default function SponsorsPage() {
           {/* Sponsorship Levels & Advertising Sponsorship - Side by Side */}
           <div className="grid md:grid-cols-2 gap-12">
             <section>
-              <h2 className="text-3xl font-semibold mb-6 text-center">Sponsorship Levels</h2>
+              <h2 className="text-3xl font-semibold mb-6 text-center">{t('sponsors.levels')}</h2>
               <div className="space-y-12">
-                <SponsorTier
-                  name="Cyrus Cylinder Guild"
-                  amount="$10,000"
-                  benefits={[
-                    "Table for 10 at two Persian Parade Galas during the Parade year",
-                    "VIP seating at two Persian Parade Galas",
-                    "Special recognition on the Persian Parade website and at Galas",
-                    "Advertising with long banners along both sides of a float of your choice",
-                  ]}
-                />
-                <SponsorTier
-                  name="Persepolis Patron"
-                  amount="$7,500"
-                  benefits={[
-                    "Table for 10 at one Persian Parade Gala",
-                    "VIP seating at one Persian Parade Gala",
-                    "Special recognition on the Persian Parade website and at Gala",
-                    "Advertising with long banner along one side of a float of your choice",
-                  ]}
-                />
-                <SponsorTier
-                  name="Float Sponsor"
-                  amount="$5,000"
-                  benefits={[
-                    "4 tickets to one Persian Parade Gala",
-                    "Custom artistic design request for float (subject to Executive Board approval)",
-                    "Recognition on website and at Gala",
-                    "Long banner along one side of a float of your choice",
-                  ]}
-                />
+                {LEVELS.map((tier) => (
+                  <SponsorTier key={tier.amount} name={t(tier.name)} amount={tier.amount} benefits={tier.benefits.map((k) => t(k))} />
+                ))}
               </div>
             </section>
 
             <section>
-              <h2 className="text-3xl font-semibold mb-6 text-center">Advertising Sponsorship</h2>
+              <h2 className="text-3xl font-semibold mb-6 text-center">{t('sponsors.advertising')}</h2>
               <div className="space-y-12">
-                <SponsorTier
-                  name="Sponsor"
-                  amount="$2,000"
-                  benefits={[
-                    "Display long banners along both sides of a float of your choice",
-                    "Acknowledgment on the Persian Parade website for one year",
-                    "Subject to Executive Board approval",
-                  ]}
-                />
-                <SponsorTier
-                  name="Sponsor"
-                  amount="$1,000"
-                  benefits={[
-                    "Display a long banner along one side of a float, OR",
-                    "Display two small banners along both sides of a float",
-                    "Acknowledgment on the website for one year",
-                    "Subject to Executive Board approval",
-                  ]}
-                />
-                <SponsorTier
-                  name="Sponsor"
-                  amount="$500"
-                  benefits={[
-                    "Display a small banner on one side of a float",
-                    "Acknowledgment on the website for one year",
-                    "Subject to Executive Board approval",
-                  ]}
-                />
+                {ADVERTISING.map((tier) => (
+                  <SponsorTier key={tier.amount} name={t(tier.name)} amount={tier.amount} benefits={tier.benefits.map((k) => t(k))} />
+                ))}
               </div>
             </section>
           </div>
@@ -108,12 +70,18 @@ export default function SponsorsPage() {
         {/* Contact to Become a Sponsor */}
         <section className="bg-gray-100 py-16 px-6 text-center border-y border-gray-200">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Become a Sponsor</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('sponsors.title')}</h2>
             <p className="text-gray-700 text-lg">
-              If you would like to become a sponsor, please reach out to{" "}
-              <a href="mailto:info@persianparade.com" className="text-red-600 underline hover:text-red-800 font-semibold">
-                info@persianparade.com
-              </a>.
+              <Trans
+                k="sponsors.reachOut"
+                values={{
+                  email: (
+                    <a href="mailto:info@persianparade.com" dir="ltr" className="text-red-600 underline hover:text-red-800 font-semibold">
+                      info@persianparade.com
+                    </a>
+                  ),
+                }}
+              />
             </p>
           </div>
         </section>
@@ -121,9 +89,9 @@ export default function SponsorsPage() {
         {/* Friends of the Parade - Full Width */}
         <section className="bg-red-600 text-white py-12 px-6 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4">Friends of the Persian Parade</h2>
+            <h2 className="text-2xl font-semibold mb-4">{t('sponsors.friends')}</h2>
             <p className="text-white mb-4">
-              We welcome donations of any amount. Every contribution helps us sustain and grow this cultural celebration.
+              {t('sponsors.friendsBody')}
             </p>
             <a
               href="https://shop.persianparade.com/collections/donations"
@@ -131,7 +99,7 @@ export default function SponsorsPage() {
               rel="noopener noreferrer"
               className="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
-              Donate Now
+              {t('cta.donateNow')}
             </a>
           </div>
         </section>
@@ -139,18 +107,21 @@ export default function SponsorsPage() {
         {/* Corporate Partnerships */}
         <section className="bg-gray-50 py-12 px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-4 text-center">Corporate Partnership</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-center">{t('sponsors.corporate')}</h2>
             <p className="text-gray-700 text-lg mb-4 text-center max-w-3xl mx-auto">
-              We collaborate with corporations to develop customized partnerships that align with your business goals. Enjoy exclusive co-branding, employee access, float advertising, and recognition across our digital and physical platforms.
+              {t('sponsors.corporateBody')}
             </p>
             <p className="text-center text-gray-700">
-              For partnership inquiries, please contact our Office of Public Relations at{" "}
-              <a
-                href="mailto:PR@PersianParade.com"
-                className="text-red-600 underline hover:text-red-800"
-              >
-                PR@PersianParade.com
-              </a>.
+              <Trans
+                k="sponsors.corporateContact"
+                values={{
+                  email: (
+                    <a href="mailto:PR@PersianParade.com" dir="ltr" className="text-red-600 underline hover:text-red-800">
+                      PR@PersianParade.com
+                    </a>
+                  ),
+                }}
+              />
             </p>
           </div>
         </section>

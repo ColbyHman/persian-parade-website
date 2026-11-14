@@ -2,8 +2,10 @@ import React from 'react';
 import FeedPost from '../components/FeedPost';
 import posts from '../data/posts';
 import Footer from '../components/Footer';
+import { useI18n } from '../i18n';
 
 const History = () => {
+  const { t, num } = useI18n();
   const hiddenPosts = posts.filter(post => post.hidden);
 
   const postsByYear = hiddenPosts.reduce((acc, post) => {
@@ -22,10 +24,10 @@ const History = () => {
       <section className="bg-red-600 text-white py-16 px-6">
         <div className="shadow-xl rounded-lg p-8 bg-red-700">
           <h1 className="text-4xl font-bold text-center mb-4">
-            Post History
+            {t('history.title')}
           </h1>
           <p className="max-w-2xl mx-auto text-center text-red-200">
-            Explore past events and memories from the Persian Parade Foundation.
+            {t('history.intro')}
           </p>
         </div>
       </section>
@@ -34,7 +36,7 @@ const History = () => {
         <div className="max-w-6xl mx-auto">
           {years.map(year => (
             <div key={year} className="mb-12">
-              <h2 className="text-3xl font-bold text-center mb-8">{year}</h2>
+              <h2 className="text-3xl font-bold text-center mb-8">{num(Number(year), { useGrouping: false })}</h2>
               <div className="flex flex-col gap-10 items-center">
                 {postsByYear[year].map(post => (
                   <FeedPost key={post.id} post={post} />
@@ -43,7 +45,7 @@ const History = () => {
             </div>
           ))}
           {years.length === 0 && (
-            <p className="text-center text-gray-500">No archived posts available.</p>
+            <p className="text-center text-gray-500">{t('history.empty')}</p>
           )}
         </div>
       </section>

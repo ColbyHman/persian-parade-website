@@ -1,10 +1,12 @@
 import archive from '../data/pressArchive.js';
+import { useI18n } from '../i18n';
 
 function PressArchive() {
+  const { t, num } = useI18n();
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <h2 className="text-4xl font-semibold mb-12 text-center text-gray-900">
-        Press Archive
+        {t('press.archive')}
       </h2>
 
       {Object.entries(archive)
@@ -12,7 +14,7 @@ function PressArchive() {
         .map(([year, posts]) => (
           <section key={year} className="mb-14">
             <h3 className="text-3xl font-semibold mb-6 border-b border-gray-300 pb-2 text-gray-800">
-              {year}
+              {num(Number(year), { useGrouping: false })}
             </h3>
             <div
                 className={`grid gap-8 ${
@@ -29,7 +31,7 @@ function PressArchive() {
                 >
                   <h4 className="text-xl font-medium text-gray-900 mb-2">{title}</h4>
                   <p className="text-gray-600 text-sm">
-                    Click to view this press coverage.
+                    {t('press.clickToView')}
                   </p>
                 </a>
               ))}

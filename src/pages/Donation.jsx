@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
+import { useI18n, Trans } from '../i18n';
 
 export default function DonationPage() {
+  const { t } = useI18n();
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://www.zeffy.com/embed/v2/zeffy-embed.js';
@@ -25,10 +27,9 @@ export default function DonationPage() {
     <div>
       {/* Donation Banner - Red background with white text */}
       <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
-        <h1 className="text-4xl font-bold text-center mb-4">Donate</h1>
+        <h1 className="text-4xl font-bold text-center mb-4">{t('donate.title')}</h1>
         <p className="max-w-xl mx-auto text-center text-red-200">
-          Your generous support helps sustain our mission to promote Persian art, culture, and community spirit year-round.
-          Every contribution makes a difference.
+          {t('donate.intro')}
         </p>
       </div>
 
@@ -36,10 +37,9 @@ export default function DonationPage() {
       <div className="bg-white text-black">
         <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
           <div className="mb-8 text-center">
-            <h2 className="text-3xl font-semibold mb-4">Make a Donation</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t('donate.makeDonation')}</h2>
             <p className="leading-relaxed text-gray-700 max-w-2xl mx-auto">
-              All donations are processed securely through Zeffy, a 0% fee fundraising platform.
-              100% of your donation goes directly to the Persian Parade Foundation.
+              {t('donate.zeffy')}
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export default function DonationPage() {
             <div data-zeffy-embed-fallback style={{ display: 'none' }}>
               <div style={{ position: 'relative', overflow: 'hidden', height: '600px', width: '100%' }}>
                 <iframe
-                  title="Donation form powered by Zeffy"
+                  title={t('donate.formTitle')}
                   style={{
                     position: 'absolute',
                     border: 0,
@@ -73,14 +73,19 @@ export default function DonationPage() {
           {/* Alternative contact info */}
           <div className="mt-12 text-center text-gray-600">
             <p className="leading-relaxed">
-              Prefer to donate by check or have questions? Contact us at{' '}
-              <a href="mailto:info@persianparade.com" className="underline text-red-600 hover:text-red-700">
-                info@persianparade.com
-              </a>
+              <Trans
+                k="donate.byCheck"
+                values={{
+                  email: (
+                    <a href="mailto:info@persianparade.com" dir="ltr" className="underline text-red-600 hover:text-red-700">
+                      info@persianparade.com
+                    </a>
+                  ),
+                }}
+              />
             </p>
             <p className="leading-relaxed mt-2">
-              Persian Parade Foundation is a 501(c)(3) non-profit organization. Your donation is tax-deductible to the
-              extent allowed by law. EIN: 83-4668094
+              <Trans k="donate.taxNote" values={{ ein: <span dir="ltr">83-4668094</span> }} />
             </p>
           </div>
         </div>
