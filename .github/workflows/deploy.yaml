@@ -71,6 +71,8 @@ jobs:
       # Only the entry HTML and the un-hashed public assets need invalidating.
       # Invalidating "/*" discarded the entire cached image set on every push,
       # which is what made repeat visits feel slow.
+      # "/" is cached separately from "/index.html" (the default root object),
+      # so it must be listed too or the home page stays stale for up to an hour.
       - name: Invalidate CloudFront cache
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -79,4 +81,4 @@ jobs:
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/index.html" "/gallery/*" "/images/*"
+            --paths "/" "/index.html" "/gallery/*" "/images/*"
