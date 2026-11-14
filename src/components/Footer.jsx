@@ -25,8 +25,8 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-1 md:space-y-2">
           <h3 className="text-lg font-semibold md:mb-2">{t('footer.contactHeading')}</h3>
-          <a href="mailto:info@persianparade.com" dir="ltr" className="!text-white hover:underline">info@persianparade.com</a>
-          <p lang="en" dir="ltr" className="text-sm text-gray-300 rtl:text-right">EIN 83-4668094</p>
+          <a href="mailto:info@persianparade.com" dir="ltr" className="self-start !text-white hover:underline">info@persianparade.com</a>
+          <p lang="en" dir="ltr" className="self-start text-sm text-gray-300">EIN 83-4668094</p>
         </div>
       </div>
     </footer>

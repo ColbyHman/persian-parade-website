@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { imgProps } from '../lib/images';
 import { useI18n } from '../i18n';
 import { Card, ButtonLink } from './ui';
@@ -74,7 +75,33 @@ function Blocks({ content, rich = true }) {
   });
 }
 
+// Long text posts show their first few blocks with a "Read more" toggle so
+// the News page stays short on phones. A post opened via /news#post-<id>
+// starts expanded.
+const PREVIEW_BLOCKS = 2;
+const PREVIEW_CHARS = 600;
+const blockText = (b) => (typeof b === 'string' ? b : b.text ?? (b.items ?? []).join(' '));
+// Enough leading blocks to give a real taste of the post (~300 characters),
+// so a preview isn't just a bold date line or heading.
+const previewBlocks = (content) => {
+  let n = 0;
+  const out = [];
+  for (const b of content) {
+    out.push(b);
+    n += blockText(b).length;
+    if (n >= 300) break;
+  }
+  return out;
+};
+const isLong = (post) =>
+  (post.content?.length ?? 0) > PREVIEW_BLOCKS &&
+  post.content.reduce((n, b) => n + blockText(b).length, 0) > PREVIEW_CHARS &&
+  previewBlocks(post.content).length < post.content.length;
+
 const FeedPostBody = ({ post, headingLevel }) => {
+  const { lang: uiLang, t } = useI18n();
+  const { hash } = useLocation();
+  const [expanded, setExpanded] = useState(hash === `#post-${post.id}`);
   // createElement: this repo's ESLint config doesn't mark JSX-only
   // identifiers as used, so no <Heading> variable.
   const title = React.createElement(
@@ -106,7 +133,9 @@ const FeedPostBody = ({ post, headingLevel }) => {
         </Card>
       );
 
-    case 'text':
+    case 'text': {
+      const long = isLong(post);
+      const shown = long && !expanded ? previewBlocks(post.content) : post.content;
       return (
         <Card as="article" accent="green" className={`${cardCls} flow-root`}>
           {title}
@@ -116,10 +145,26 @@ const FeedPostBody = ({ post, headingLevel }) => {
               {...img(post, 'float-end ms-4 mb-3 w-28 sm:w-44 h-auto rounded-lg shadow-sm', '(max-width: 640px) 112px, 176px')}
             />
           )}
-          <Blocks content={post.content} />
+          <div id={`post-${post.id}-body`}>
+            <Blocks content={shown} />
+          </div>
+          {long && (
+            <button
+              type="button"
+              lang={uiLang}
+              dir={uiLang === 'fa' ? 'rtl' : 'ltr'}
+              aria-expanded={expanded}
+              aria-controls={`post-${post.id}-body`}
+              onClick={() => setExpanded(!expanded)}
+              className="clear-both mt-3 inline-flex items-center min-h-11 font-bold text-pp-green-dark underline underline-offset-2 hover:decoration-2"
+            >
+              {expanded ? t('news.readLess') : t('news.readMore')}
+            </button>
+          )}
           <Cta post={post} />
         </Card>
       );
+    }
 
     case 'video':
     case 'image':

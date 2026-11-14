@@ -319,6 +319,16 @@
     "source": "c96bbeb9",
     "status": "machine"
   },
+  "gallery.closeLabel": {
+    "text": "بستن",
+    "source": "cd86acc3",
+    "status": "machine"
+  },
+  "gallery.photoCount": {
+    "text": "{n} عکس",
+    "source": "ccd4c51c",
+    "status": "machine"
+  },
   "history.title": {
     "text": "آرشیو پست‌ها",
     "source": "26f5f07f",
@@ -352,6 +362,21 @@
   "press.clickToView": {
     "text": "برای مشاهده پوشش رسانه‌ای، کلیک کنید.",
     "source": "20876a50",
+    "status": "machine"
+  },
+  "press.featured": {
+    "text": "پوشش رسانه‌ای برگزیده",
+    "source": "797708df",
+    "status": "machine"
+  },
+  "press.video": {
+    "text": "ویدئو",
+    "source": "5b67c80c",
+    "status": "machine"
+  },
+  "press.newTab": {
+    "text": "(در تب جدید باز می‌شود)",
+    "source": "cea87834",
     "status": "machine"
   },
   "sponsors.title": {
@@ -797,6 +822,16 @@
   "news.archiveLink": {
     "text": "دنبال پست‌های قدیمی‌تر هستید؟ آرشیو پست‌ها را ببینید",
     "source": "77003041",
+    "status": "machine"
+  },
+  "news.readMore": {
+    "text": "بیشتر بخوانید",
+    "source": "e82849aa",
+    "status": "machine"
+  },
+  "news.readLess": {
+    "text": "بستن",
+    "source": "4043bfcd",
     "status": "machine"
   },
   "sponsorsStrip.thanks": {

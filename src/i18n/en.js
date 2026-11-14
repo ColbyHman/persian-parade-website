@@ -231,6 +231,8 @@ export default {
   'news.intro': 'Announcements and updates from the Persian Parade Foundation.',
   'news.seeAll': 'See all news',
   'news.archiveLink': 'Looking for older posts? See the post history',
+  'news.readMore': 'Read more',
+  'news.readLess': 'Show less',
 
   'sponsorsStrip.thanks': 'Thank you to our sponsors.',
   'sponsorsStrip.become': 'Become a sponsor',
