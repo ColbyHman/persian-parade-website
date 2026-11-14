@@ -104,6 +104,8 @@ export default {
   'gallery.album': 'Parade {year}',
   'gallery.photoAlt': 'Parade {year} - photo {n}',
   'gallery.close': 'Close gallery',
+  'gallery.closeLabel': 'Close',
+  'gallery.photoCount': '{n} photos',
 
   // --------------------------------------------------------------- history
   'history.title': 'Post History',
@@ -116,6 +118,9 @@ export default {
     "Explore our latest press coverage, videos, and articles showcasing the Persian Parade's rich cultural history and community impact.",
   'press.archive': 'Press Archive',
   'press.clickToView': 'Click to view this press coverage.',
+  'press.featured': 'Featured coverage',
+  'press.video': 'Video',
+  'press.newTab': '(opens in a new tab)',
 
   // -------------------------------------------------------------- sponsors
   'sponsors.title': 'Become a Sponsor',
