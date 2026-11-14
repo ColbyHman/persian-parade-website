@@ -1,42 +1,42 @@
 import archive from '../data/pressArchive.js';
 import { useI18n } from '../i18n';
+import { Card } from './ui';
 
+// One card per year (newest first), each a compact list of outlet links.
 function PressArchive() {
   const { t, num } = useI18n();
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <h2 className="text-4xl font-semibold mb-12 text-center text-gray-900">
-        {t('press.archive')}
-      </h2>
-
+    <div className="grid gap-3 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start">
       {Object.entries(archive)
         .sort((a, b) => b[0] - a[0]) // sort years descending
         .map(([year, posts]) => (
-          <section key={year} className="mb-14">
-            <h3 className="text-3xl font-semibold mb-6 border-b border-gray-300 pb-2 text-gray-800">
+          <Card as="section" key={year} accent="gold" aria-labelledby={`press-year-${year}`} className="!p-0 overflow-hidden">
+            <h3
+              id={`press-year-${year}`}
+              className="px-4 sm:px-5 pt-2 sm:pt-3 font-serif font-bold text-lg sm:text-xl text-pp-gold-text"
+            >
               {num(Number(year), { useGrouping: false })}
             </h3>
-            <div
-                className={`grid gap-8 ${
-                    posts.length === 1 ? "grid-cols-1 justify-center" : "grid-cols-1 sm:grid-cols-2"
-                }`}
-            >
+            <ul className="divide-y divide-stone-200">
               {posts.map(({ title, link }) => (
-                <a
-                  key={title}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
-                >
-                  <h4 className="text-xl font-medium text-gray-900 mb-2">{title}</h4>
-                  <p className="text-gray-600 text-sm">
-                    {t('press.clickToView')}
-                  </p>
-                </a>
+                <li key={title}>
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={t('press.clickToView')}
+                    className="flex items-center gap-3 min-h-11 px-4 sm:px-5 py-2 font-semibold no-underline !text-pp-ink hover:bg-pp-paper hover:!text-pp-green-dark"
+                  >
+                    <span className="flex-1 [overflow-wrap:anywhere]">{title}</span>
+                    <span className="sr-only">{t('press.newTab')}</span>
+                    <span aria-hidden="true" className="text-pp-green-dark font-bold inline-block rtl:-scale-x-100">
+                      ↗
+                    </span>
+                  </a>
+                </li>
               ))}
-            </div>
-          </section>
+            </ul>
+          </Card>
         ))}
     </div>
   );
