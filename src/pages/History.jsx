@@ -3,6 +3,7 @@ import FeedPost from '../components/FeedPost';
 import posts from '../data/posts';
 import Footer from '../components/Footer';
 import { useI18n } from '../i18n';
+import { PageHeader, Section } from '../components/ui';
 
 const History = () => {
   const { t, num } = useI18n();
@@ -20,35 +21,31 @@ const History = () => {
   const years = Object.keys(postsByYear).sort((a, b) => b - a);
 
   return (
-    <div className="text-black bg-white">
-      <section className="bg-pp-red text-white py-16 px-6">
-        <div className="shadow-xl rounded-lg p-8 bg-pp-red-dark">
-          <h1 className="text-4xl font-bold text-center mb-4">
-            {t('history.title')}
-          </h1>
-          <p className="max-w-2xl mx-auto text-center text-white">
-            {t('history.intro')}
-          </p>
-        </div>
-      </section>
+    <div className="bg-pp-paper text-pp-ink">
+      <PageHeader title={t('history.title')} intro={t('history.intro')} image="/images/slider/ZFNY-131-scaled.jpg" />
 
-      <section className="bg-gray-50 py-12 px-4 md:px-12">
-        <div className="max-w-6xl mx-auto">
+      <Section>
+        <div className="max-w-3xl mx-auto">
           {years.map(year => (
-            <div key={year} className="mb-12">
-              <h2 className="text-3xl font-bold text-center mb-8">{num(Number(year), { useGrouping: false })}</h2>
-              <div className="flex flex-col gap-10 items-center">
+            <section key={year} aria-labelledby={`year-${year}`} className="mb-8 sm:mb-12 last:mb-0">
+              <h2
+                id={`year-${year}`}
+                className="font-serif font-bold text-2xl sm:text-3xl mb-4 sm:mb-6 pb-2 border-b-2 border-pp-gold"
+              >
+                {num(Number(year), { useGrouping: false })}
+              </h2>
+              <div className="flex flex-col gap-5 sm:gap-8">
                 {postsByYear[year].map(post => (
-                  <FeedPost key={post.id} post={post} />
+                  <FeedPost key={post.id} post={post} headingLevel={3} />
                 ))}
               </div>
-            </div>
+            </section>
           ))}
           {years.length === 0 && (
-            <p className="text-center text-gray-500">{t('history.empty')}</p>
+            <p className="text-center text-stone-600">{t('history.empty')}</p>
           )}
         </div>
-      </section>
+      </Section>
 
       <Footer />
     </div>
