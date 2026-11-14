@@ -1,181 +1,199 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { imgProps } from '../lib/images';
 import { useI18n } from '../i18n';
+import { Card, ButtonLink } from './ui';
 
-// Post thumbnails come from /images and render at 192-256 CSS px on desktop,
-// well under the 400w candidate the optimizer generates.
-const img = (post, className) => imgProps(post.imageUrl, {
+// Feed posts (src/data/posts.js) rendered as white cards matching the page
+// design system: serif title, gold date, readable body, rounded images and
+// pill CTA buttons. Posts are English-only for now (see FeedPost below).
+
+const img = (post, className, sizes) => imgProps(post.imageUrl, {
   alt: post.title,
   className,
+  sizes,
   loading: 'lazy',
 });
 
-const FeedPostBody = ({ post }) => {
-  // Outer container stays the same
-  const baseContainerClasses = "w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl bg-white border-t-4 border-pp-green rounded-lg shadow-md mx-auto my-4 overflow-hidden";
+// Donation-type CTAs get the primary red button; everything else green.
+const isDonateCta = (post) => /donat/i.test(`${post.ctaLink} ${post.ctaText}`);
 
-  const renderDate = () => {
-    if (!post.date) return null;
-    const [year, month, day] = post.date.split('-').map(Number);
-    const dateObj = new Date(year, month - 1, day);
-    return (
-      <p className="text-sm font-semibold text-pp-gold-text mb-2">
-        {dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-      </p>
-    );
-  };
+function Cta({ post }) {
+  if (!post.ctaText || !post.ctaLink) return null;
+  return (
+    <ButtonLink
+      to={post.ctaLink}
+      variant={isDonateCta(post) ? 'red' : 'green'}
+      className="mt-4 w-full sm:w-auto"
+    >
+      {post.ctaText}
+    </ButtonLink>
+  );
+}
+
+function PostDate({ date }) {
+  if (!date) return null;
+  const [year, month, day] = date.split('-').map(Number);
+  const dateObj = new Date(year, month - 1, day);
+  return (
+    <time dateTime={date} className="block text-sm sm:text-base font-semibold text-pp-gold-text mb-3">
+      {dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+    </time>
+  );
+}
+
+// Body blocks: bare strings (legacy) and {type:'paragraph'} are paragraphs;
+// 'bold-paragraph' and 'list' only appear in text posts.
+function Blocks({ content, rich = true }) {
+  if (!content) return null;
+  return content.map((item, index) => {
+    if (typeof item === 'string' || item.type === 'paragraph') {
+      return (
+        <p key={index} className="mb-3 last:mb-0 leading-relaxed">
+          {typeof item === 'string' ? item : item.text}
+        </p>
+      );
+    }
+    if (!rich) return null;
+    if (item.type === 'bold-paragraph') {
+      return (
+        <p key={index} className="mb-3 last:mb-0 leading-relaxed font-bold">
+          {item.text}
+        </p>
+      );
+    }
+    if (item.type === 'list') {
+      return (
+        <ul key={index} className="mb-3 last:mb-0 leading-relaxed list-disc ps-6 space-y-1">
+          {item.items.map((listItem, liIndex) => (
+            <li key={liIndex}>{listItem}</li>
+          ))}
+        </ul>
+      );
+    }
+    return null;
+  });
+}
+
+// Long text posts show their first few blocks with a "Read more" toggle so
+// the News page stays short on phones. A post opened via /news#post-<id>
+// starts expanded.
+const PREVIEW_BLOCKS = 2;
+const PREVIEW_CHARS = 600;
+const blockText = (b) => (typeof b === 'string' ? b : b.text ?? (b.items ?? []).join(' '));
+// Enough leading blocks to give a real taste of the post (~300 characters),
+// so a preview isn't just a bold date line or heading.
+const previewBlocks = (content) => {
+  let n = 0;
+  const out = [];
+  for (const b of content) {
+    out.push(b);
+    n += blockText(b).length;
+    if (n >= 300) break;
+  }
+  return out;
+};
+const isLong = (post) =>
+  (post.content?.length ?? 0) > PREVIEW_BLOCKS &&
+  post.content.reduce((n, b) => n + blockText(b).length, 0) > PREVIEW_CHARS &&
+  previewBlocks(post.content).length < post.content.length;
+
+const FeedPostBody = ({ post, headingLevel }) => {
+  const { lang: uiLang, t } = useI18n();
+  const { hash } = useLocation();
+  const [expanded, setExpanded] = useState(hash === `#post-${post.id}`);
+  // createElement: this repo's ESLint config doesn't mark JSX-only
+  // identifiers as used, so no <Heading> variable.
+  const title = React.createElement(
+    `h${headingLevel}`,
+    { className: 'font-serif font-bold text-xl sm:text-2xl leading-snug mb-1 text-pp-ink' },
+    post.title,
+  );
+  const cardCls = 'text-start overflow-hidden';
 
   switch (post.type) {
     case 'poster':
-      return (
-        <div className="w-full max-w-[90vw] md:max-w-5xl lg:max-w-6xl p-6 bg-white border-t-4 border-pp-green rounded-lg shadow-md mx-auto my-4">
-          <div className="md:flex gap-4">
-            <img
-              {...img(post, "w-full md:w-48 rounded flex-shrink-0")}
-              sizes="(max-width: 768px) 100vw, 192px"
-            />
-            <div>
-              <h3 className="font-semibold text-black" style={{fontSize: 'clamp(1rem, 4vw, 1.5rem)'}}>{post.title}</h3>
-              {renderDate()}
-              {post.description && (
-                <p className="mt-2 text-gray-700">{post.description}</p>
-              )}
-              <a
-                href={post.ctaLink}
-                className="inline-block mt-2 px-4 py-2 bg-pp-green-dark !text-white rounded hover:bg-pp-green"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {post.ctaText}
-              </a>
-            </div>
-          </div>
-        </div>
-      );
-
     case 'announcement':
+      // Title on top; small image floated beside the text even on phones so
+      // the card stays short (text wraps under it).
       return (
-        <div className={baseContainerClasses}>
-          <article className="bg-white p-6 rounded text-black text-left">
-            <div className="md:flex gap-6">
-              {post.imageUrl && (
-                <img
-                  {...img(post, "w-full md:w-64 rounded flex-shrink-0 mb-4 md:mb-0")}
-                  sizes="(max-width: 768px) 100vw, 256px"
-                />
-              )}
-              <div className="flex-1">
-            <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
-                {renderDate()}
-                {post.content && post.content.map((item, index) => {
-                  if (typeof item === 'string') {
-                    return (
-                      <p key={index} className="mb-3 leading-relaxed">
-                        {item}
-                      </p>
-                    );
-                  } else if (item.type === 'paragraph') {
-                    return (
-                      <p key={index} className="mb-3 leading-relaxed">
-                        {item.text}
-                      </p>
-                    );
-                  }
-                  return null;
-                })}
-                {post.ctaText && post.ctaLink && (
-                  <a
-                    href={post.ctaLink}
-                    className="inline-block mt-4 px-4 py-2 bg-pp-red !text-white rounded hover:bg-pp-red-dark"
-                  >
-                    {post.ctaText}
-                  </a>
-                )}
-              </div>
-            </div>
-          </article>
-        </div>
+        <Card as="article" accent="green" className={`${cardCls} flow-root`}>
+          {title}
+          <PostDate date={post.date} />
+          {post.imageUrl && (
+            <img {...img(post, 'float-start me-4 sm:me-6 mb-3 w-28 sm:w-48 h-auto rounded-lg', '(max-width: 640px) 112px, 192px')} />
+          )}
+          {post.description && <p className="mb-3 leading-relaxed">{post.description}</p>}
+          <Blocks content={post.content} rich={false} />
+          {/* Cleared below the image so the button never squeezes into the
+              narrow column beside it on phones. */}
+          <div className="clear-both sm:clear-none">
+            <Cta post={post} />
+          </div>
+        </Card>
       );
 
-    case 'text':
+    case 'text': {
+      const long = isLong(post);
+      const shown = long && !expanded ? previewBlocks(post.content) : post.content;
       return (
-        <div className={baseContainerClasses}>
-          {/* White box behind text */}
-          <article className="bg-white p-6 rounded text-black text-left">
-                <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
-            {renderDate()}
-            {post.imageUrl && (
-              <img
-                {...img(post, "w-48 md:w-56 rounded shadow mx-auto mb-4 block")}
-                sizes="(max-width: 768px) 50vw, 224px"
-              />
-            )}
-            {post.content.map((item, index) => {
-              if (typeof item === 'string') {
-                // Backward compatibility: treat as paragraph
-                return (
-                  <p key={index} className="mb-3 leading-relaxed">
-                    {item}
-                  </p>
-                );
-              } else if (item.type === 'paragraph') {
-                return (
-                  <p key={index} className="mb-3 leading-relaxed">
-                    {item.text}
-                  </p>
-                );
-              } else if (item.type === 'bold-paragraph') {
-                return (
-                  <p key={index} className="mb-3 leading-relaxed font-bold">
-                    {item.text}
-                  </p>
-                );
-              } else if (item.type === 'list') {
-                return (
-                  <ul key={index} className="mb-3 leading-relaxed list-disc list-inside">
-                    {item.items.map((listItem, liIndex) => (
-                      <li key={liIndex}>{listItem}</li>
-                    ))}
-                  </ul>
-                );
-              }
-              return null;
-            })}
-          </article>
-        </div>
+        <Card as="article" accent="green" className={`${cardCls} flow-root`}>
+          {title}
+          <PostDate date={post.date} />
+          {post.imageUrl && (
+            <img
+              {...img(post, 'float-end ms-4 mb-3 w-28 sm:w-44 h-auto rounded-lg shadow-sm', '(max-width: 640px) 112px, 176px')}
+            />
+          )}
+          <div id={`post-${post.id}-body`}>
+            <Blocks content={shown} />
+          </div>
+          {long && (
+            <button
+              type="button"
+              lang={uiLang}
+              dir={uiLang === 'fa' ? 'rtl' : 'ltr'}
+              aria-expanded={expanded}
+              aria-controls={`post-${post.id}-body`}
+              onClick={() => setExpanded(!expanded)}
+              className="clear-both mt-3 inline-flex items-center min-h-11 font-bold text-pp-green-dark underline underline-offset-2 hover:decoration-2"
+            >
+              {expanded ? t('news.readLess') : t('news.readMore')}
+            </button>
+          )}
+          <Cta post={post} />
+        </Card>
       );
+    }
 
     case 'video':
     case 'image':
       return (
-        <div className={baseContainerClasses}>
-          <article className="bg-white p-6 rounded text-black">
-            <h1 className="font-bold mb-2 text-center" style={{fontSize: 'clamp(1.25rem, 6vw, 2.25rem)'}}>{post.title}</h1>
-            {renderDate()}
-            {post.type === 'video' ? (
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src={post.videoUrl}
-                  title={post.title}
-                  allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full rounded"
-                  frameBorder="0"
-                />
-              </div>
-            ) : (
-              <img
-                {...img(post, "w-full rounded")}
+        <Card as="article" accent="green" className={cardCls}>
+          {title}
+          <PostDate date={post.date} />
+          {post.type === 'video' ? (
+            <div className="relative w-full aspect-video">
+              <iframe
+                src={post.videoUrl}
+                title={post.title}
+                allowFullScreen
+                className="absolute inset-0 w-full h-full rounded-lg"
+                frameBorder="0"
               />
-            )}
-            {post.caption && (
-              <div className="mt-4 text-center text-gray-700">
-                {post.caption.split(' | ').map((line, i) => (
-                  <p key={i} className="mb-1">{line}</p>
-                ))}
-              </div>
-            )}
-          </article>
-        </div>
+            </div>
+          ) : (
+            <img {...img(post, 'w-full h-auto rounded-lg', '(max-width: 800px) 100vw, 720px')} />
+          )}
+          {post.caption && (
+            <div className="mt-4 leading-relaxed">
+              {post.caption.split(' | ').map((line, i) => (
+                <p key={i} className={i === 0 ? 'mb-2' : 'mb-1 font-semibold'}>{line}</p>
+              ))}
+            </div>
+          )}
+          <Cta post={post} />
+        </Card>
       );
 
     default:
@@ -186,15 +204,22 @@ const FeedPostBody = ({ post }) => {
 // Posts are English-only for now (Farsi posts are a follow-up). On Farsi pages
 // keep them left-to-right and tagged lang="en" so layout and screen readers
 // stay correct, and say so rather than silently mixing languages.
-const FeedPost = ({ post }) => {
+// `headingLevel`: 2 on the News page, 3 under History's year headings.
+const FeedPost = ({ post, headingLevel = 2 }) => {
   const { lang, t } = useI18n();
   // id lets home-page news cards deep-link to /news#post-<id>.
-  if (lang === 'en') return <div id={`post-${post.id}`} className="w-full scroll-mt-24"><FeedPostBody post={post} /></div>;
+  if (lang === 'en') {
+    return (
+      <div id={`post-${post.id}`} className="w-full scroll-mt-24">
+        <FeedPostBody post={post} headingLevel={headingLevel} />
+      </div>
+    );
+  }
   return (
-    <div id={`post-${post.id}`} className="w-full flex flex-col items-center scroll-mt-24">
-      <p className="text-sm text-gray-600 mb-1">{t('lang.englishOnly')}</p>
-      <div lang="en" dir="ltr" className="w-full flex flex-col items-center">
-        <FeedPostBody post={post} />
+    <div id={`post-${post.id}`} className="w-full scroll-mt-24 text-start">
+      <p className="text-sm text-stone-600 mb-1">{t('lang.englishOnly')}</p>
+      <div lang="en" dir="ltr">
+        <FeedPostBody post={post} headingLevel={headingLevel} />
       </div>
     </div>
   );

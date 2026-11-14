@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
 import { useI18n, Trans } from '../i18n';
+import { PageHeader, Section, Card, EmailLink } from '../components/ui';
 
 export default function DonationPage() {
   const { t } = useI18n();
@@ -24,26 +25,16 @@ export default function DonationPage() {
   }, []);
 
   return (
-    <div>
-      {/* Donation Banner - Red background with white text */}
-      <div className="bg-pp-red text-white py-16 px-6 shadow-xl">
-        <h1 className="text-4xl font-bold text-center mb-4">{t('donate.title')}</h1>
-        <p className="max-w-xl mx-auto text-center text-white">
-          {t('donate.intro')}
-        </p>
-      </div>
+    <div className="bg-pp-paper text-pp-ink">
+      <PageHeader title={t('donate.title')} intro={t('donate.intro')} image="/images/slider/2023-Dedication-Banner1.jpg" />
 
-      {/* Zeffy Donation Form */}
-      <div className="bg-white text-black">
-        <div className="max-w-screen-xl mx-auto px-10 md:px-24 lg:px-40 py-12 rounded-none">
-          <div className="mb-8 text-center">
-            <h2 className="text-3xl font-semibold mb-4">{t('donate.makeDonation')}</h2>
-            <p className="leading-relaxed text-gray-700 max-w-2xl mx-auto">
-              {t('donate.zeffy')}
-            </p>
-          </div>
+      <Section>
+        <div className="grid lg:grid-cols-3 gap-5 lg:gap-8 items-start">
+          {/* Zeffy donation form */}
+          <Card accent="red" className="lg:col-span-2 p-4 sm:p-6">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl mb-2">{t('donate.makeDonation')}</h2>
+            <p className="leading-relaxed mb-4 sm:mb-6">{t('donate.zeffy')}</p>
 
-          <div className="max-w-3xl mx-auto">
             {/* Zeffy Embed */}
             <div data-zeffy-embed data-form-url="/embed/donation-form/donate-to-the-persian-parade-foundation"></div>
 
@@ -67,28 +58,19 @@ export default function DonationPage() {
                 ></iframe>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* Alternative contact info */}
-          <div className="mt-12 text-center text-gray-600">
+          {/* By check + tax note */}
+          <Card accent="gold" as="aside" className="text-base space-y-3">
             <p className="leading-relaxed">
-              <Trans
-                k="donate.byCheck"
-                values={{
-                  email: (
-                    <a href="mailto:info@persianparade.com" dir="ltr" className="underline text-pp-red hover:text-pp-red-dark">
-                      info@persianparade.com
-                    </a>
-                  ),
-                }}
-              />
+              <Trans k="donate.byCheck" values={{ email: <EmailLink /> }} />
             </p>
-            <p className="leading-relaxed mt-2">
-              <Trans k="donate.taxNote" values={{ ein: <span dir="ltr">83-4668094</span> }} />
+            <p className="leading-relaxed text-stone-700">
+              <Trans k="donate.taxNote" values={{ ein: <span dir="ltr" className="font-semibold text-pp-ink">83-4668094</span> }} />
             </p>
-          </div>
+          </Card>
         </div>
-      </div>
+      </Section>
 
       <Footer />
     </div>

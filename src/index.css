@@ -89,6 +89,15 @@ html[lang='fa'] .font-serif {
   font-weight: 800;
 }
 
+/* …but English-only content inside Farsi pages (posts) keeps its serif. */
+html[lang='fa'] [lang='en'] {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+html[lang='fa'] [lang='en'] .font-serif {
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
 /* Hero slider: the headline sits bottom-start, so move the dots to the end
    edge, and drop arrows/dots on phones where the copy covers the bottom
    (swipe still works). */

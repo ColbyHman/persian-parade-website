@@ -4,6 +4,7 @@ import FeedPost from '../components/FeedPost';
 import Footer from '../components/Footer';
 import posts from '../data/posts';
 import { useI18n, LocalLink } from '../i18n';
+import { PageHeader, Section, proseLink } from '../components/ui';
 
 // Every current (non-hidden) post in full. Home-page news cards link here as
 // /news#post-<id>; archived posts stay on /post-history.
@@ -20,20 +21,19 @@ export default function News() {
 
   return (
     <div className="bg-pp-paper text-pp-ink">
-      <div className="bg-pp-red text-white py-14 px-6 text-center">
-        <h1 className="text-4xl font-bold mb-3">{t('nav.news')}</h1>
-        <p className="max-w-2xl mx-auto">{t('news.intro')}</p>
-      </div>
-      <section className="py-10 px-4 md:px-12">
-        <div className="max-w-6xl mx-auto flex flex-col gap-6 items-center">
+      <PageHeader title={t('nav.news')} intro={t('news.intro')} image="/images/slider/Sol1.jpg" />
+      <Section>
+        <div className="max-w-3xl mx-auto flex flex-col gap-5 sm:gap-8">
           {posts.filter((post) => !post.hidden).map((post) => (
             <FeedPost key={post.id} post={post} />
           ))}
-          <LocalLink to="/post-history" className="font-bold text-pp-green-dark hover:text-pp-green-dark hover:underline min-h-11 inline-flex items-center">
-            {t('news.archiveLink')}
-          </LocalLink>
+          <p className="text-center">
+            <LocalLink to="/post-history" className={`${proseLink} min-h-11 inline-flex items-center`}>
+              {t('news.archiveLink')}
+            </LocalLink>
+          </p>
         </div>
-      </section>
+      </Section>
       <Footer />
     </div>
   );
