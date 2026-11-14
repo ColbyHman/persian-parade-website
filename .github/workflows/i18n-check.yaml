@@ -8,6 +8,7 @@ on:
     paths:
       - 'src/i18n/**'
       - 'scripts/i18n-check.mjs'
+      - '.github/workflows/i18n-check.yaml'
 
 jobs:
   check:
