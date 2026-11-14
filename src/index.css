@@ -1,41 +1,47 @@
 @import 'tailwindcss';
 
+/* Palette: the 1964–1980 Lion and Sun flag (Wikimedia Commons spec), plus
+   darker shades of the same hues where text has to pass WCAG AA.
+     flag green  #239F40  stripes / decoration only (white on it is 3.4:1)
+     green-dark  #17692B  links, secondary buttons (white on it 6.8:1)
+     flag red    #DA0000  Donate + primary actions (white on it 5.3:1)
+     red-dark    #A80000  hover / pressed (7.9:1)
+     gold        #FFBC21  on dark backgrounds only (8.4:1 on ink)
+     gold-text   #8A6100  dates/eyebrows on white (5.5:1)
+   Used as Tailwind utilities: bg-pp-red, text-pp-green-dark, border-pp-gold… */
+@theme {
+  --color-pp-green: #239f40;
+  --color-pp-green-dark: #17692b;
+  --color-pp-red: #da0000;
+  --color-pp-red-dark: #a80000;
+  --color-pp-gold: #ffbc21;
+  --color-pp-gold-text: #8a6100;
+  --color-pp-ink: #2a2b2e;
+  --color-pp-paper: #fafaf7;
+}
+
 :root {
-    /* Primary colors */
-  --color-primary: #a00;             /* Deep Red */
-  --color-primary-light: #cc3333;    /* Lighter Red */
-  --color-primary-dark: #700000;     /* Darker Red */
-
-  /* Secondary colors (choose something complementary, e.g., a soft gray or gold) */
-  --color-secondary: #2A2B2E;        /* Grey */
-  --color-accent: #558564;  /* Viridian */
-  --color-secondary-dark: #b27b2f;   /* Dark Gold */
-
-  /* Neutral colors */
-  --color-bg: #F1F5F2;
-  --color-background: #8c5a5a;
-  --color-text-primary: #1f2937;     /* Dark Gray */
-  --color-text-secondary: #6b7280;   /* Medium Gray */
-  --color-border: #e5e7eb;            /* Light Gray */
-
-  /* Success, Warning, Error */
-  --color-success: #22c55e;           /* Green */
-  --color-warning: #facc15;           /* Yellow */
-  --color-error: #ef4444;             /* Red */
-
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* 18px base (was the browser's 16px): easier reading for every age.
+     Tailwind sizes are rem-based, so this scales type and spacing together. */
+  font-size: 112.5%;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--color-bg);
+  color-scheme: light;
+  color: var(--color-pp-ink);
+  background-color: var(--color-pp-paper);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-pp-gold);
+  outline-offset: 3px;
 }
 
 /* Slide Down for Mobile Menu */
@@ -70,7 +76,6 @@
   animation: slide-up 0.3s ease-in forwards;
 }
 
-
 /* Farsi: Vazirmatn (self-hosted via @fontsource, no Google Fonts call) and a
    taller line height for Persian script. */
 html[lang='fa'] body {
@@ -78,29 +83,60 @@ html[lang='fa'] body {
   line-height: 1.8;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Latin serif headings have no Persian glyphs; use heavy Vazirmatn instead. */
+html[lang='fa'] .font-serif {
+  font-family: 'Vazirmatn Variable', Tahoma, sans-serif;
+  font-weight: 800;
 }
 
-a {
-  color: var(--color-primary);
+/* Hero slider: the headline sits bottom-start, so move the dots to the end
+   edge, and drop arrows/dots on phones where the copy covers the bottom
+   (swipe still works). */
+.home-slider .swiper-pagination {
+  text-align: end;
+  padding-inline-end: 1.5rem;
+}
+@media (max-width: 639px) {
+  .home-slider .swiper-pagination,
+  .home-slider .swiper-button-prev,
+  .home-slider .swiper-button-next {
+    display: none;
+  }
 }
 
-a:hover {
-  color: var(--color-primary-dark);
+/* Element defaults live in the base layer so Tailwind utilities on an element
+   win without needing `!important`. */
+@layer base {
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+
+  a {
+    color: var(--color-pp-red);
+  }
+
+  a:hover {
+    color: var(--color-pp-red-dark);
+  }
+
+  button {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+  }
 }
 
-button {
-  background-color: var(--color-bg);
-  color: var(--color-bg);
-  border: none;
+/* Tricolour rule: green / white / red, used under the navbar and the hero. */
+.flag-rule {
+  height: 10px;
+  background: linear-gradient(
+    var(--color-pp-green) 0 33.33%,
+    #fff 33.33% 66.66%,
+    var(--color-pp-red) 66.66%
+  );
 }
-
-button:hover {
-  background-color: var(--color-bg);
-}
-
 
 /* Home Slider */
 
@@ -122,14 +158,8 @@ button:hover {
   filter: drop-shadow(0 1px 3px rgb(0 0 0 / 0.6));
 }
 
-/* Posts */
-.post {
-  color: var(--color-text-primary);
-  background-color: var(--color-accent);
-}
-
 /* Footer */
 .footer {
-  background-color: var(--color-secondary);
-
+  background-color: var(--color-pp-ink);
+  border-top: 5px solid var(--color-pp-gold);
 }

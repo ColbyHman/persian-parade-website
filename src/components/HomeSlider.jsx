@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { PauseIcon, PlayIcon } from '@heroicons/react/24/solid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -30,11 +31,31 @@ const prefersReducedMotion =
   typeof window !== 'undefined' &&
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
-const HomeSlider = () => {
+/**
+ * Full-width photo slider. `children` render as a fixed overlay on top of the
+ * photos (the home hero's headline and buttons), so the message stays put
+ * while the pictures move underneath.
+ */
+const HomeSlider = ({ children, className = '' }) => {
   const { dir, t } = useI18n();
+  const swiperRef = useRef(null);
+  const [paused, setPaused] = useState(false);
+
+  const togglePause = () => {
+    const autoplay = swiperRef.current?.autoplay;
+    if (!autoplay) return;
+    if (paused) autoplay.start();
+    else autoplay.stop();
+    setPaused(!paused);
+  };
+
   return (
-    <div className='home-slider w-screen overflow-hidden bg-black' role='region' aria-label={t('slider.label')}>
+    <div className={`home-slider relative w-full overflow-hidden bg-black ${className}`} role='region' aria-label={t('slider.label')}>
       <Swiper
+        className='h-full'
+        onSwiper={(sw) => {
+          swiperRef.current = sw;
+        }}
         // Swiper reads direction once at init, so remount when the language flips.
         key={dir}
         dir={dir}
@@ -78,11 +99,11 @@ const HomeSlider = () => {
         }}
       >
         {SLIDES.map((src, idx) => (
-          <SwiperSlide key={src} className="flex">
+          <SwiperSlide key={src} className="flex h-full">
             <img
               {...imgProps(src, {
                 alt: '',
-                className: 'w-full h-[50vh] object-cover select-none',
+                className: 'w-full h-full object-cover select-none',
                 sizes: SLIDE_SIZES,
                 draggable: false,
                 // Up to four slides are on screen at once on desktop, so load
@@ -94,6 +115,21 @@ const HomeSlider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {children}
+
+      {/* WCAG 2.2.2: anything that moves on its own needs a pause control. */}
+      {!prefersReducedMotion && (
+        <button
+          type="button"
+          onClick={togglePause}
+          aria-pressed={paused}
+          className="absolute top-3 end-3 z-20 inline-flex items-center gap-1.5 rounded-full border border-white/70 bg-black/55 px-3 py-2 min-h-11 text-sm font-semibold text-white hover:bg-black/75"
+        >
+          {paused ? <PlayIcon aria-hidden="true" className="w-4 h-4" /> : <PauseIcon aria-hidden="true" className="w-4 h-4" />}
+          {paused ? t('slider.play') : t('slider.pause')}
+        </button>
+      )}
     </div>
   );
 };

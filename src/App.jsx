@@ -12,10 +12,12 @@ import Support from './pages/Support';
 import ContactUs from './pages/ContactUs';
 import History from './pages/History';
 import Donation from './pages/Donation';
+import News from './pages/News';
 
 const PAGES = [
   ['', <Home />],
   ['/about-us', <AboutUs />],
+  ['/news', <News />],
   ['/events', <Events />],
   ['/gallery', <Gallery />],
   ['/press-room', <PressRoom />],

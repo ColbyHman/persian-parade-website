@@ -26,9 +26,9 @@ export default function DonationPage() {
   return (
     <div>
       {/* Donation Banner - Red background with white text */}
-      <div className="bg-red-600 text-white py-16 px-6 shadow-xl">
+      <div className="bg-pp-red text-white py-16 px-6 shadow-xl">
         <h1 className="text-4xl font-bold text-center mb-4">{t('donate.title')}</h1>
-        <p className="max-w-xl mx-auto text-center text-red-200">
+        <p className="max-w-xl mx-auto text-center text-white">
           {t('donate.intro')}
         </p>
       </div>
@@ -63,8 +63,7 @@ export default function DonationPage() {
                     height: '100%'
                   }}
                   data-zeffy-embed-src="https://www.zeffy.com/embed/donation-form/donate-to-the-persian-parade-foundation"
-                  allowpaymentrequest
-                  allowTransparency="true"
+                  allow="payment"
                 ></iframe>
               </div>
             </div>
@@ -77,7 +76,7 @@ export default function DonationPage() {
                 k="donate.byCheck"
                 values={{
                   email: (
-                    <a href="mailto:info@persianparade.com" dir="ltr" className="underline text-red-600 hover:text-red-700">
+                    <a href="mailto:info@persianparade.com" dir="ltr" className="underline text-pp-red hover:text-pp-red-dark">
                       info@persianparade.com
                     </a>
                   ),

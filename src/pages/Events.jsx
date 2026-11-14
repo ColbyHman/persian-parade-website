@@ -7,7 +7,7 @@ export default function EventsPage() {
   return (
     <div>
       <div className="bg-white">
-        <div className="bg-red-600 text-white py-20 px-6 text-center shadow-xl">
+        <div className="bg-pp-red text-white py-20 px-6 text-center shadow-xl">
           <h1 className="text-5xl font-bold mb-4">{t('events.title')}</h1>
           <p className="text-lg max-w-2xl mx-auto">
             {t('events.intro')}

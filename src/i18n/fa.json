@@ -14,6 +14,11 @@
     "source": "6dda792a",
     "status": "machine"
   },
+  "nav.news": {
+    "text": "اخبار",
+    "source": "cbf40866",
+    "status": "machine"
+  },
   "nav.events": {
     "text": "رویدادها",
     "source": "003420a4",
@@ -80,7 +85,7 @@
     "status": "machine"
   },
   "footer.copyright": {
-    "text": "© {year} بنیاد رژه ایرانیان - سازمان غیرانتفاعی 501(c)(3)",
+    "text": "© {year} بنیاد رژه ایرانیان - سازمان غیرانتفاعی ⁦501(c)⁠(3)⁩",
     "source": "f9a68d0e",
     "status": "machine"
   },
@@ -114,21 +119,6 @@
     "source": "d4ea1c32",
     "status": "machine"
   },
-  "home.welcome": {
-    "text": "به بنیاد رژه ایرانیان خوش آمدید",
-    "source": "37b59cd1",
-    "status": "machine"
-  },
-  "home.tagline": {
-    "text": "با افتخار و یگانگی، فرهنگ، میراث و جامعه ایرانی را جشن بگیریم!",
-    "source": "b60778ab",
-    "status": "machine"
-  },
-  "home.recentPosts": {
-    "text": "پست‌های اخیر",
-    "source": "f8697b6d",
-    "status": "machine"
-  },
   "home.ourSponsors": {
     "text": "حامیان ما",
     "source": "8ac592c8",
@@ -137,11 +127,6 @@
   "home.sponsorAlt": {
     "text": "AHA Persian School - حامی",
     "source": "68cff0f4",
-    "status": "machine"
-  },
-  "home.supportHeading": {
-    "text": "از رژه ایرانیان حمایت کنید",
-    "source": "d16e2290",
     "status": "machine"
   },
   "about.title": {
@@ -285,7 +270,7 @@
     "status": "machine"
   },
   "donate.taxNote": {
-    "text": "بنیاد رژه ایرانیان یک سازمان غیرانتفاعی 501(c)(3) است. کمک مالی شما تا حدی که قانون اجازه می‌دهد از مالیات کسر می‌شود. EIN: {ein}",
+    "text": "بنیاد رژه ایرانیان یک سازمان غیرانتفاعی ⁦501(c)⁠(3)⁩ است. کمک مالی شما تا حدی که قانون اجازه می‌دهد از مالیات کسر می‌شود. EIN: {ein}",
     "source": "cf331fe4",
     "status": "machine"
   },
@@ -682,6 +667,146 @@
   "slider.label": {
     "text": "عکس‌هایی از رژه‌های ایرانیان در سال‌های گذشته",
     "source": "beaaa886",
+    "status": "machine"
+  },
+  "slider.pause": {
+    "text": "مکث",
+    "source": "44f9bf2d",
+    "status": "machine"
+  },
+  "slider.play": {
+    "text": "پخش",
+    "source": "29ab6f83",
+    "status": "machine"
+  },
+  "hero.eyebrow": {
+    "text": "رژه سالانه روز ایرانی · از سال ۲۰۰۴",
+    "source": "c2919cb8",
+    "status": "machine"
+  },
+  "hero.title": {
+    "text": "جشن فرهنگ ایرانی در قلب نیویورک",
+    "source": "9c17d317",
+    "status": "machine"
+  },
+  "hero.dateTba": {
+    "text": "رژه بعدی: تاریخ اعلام خواهد شد",
+    "source": "a929d98c",
+    "status": "machine"
+  },
+  "hero.route": {
+    "text": "خیابان مدیسون، از خیابان ۳۸ تا خیابان ۲۶",
+    "source": "684e1d26",
+    "status": "machine"
+  },
+  "hero.donate": {
+    "text": "از رژه حمایت کنید",
+    "source": "2c5068fc",
+    "status": "machine"
+  },
+  "hero.involved": {
+    "text": "در رژه شرکت کنید یا داوطلب شوید",
+    "source": "95f2f48f",
+    "status": "machine"
+  },
+  "hero.involvedShort": {
+    "text": "مشارکت کنید",
+    "source": "7d157b06",
+    "status": "machine"
+  },
+  "involved.title": {
+    "text": "مشارکت کنید",
+    "source": "7d157b06",
+    "status": "machine"
+  },
+  "involved.donate.title": {
+    "text": "کمک مالی",
+    "source": "200c502a",
+    "status": "machine"
+  },
+  "involved.donate.body": {
+    "text": "کمک کنید رژه هر سال در خیابان مدیسون برگزار شود.",
+    "source": "9e231994",
+    "status": "machine"
+  },
+  "involved.donate.cta": {
+    "text": "همین حالا کمک کنید",
+    "source": "5b57298c",
+    "status": "machine"
+  },
+  "involved.march.title": {
+    "text": "با ما رژه بروید",
+    "source": "7f6fba0c",
+    "status": "machine"
+  },
+  "involved.march.body": {
+    "text": "مدرسه، کسب‌وکار یا گروه خود را همراه بیاورید.",
+    "source": "2b182247",
+    "status": "machine"
+  },
+  "involved.march.cta": {
+    "text": "تماس بگیرید",
+    "source": "65d4952d",
+    "status": "machine"
+  },
+  "involved.sponsor.title": {
+    "text": "حامی شوید",
+    "source": "e0476f49",
+    "status": "machine"
+  },
+  "involved.sponsor.body": {
+    "text": "انجمن منشور کوروش، حامی تخت جمشید و موارد دیگر.",
+    "source": "fc4b6524",
+    "status": "machine"
+  },
+  "involved.sponsor.cta": {
+    "text": "سطوح را ببینید",
+    "source": "c1c79faf",
+    "status": "machine"
+  },
+  "involved.volunteer.title": {
+    "text": "داوطلب شوید",
+    "source": "d539a371",
+    "status": "machine"
+  },
+  "involved.volunteer.body": {
+    "text": "به یکی از کمیته‌ها بپیوندید و در روز رژه یا در طول سال کمک کنید.",
+    "source": "81d2bbf8",
+    "status": "machine"
+  },
+  "involved.volunteer.cta": {
+    "text": "ثبت‌نام",
+    "source": "6a7d7331",
+    "status": "machine"
+  },
+  "news.title": {
+    "text": "آخرین اخبار",
+    "source": "9f6b34dd",
+    "status": "machine"
+  },
+  "news.intro": {
+    "text": "اعلامیه‌ها و به‌روزرسانی‌های بنیاد رژه ایرانیان.",
+    "source": "4c5a3f61",
+    "status": "machine"
+  },
+  "news.seeAll": {
+    "text": "همه اخبار",
+    "source": "47f61db2",
+    "status": "machine"
+  },
+  "news.archiveLink": {
+    "text": "دنبال پست‌های قدیمی‌تر هستید؟ آرشیو پست‌ها را ببینید",
+    "source": "77003041",
+    "status": "machine"
+  },
+  "sponsorsStrip.thanks": {
+    "text": "از حامیان خود سپاسگزاریم.",
+    "source": "bb637bec",
+    "status": "machine"
+  },
+  "sponsorsStrip.become": {
+    "text": "حامی شوید",
+    "source": "8523e575",
     "status": "machine"
   }
 }

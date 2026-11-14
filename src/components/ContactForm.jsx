@@ -8,7 +8,7 @@ export default function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <p className="text-green-600 font-semibold text-lg">
+      <p className="text-pp-green-dark font-semibold text-lg">
         {t('form.thanks')}
       </p>
     );
@@ -48,10 +48,9 @@ export default function ContactForm() {
         <button
             type="submit"
             disabled={state.submitting}
-            className={`w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition hover:bg-red-700 ${
+            className={`w-full bg-pp-red text-white font-semibold py-3 px-6 rounded-md transition hover:bg-pp-red-dark ${
                 state.submitting ? 'opacity-50 cursor-not-allowed' : ''
             }`}
-            style={{ backgroundColor: "red" }}
         >
         {state.submitting ? t('form.sending') : t('form.submit')}
         </button>

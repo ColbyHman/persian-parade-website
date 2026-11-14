@@ -15,6 +15,7 @@ export default {
   'site.name': 'Persian Parade',
   'nav.home': 'Home',
   'nav.about': 'About Us',
+  'nav.news': 'News',
   'nav.events': 'Events',
   'nav.gallery': 'Gallery',
   'nav.press': 'Press Room',
@@ -41,12 +42,8 @@ export default {
     'Your generous donations help sustain our mission to promote Persian art, culture, and community spirit year-round. Every contribution makes a difference.',
 
   // ------------------------------------------------------------------ home
-  'home.welcome': 'Welcome to the Persian Parade Foundation',
-  'home.tagline': 'Celebrating Persian culture, heritage, and community with pride and unity!',
-  'home.recentPosts': 'Recent Posts',
   'home.ourSponsors': 'Our Sponsors',
   'home.sponsorAlt': 'AHA Persian School - Sponsor',
-  'home.supportHeading': 'Support the Persian Parade',
 
   // ----------------------------------------------------------------- about
   'about.title': 'About Us',
@@ -199,4 +196,37 @@ export default {
 
   // --------------------------------------------------------- misc / slider
   'slider.label': 'Photos from past Persian Parades',
+  'slider.pause': 'Pause',
+  'slider.play': 'Play',
+
+  // ------------------------------------------------------------ home hero
+  'hero.eyebrow': 'Annual Persian Day Parade · since 2004',
+  'hero.title': 'Celebrating Persian culture in the heart of New York',
+  'hero.dateTba': 'Next parade: date to be announced',
+  'hero.route': 'Madison Ave, 38th St to 26th St',
+  'hero.donate': 'Support the Parade',
+  'hero.involved': 'March or volunteer',
+  'hero.involvedShort': 'Get involved',
+
+  'involved.title': 'Get involved',
+  'involved.donate.title': 'Donate',
+  'involved.donate.body': 'Help bring the parade to Madison Avenue every year.',
+  'involved.donate.cta': 'Give now',
+  'involved.march.title': 'March with us',
+  'involved.march.body': 'Bring your school, business or community group.',
+  'involved.march.cta': 'Get in touch',
+  'involved.sponsor.title': 'Sponsor',
+  'involved.sponsor.body': 'Cyrus Cylinder Guild, Persepolis Patron and more.',
+  'involved.sponsor.cta': 'See levels',
+  'involved.volunteer.title': 'Volunteer',
+  'involved.volunteer.body': 'Join a committee and help on parade day or year-round.',
+  'involved.volunteer.cta': 'Sign up',
+
+  'news.title': 'Latest news',
+  'news.intro': 'Announcements and updates from the Persian Parade Foundation.',
+  'news.seeAll': 'See all news',
+  'news.archiveLink': 'Looking for older posts? See the post history',
+
+  'sponsorsStrip.thanks': 'Thank you to our sponsors.',
+  'sponsorsStrip.become': 'Become a sponsor',
 };
